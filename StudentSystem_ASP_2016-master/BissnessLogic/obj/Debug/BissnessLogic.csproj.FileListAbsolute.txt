@@ -17,3 +17,12 @@ E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogi
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.csprojResolveAssemblyReference.cache
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.dll
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.pdb
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\BissnessLogic.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\BissnessLogic.pdb
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\DataAcsess.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\EntityFramework.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\DataAcsess.pdb
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\bin\Debug\EntityFramework.xml
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.csprojResolveAssemblyReference.cache
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\BissnessLogic\obj\Debug\BissnessLogic.pdb

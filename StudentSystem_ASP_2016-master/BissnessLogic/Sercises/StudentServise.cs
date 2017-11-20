@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 
 namespace BissnessLogic.Sercises
 {
-    public class StudentServise:BaseServise<Student>
+    public class StudentServise
+        :BaseServise<Student>
     {
         public StudentServise()
             :base()

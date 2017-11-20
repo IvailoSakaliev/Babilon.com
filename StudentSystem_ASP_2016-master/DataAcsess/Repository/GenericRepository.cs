@@ -31,7 +31,7 @@ namespace DataAcsess.Repository
             this.set = context.Set<Tentity>();
         }
 
-        public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter = null, int page = 1 , int pageSize = 1)
+        public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter, int page = 1 , int pageSize = 1)
         {
             IQueryable<Tentity> query = this.set;
             if (filter != null)
@@ -52,7 +52,7 @@ namespace DataAcsess.Repository
             
         }
 
-        public IList<Tentity>GetAll(Expression<Func<Tentity, bool>> filter = null )
+        public IList<Tentity>GetAll(Expression<Func<Tentity, bool>> filter)
         {
             if (filter != null)
             {

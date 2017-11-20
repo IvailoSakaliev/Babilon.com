@@ -12,9 +12,9 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    [AuthenticationFilter]
+    
     public class StudentController 
-        : GenericController<SingIn, EditVM, StudentList, AuturizationFilter, StudentServise>
+        : Controller
     {
         public StudentController()
             :base()

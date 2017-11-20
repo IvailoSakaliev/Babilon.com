@@ -1,5 +1,7 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
+using StudentSystem2016.Filters;
+using StudentSystem2016.VModels;
 using StudentSystem2016.VModels.Lectures;
 using System;
 using System.Collections.Generic;
@@ -9,9 +11,17 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
+    [Authorize]
     public class LectorController : Controller
     {
+        public LectorController()
+            :base()
+        {
+
+        }
+
         // GET: Lector
+        [HttpGet]
         public ActionResult Edit()
         {
             EditVM model = new EditVM();
@@ -40,7 +50,7 @@ namespace StudentSystem2016.Controllers
             registrateUser.Employeee = 1;
 
             registre.Save(registrateUser);
-            return View();
+            return View(model);
         }
     }
 }

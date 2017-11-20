@@ -10,19 +10,21 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    public abstract class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, TServise> : Controller
+    public class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
         where TEntity : BaseModel, new()
         where TeidtVM :  EditPersoneVM, new()
         where Tfilter: GenericFiler<TEntity> , new()
         where TlistVM : GenericList<TEntity, Tfilter>, new()
-        where TServise : BaseServise<TEntity>, new()
+        where Tservise: BaseServise<TEntity> , new()
+    
+
     {
         
-        public TServise Servise { get; set; }
+        public Tservise Servise { get; set; }
 
         public GenericController()
         {
-            this.Servise = new TServise();
+            this.Servise = new Tservise();
         }
         public ActionResult Index()
         {

@@ -28,3 +28,13 @@ E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\b
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojResolveAssemblyReference.cache
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.dll
 E:\last\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.pdb
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.dll.config
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.pdb
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.xml
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.xml
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojResolveAssemblyReference.cache
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.dll
+E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.pdb
