@@ -1,39 +1,42 @@
 ﻿using BissnessLogic.Sercises;
-using DataAcsess.Models;
-using DataAcsess.Repository;
-using DataAcsess.UnitOfWork;
 using StudentSystem2016.Authentication;
-using StudentSystem2016.VModels;
 using StudentSystem2016.VModels.Login;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using StudentSystem2016.VModels.Student;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    [AuthenticationFilter]
-    public class SingINController:Controller
-    {       
-        
+    public class SingINController
+        :Controller
+    {
+        AuthenticationServise authenticateService = new AuthenticationServise();
+
+
         [HttpGet]
         public ActionResult Login()
         {
-            
             LoginVM login = new LoginVM();
             return View(login);
         }
         [HttpPost]
-        public ActionResult Login(string username, string pass)
+        public ActionResult Login(LoginVM model)
         {
+
+            AuthenticationManager.Authenticate(model.UserName, model.Password);
+            if (authenticateService.LoggedUser != null)
+            {
+                //return Redirect()
+            }            
+            
+            //Redirect
             return View();
 
         }
-
+        
         public ActionResult Logout()
         {
-            return View();
+            AuthenticationManager.Logout();
+            return Redirect("Home/Index");
         }
         
     }
