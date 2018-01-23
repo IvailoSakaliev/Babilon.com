@@ -1,6 +1,7 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
-using StudentSystem2016.VModels.Scolarship;
+using StudentSystem2016.Filters.Entityfilters;
+using StudentSystem2016.VModels.Scolarships;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    public class ScolarshipController : Controller
+    public class ScolarshipController
+        :GenericController<Scholarship,EditVM, ScolarshipList, ScollarShipFilter, ScolarshipServise>
     {
         [HttpGet]
         public ActionResult Edit()

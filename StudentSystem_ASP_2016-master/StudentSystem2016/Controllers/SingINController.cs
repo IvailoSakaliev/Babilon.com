@@ -1,13 +1,14 @@
-﻿using BissnessLogic.Sercises;
+﻿using DataAcsess.Models;
 using StudentSystem2016.Authentication;
+using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Login;
-using StudentSystem2016.VModels.Student;
 using System.Web.Mvc;
+using BissnessLogic.Sercises;
 
 namespace StudentSystem2016.Controllers
 {
     public class SingINController
-        :Controller
+        :GenericController<SingIn,LoginVM, LoginList, LoginFilter, SingInServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
 

@@ -1,6 +1,7 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
-using StudentSystem2016.VModels.Specialty;
+using StudentSystem2016.Filters.Entityfilters;
+using StudentSystem2016.VModels.Specialties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    public class SpecialtyController : Controller
+    public class SpecialtyController 
+        :GenericController<Specialty,EditVM, SpecialtyList, SpecialtyFilter, SpecilatyServise>
     {
         // GET: Specialty
         [HttpGet]

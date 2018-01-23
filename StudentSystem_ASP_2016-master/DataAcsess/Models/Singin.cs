@@ -14,7 +14,5 @@ namespace DataAcsess.Models
         public string Password { get; set; }
         public int Employeee { get; set; }
         
-        
-
     }
 }

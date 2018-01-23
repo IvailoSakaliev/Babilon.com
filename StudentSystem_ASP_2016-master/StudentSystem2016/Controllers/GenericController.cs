@@ -12,7 +12,7 @@ namespace StudentSystem2016.Controllers
 {
     public class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
         where TEntity : BaseModel, new()
-        where TeidtVM :  EditPersoneVM, new()
+        where TeidtVM :  new()
         where Tfilter: GenericFiler<TEntity> , new()
         where TlistVM : GenericList<TEntity, Tfilter>, new()
         where Tservise: BaseServise<TEntity> , new()

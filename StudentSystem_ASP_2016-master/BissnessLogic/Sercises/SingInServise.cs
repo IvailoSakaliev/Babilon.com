@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 
 namespace BissnessLogic.Sercises
 {
-    public class LectorServise:BaseServise<SingIn>
+    public class SingInServise
+        :BaseServise<SingIn>
     {
-        public LectorServise()
+        public SingInServise()
             :base()
         {
 
         }
-        public LectorServise(UnitOfWork unit)
+        public SingInServise(UnitOfWork unit)
             :base(unit)
         {
 

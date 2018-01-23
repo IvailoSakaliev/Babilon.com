@@ -1,20 +1,14 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
-using DataAcsess.Repository;
-using StudentSystem2016.Authentication;
-using StudentSystem2016.Filters;
-using StudentSystem2016.VModels.Student;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using StudentSystem2016.Filters.Entityfilters;
+using StudentSystem2016.VModels.Students;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
     
     public class StudentController 
-        : Controller
+        : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServise>
     {
         public StudentController()
             :base()
@@ -47,7 +41,7 @@ namespace StudentSystem2016.Controllers
 
             servise.Save(student);
 
-            LectorServise registre = new LectorServise();
+            LectureServise registre = new LectureServise();
             SingIn registrateUser = new SingIn();
             registrateUser.UserName = student.Username;
             registrateUser.Password = student.Password;

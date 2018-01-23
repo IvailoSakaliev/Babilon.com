@@ -44,6 +44,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -148,6 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Atributes\FilterProperty.cs" />
     <Compile Include="Authentication\AuthenticationFilter.cs" />
     <Compile Include="Authentication\AuthenticationManager.cs" />
     <Compile Include="Controllers\GenericController.cs" />
@@ -159,6 +168,12 @@
     <Compile Include="Controllers\StudentController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Filters\AuturizationFilter.cs" />
+    <Compile Include="Filters\Entityfilters\LectorFilter.cs" />
+    <Compile Include="Filters\Entityfilters\LoginFilter.cs" />
+    <Compile Include="Filters\Entityfilters\ScollarShipFilter.cs" />
+    <Compile Include="Filters\Entityfilters\SpecialtyFilter.cs" />
+    <Compile Include="Filters\Entityfilters\StudentFilter.cs" />
+    <Compile Include="Filters\Entityfilters\SubjectFilter.cs" />
     <Compile Include="Filters\GenericFiler.cs" />
     <Compile Include="Filters\IGenericFilter.cs" />
     <Compile Include="Global.asax.cs">
@@ -167,14 +182,19 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VModels\GenericList.cs" />
     <Compile Include="VModels\EditPersoneVM.cs" />
-    <Compile Include="VModels\Lectures\EditVM.cs" />
+    <Compile Include="VModels\Lectures\LectorEditVM.cs" />
+    <Compile Include="VModels\Lectures\LectorList.cs" />
+    <Compile Include="VModels\Login\LoginList.cs" />
     <Compile Include="VModels\Login\LoginVM.cs" />
     <Compile Include="VModels\Pager\PagerVM.cs" />
-    <Compile Include="VModels\Scolarship\EditVM.cs" />
-    <Compile Include="VModels\Specialty\EditVM.cs" />
-    <Compile Include="VModels\Student\EditVM.cs" />
-    <Compile Include="VModels\Student\StudentList.cs" />
-    <Compile Include="VModels\Subject\EditVM.cs" />
+    <Compile Include="VModels\Scolarships\EditVM.cs" />
+    <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
+    <Compile Include="VModels\Specialties\EditVM.cs" />
+    <Compile Include="VModels\Specialties\SpecialtyList.cs" />
+    <Compile Include="VModels\Students\EditVM.cs" />
+    <Compile Include="VModels\Students\StudentList.cs" />
+    <Compile Include="VModels\Subjects\EditVM.cs" />
+    <Compile Include="VModels\Subjects\SubjectList.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Administrator.css" />
@@ -220,6 +240,7 @@
     <Content Include="Views\Lector\Edit.cshtml" />
     <Content Include="Views\Specialty\Edit.cshtml" />
     <Content Include="Views\Scolarship\Edit.cshtml" />
+    <Content Include="Views\Lector\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

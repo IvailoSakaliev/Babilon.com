@@ -38,3 +38,13 @@ E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\D
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojResolveAssemblyReference.cache
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.dll
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.dll.config
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojResolveAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.pdb

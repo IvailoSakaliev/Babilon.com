@@ -1,6 +1,8 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
+using StudentSystem2016.Controllers;
 using StudentSystem2016.Filters;
+using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels;
 using StudentSystem2016.VModels.Lectures;
 using System;
@@ -11,8 +13,13 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    [Authorize]
-    public class LectorController : Controller
+    public class LectorController : 
+        GenericController<
+            Lecture,
+            LectorEditVM,
+            LectorList, 
+            LectorFilter,
+            LectureServise>
     {
         public LectorController()
             :base()
@@ -24,11 +31,11 @@ namespace StudentSystem2016.Controllers
         [HttpGet]
         public ActionResult Edit()
         {
-            EditVM model = new EditVM();
+            LectorEditVM model = new LectorEditVM();
             return View(model);
         }
         [HttpPost]
-        public ActionResult Edit(EditVM model)
+        public ActionResult Edit(LectorEditVM model)
         {
             LectureServise servise = new LectureServise();
             Lecture lector = new Lecture();
@@ -43,7 +50,7 @@ namespace StudentSystem2016.Controllers
 
             servise.Save(lector);
 
-            LectorServise registre = new LectorServise();
+            LecturServise registre = new LecturServise();
             SingIn registrateUser = new SingIn();
             registrateUser.UserName = lector.Username;
             registrateUser.Password = lector.Password;

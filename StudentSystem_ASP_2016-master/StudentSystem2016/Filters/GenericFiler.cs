@@ -14,6 +14,7 @@ namespace StudentSystem2016.Filters
         public string Prefix { get; set; }
         public PagerVM Pager { get; set; }
         public abstract Expression<Func<Tentity, bool>> BildFilter();
-        
     }
+        
+    
 }

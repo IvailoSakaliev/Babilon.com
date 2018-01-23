@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace BissnessLogic.Sercises
 {
-    public class ScolarshipServise:BaseServise<Scholarship>
+    public class ScolarshipServise
+        :BaseServise<Scholarship>
     {
         public ScolarshipServise()
             :base()
