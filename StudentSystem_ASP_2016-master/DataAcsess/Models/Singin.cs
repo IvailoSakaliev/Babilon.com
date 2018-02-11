@@ -8,11 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAcsess.Models
 {
-    public class SingIn :BaseModel
+    public class SingIn :Persone
     {
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public int Employeee { get; set; }
-        
     }
 }

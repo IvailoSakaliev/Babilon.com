@@ -1,15 +1,9 @@
 ﻿using BissnessLogic.Sercises;
 using DataAcsess.Models;
-using StudentSystem2016.Controllers;
-using StudentSystem2016.Filters;
 using StudentSystem2016.Filters.Entityfilters;
-using StudentSystem2016.VModels;
 using StudentSystem2016.VModels.Lectures;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System;
 
 namespace StudentSystem2016.Controllers
 {
@@ -26,38 +20,41 @@ namespace StudentSystem2016.Controllers
         {
 
         }
+        
+        //public ActionResult Index2()
+        //{
+        //    LectorList list = new LectorList();
+        //    list.Filter = new LectorFilter();
+        //    PopulateIndex(list);
+        //    return View(list.Items);
+        //}
 
         // GET: Lector
         [HttpGet]
-        public ActionResult Edit()
+        
+
+        public override LectorEditVM PopulateModelToItem(Lecture entity, LectorEditVM model)
         {
-            LectorEditVM model = new LectorEditVM();
-            return View(model);
+            model.Name = entity.Name;
+            model.LastName = entity.LastName;
+            model.Email = entity.Email;
+            model.Username = entity.Username;
+            model.Password = entity.Password;
+            model.Kabinet = entity.Kabinet.ToString();
+            model.Mobile = entity.Mobile;
+            return model;
         }
-        [HttpPost]
-        public ActionResult Edit(LectorEditVM model)
+
+        public override Lecture PopulateItemToModel(LectorEditVM model, Lecture entity)
         {
-            LectureServise servise = new LectureServise();
-            Lecture lector = new Lecture();
-
-            lector.Name = model.Name;
-            lector.LastName = model.LastName;
-            lector.Username = model.EGN;
-            lector.Password = model.Password;
-            lector.Email = model.Email;
-            lector.Kabinet = int.Parse(model.Kabinet);
-            lector.Mobile = model.Mobile;
-
-            servise.Save(lector);
-
-            LecturServise registre = new LecturServise();
-            SingIn registrateUser = new SingIn();
-            registrateUser.UserName = lector.Username;
-            registrateUser.Password = lector.Password;
-            registrateUser.Employeee = 1;
-
-            registre.Save(registrateUser);
-            return View(model);
+            entity.Name = model.Name;
+            entity.LastName = model.LastName;
+            entity.Username = model.Username;
+            entity.Password = model.Password;
+            entity.Email = model.Email;
+            entity.Kabinet = int.Parse(model.Kabinet);
+            entity.Mobile = model.Mobile;
+            return entity;
         }
     }
 }

@@ -12,7 +12,7 @@ namespace DataAcsess.Repository
         public SingIn GetbyUsernameAndPassword(string name, string pass)
         {
             return set.FirstOrDefault(
-                i => i.UserName == name && i.Password == pass);
+                i => i.Username == name && i.Password == pass);
         }
     }
 }

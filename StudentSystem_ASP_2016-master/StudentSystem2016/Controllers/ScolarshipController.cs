@@ -2,11 +2,8 @@
 using DataAcsess.Models;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Scolarships;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System;
 
 namespace StudentSystem2016.Controllers
 {
@@ -32,6 +29,16 @@ namespace StudentSystem2016.Controllers
 
             servise.Save(scolarship);
             return View();
+        }
+
+        public override Scholarship PopulateItemToModel(EditVM model, Scholarship entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override EditVM PopulateModelToItem(Scholarship entity, EditVM model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -19,7 +19,7 @@ namespace StudentSystem2016.Filters
         public override Expression<Func<SingIn, bool>> BildFilter()
         {
             Expression<Func<SingIn, bool>> filter =
-                m => (string.IsNullOrEmpty(this.Username) || m.UserName.Contains(this.Username.Trim()))
+                m => (string.IsNullOrEmpty(this.Username) || m.Username.Contains(this.Username.Trim()))
                 && (string.IsNullOrEmpty(this.FirstName) || m.Password.Contains(this.FirstName.Trim()));
             return filter;
         }

@@ -63,7 +63,18 @@ namespace BissnessLogic.Sercises
                 this.unit.Rowback();
             }
         }
-
+        public void DeleteById(int id)
+        {
+            try
+            {
+                this.repo.DeleteById(id);
+                this.unit.Commit();
+            }
+            catch (Exception)
+            {
+                this.unit.Rowback();
+            }
+        }
 
     }
 }

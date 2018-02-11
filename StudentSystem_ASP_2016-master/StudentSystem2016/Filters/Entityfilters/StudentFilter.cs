@@ -29,8 +29,7 @@ namespace StudentSystem2016.Filters.Entityfilters
         public override Expression<Func<Student, bool>> BildFilter()
         {
             Expression<Func<Student, bool>> filter =
-                u => (string.IsNullOrEmpty(this.FacultetNumber) || u.FacultetNumber.Contains(this.FacultetNumber)) &&
-                (string.IsNullOrEmpty(this.Name) || u.Name.Contains(this.Name)) &&
+                u => (string.IsNullOrEmpty(this.Name) || u.Name.Contains(this.Name)) &&
                 (string.IsNullOrEmpty(this.LastName) || u.LastName.Contains(this.LastName)) &&
                 (string.IsNullOrEmpty(this.Email) || u.Email.Contains(this.Email)) &&
                 (string.IsNullOrEmpty(this.Inspector) || u.Inspector.Contains(this.Inspector));

@@ -12,8 +12,7 @@ namespace StudentSystem2016.VModels
         where Tentity: BaseModel
         where Tfilter : GenericFiler<Tentity>, new()
     {
-
-        public IList<Tentity> Iteams { get; set; }
+        public IList<Tentity> Items{ get; set; }
         public PagerVM Pager { get; set; }
         public Tfilter  Filter { get; set; }
 
@@ -21,8 +20,9 @@ namespace StudentSystem2016.VModels
         {
             this.Filter = new Tfilter();
             this.Pager = new PagerVM();
-            this.Iteams = new List<Tentity>();
-
+            this.Items = new List<Tentity>();
         }
+        
+
     }
 }

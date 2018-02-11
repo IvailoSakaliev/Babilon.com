@@ -8,7 +8,7 @@ namespace StudentSystem2016.VModels.Scolarships
 {
     public class EditVM
     {
-        public int ID { get; set; }
+
         [Required]
         [MaxLength(20)]
         [MinLength(3)]

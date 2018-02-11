@@ -9,11 +9,11 @@ namespace DataAcsess.Models
 {
     public class Scholarship : BaseModel
     {
-        private ICollection<Student> student;
-        public Scholarship()
-        {
-            this.student = new HashSet<Student>();
-        }
+        //private ICollection<Student> student;
+        //public Scholarship()
+        //{
+        //    this.student = new HashSet<Student>();
+        //}
 
 
         public int Srok { get; set; }
@@ -21,16 +21,16 @@ namespace DataAcsess.Models
         public DateTime DeadLine { get; set; }
         public int Size { get; set; }
 
-        public virtual ICollection<Student> Student
-        {
-            get
-            {
-                return this.student;
-            }
-            set
-            {
-                this.student = value;
-            }
-        }
+        //public virtual ICollection<Student> Student
+        //{
+        //    get
+        //    {
+        //        return this.student;
+        //    }
+        //    set
+        //    {
+        //        this.student = value;
+        //    }
+        //}
     }
 }

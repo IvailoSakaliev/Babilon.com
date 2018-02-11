@@ -105,5 +105,12 @@ namespace DataAcsess.Repository
             dbentry.State = state;
             context.SaveChanges();
         }
+
+        public void DeleteById(int id)
+        {
+            Tentity entity = new Tentity();
+            entity = GetByID(id);
+            Delete(entity);
+        }
     }
 }

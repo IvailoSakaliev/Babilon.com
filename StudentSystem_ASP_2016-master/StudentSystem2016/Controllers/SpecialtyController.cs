@@ -2,11 +2,8 @@
 using DataAcsess.Models;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Specialties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System;
 
 namespace StudentSystem2016.Controllers
 {
@@ -33,6 +30,16 @@ namespace StudentSystem2016.Controllers
             servise.Save(specialty);
 
             return View();
+        }
+
+        public override Specialty PopulateItemToModel(EditVM model, Specialty entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override EditVM PopulateModelToItem(Specialty entity, EditVM model)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,5 +6,10 @@ namespace StudentSystem2016.VModels.Subjects
     public class SubjectList
         :GenericList<Subject, SubjectFilter>
     {
+        public SubjectList()
+            :base()
+        {
+
+        }
     }
 }

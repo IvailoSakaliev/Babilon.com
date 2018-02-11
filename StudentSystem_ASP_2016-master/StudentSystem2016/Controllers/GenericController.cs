@@ -2,15 +2,11 @@
 using DataAcsess.Models;
 using StudentSystem2016.Filters;
 using StudentSystem2016.VModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    public class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
+    public abstract  class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
         where TEntity : BaseModel, new()
         where TeidtVM :  new()
         where Tfilter: GenericFiler<TEntity> , new()
@@ -19,22 +15,24 @@ namespace StudentSystem2016.Controllers
     
 
     {
-        
+        public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
+        public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
         public Tservise Servise { get; set; }
 
         public GenericController()
         {
             this.Servise = new Tservise();
         }
+
         public ActionResult Index()
         {
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
             PopulateIndex(itemVM);
-            return View();
+            return View(itemVM.Items);
         }
 
-        private void PopulateIndex(TlistVM itemVM)
+        protected virtual void PopulateIndex(TlistVM itemVM)
         {
             string controllerName = GerControlerName();
             string actionname = GetActionName();
@@ -42,7 +40,7 @@ namespace StudentSystem2016.Controllers
             itemVM.Pager.Controler = controllerName;
             itemVM.Pager.Action = actionname;
 
-            itemVM.Iteams = this.Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage, 10);
+            itemVM.Items = Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage, 10);
             itemVM.Filter.Pager = itemVM.Pager;
             itemVM.Pager.Prefix = "Pager.";
             itemVM.Filter.Prefix = "Filter.";
@@ -59,5 +57,66 @@ namespace StudentSystem2016.Controllers
             return this.ControllerContext.RouteData.Values["controller"].ToString();
         }
 
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            TEntity entity = new TEntity();
+            TeidtVM model = new TeidtVM();
+            Tservise servise = new Tservise();
+            entity = servise.GetByID(id);
+            model = PopulateModelToItem(entity, model);
+            servise.DeleteById(id);
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(TeidtVM model)
+        {
+            TEntity entity = new TEntity();
+            Tservise servise = new Tservise();
+            entity = PopulateItemToModel(model, entity);
+            servise.Save(entity);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Add()
+        {
+            TeidtVM model = new TeidtVM();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Add(TeidtVM model)
+        {
+            TEntity entity = new TEntity();
+            entity = PopulateItemToModel(model,entity);
+            Tservise servise = new Tservise();
+            servise.Save(entity);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Details(int id)
+        {
+            TEntity entity = new TEntity();
+            TeidtVM model = new TeidtVM();
+            entity = Servise.GetByID(id);
+            model = PopulateModelToItem(entity, model);
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult Delete()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            Servise.DeleteById(id);
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -13,11 +13,13 @@ namespace StudentSystem2016.VModels.Specialties
         [Required]
         [MinLength(3)]
         [MaxLength(20)]
+        [Display(Name = "Specialties")]
         public string Name { get; set; }
 
         [Required]
         [MinLength(4)]
         [MaxLength(4)]
+        [Display(Name = "Year of study")]
         public string YearOFStudy { get; set; }
 
         [Required]

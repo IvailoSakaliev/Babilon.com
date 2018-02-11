@@ -24,11 +24,11 @@ namespace StudentSystem2016.VModels
         [MinLength(10)]
         [MaxLength(10)]
 
-        public string EGN { get; set; }
+        public string Username { get; set; }
 
         [Required]
-        [MaxLength(10)]
-        [MinLength(10)]
+        [MaxLength(50)]
+        [MinLength(3)]
         public string Password { get; set; }
     }
 }

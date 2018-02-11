@@ -186,6 +186,7 @@
     <Compile Include="VModels\Lectures\LectorList.cs" />
     <Compile Include="VModels\Login\LoginList.cs" />
     <Compile Include="VModels\Login\LoginVM.cs" />
+    <Compile Include="VModels\Login\RegisterVM.cs" />
     <Compile Include="VModels\Pager\PagerVM.cs" />
     <Compile Include="VModels\Scolarships\EditVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
@@ -236,15 +237,19 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\SingIN\Login.cshtml" />
-    <Content Include="Views\Student\Registration.cshtml" />
     <Content Include="Views\Lector\Edit.cshtml" />
     <Content Include="Views\Specialty\Edit.cshtml" />
     <Content Include="Views\Scolarship\Edit.cshtml" />
+    <Content Include="Views\SingIN\Register.cshtml" />
+    <Content Include="Views\Lector\Add.cshtml" />
     <Content Include="Views\Lector\Index.cshtml" />
+    <Content Include="Views\Lector\Details.cshtml" />
+    <Content Include="Views\Lector\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Generic\" />
+    <Folder Include="Views\Student\" />
     <Folder Include="Views\Subject\" />
   </ItemGroup>
   <ItemGroup>

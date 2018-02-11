@@ -15,6 +15,6 @@ namespace DataAcsess.Repository
         TEntity GetByID(int? id);
         void Delete(TEntity entity);
         void Save(TEntity entity);
-
+        void DeleteById(int id);
     }
 }
