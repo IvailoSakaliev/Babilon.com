@@ -12,7 +12,8 @@ namespace StudentSystem2016.Filters.Entityfilters
     {
         public override Expression<Func<Specialty, bool>> BildFilter()
         {
-            throw new NotImplementedException();
+            Expression<Func<Specialty, bool>> filter = null;
+            return filter;
         }
     }
 }

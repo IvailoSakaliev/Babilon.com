@@ -8,37 +8,28 @@ using System;
 namespace StudentSystem2016.Controllers
 {
     public class ScolarshipController
-        :GenericController<Scholarship,EditVM, ScolarshipList, ScollarShipFilter, ScolarshipServise>
+        :GenericController<Scholarship,ScolarshipEditVM, ScolarshipList, ScollarShipFilter, ScolarshipServise>
     {
-        [HttpGet]
-        public ActionResult Edit()
+        
+        public override Scholarship PopulateItemToModel(ScolarshipEditVM model, Scholarship entity)
         {
-            EditVM model = new EditVM();
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult Edit(EditVM model)
-        {
-            ScolarshipServise servise = new ScolarshipServise();
-            Scholarship scolarship = new Scholarship();
-            scolarship.Name = model.Name;
-            scolarship.Size = int.Parse(model.Size);
-            scolarship.Srok = int.Parse(model.Srok);
-            scolarship.StartData = model.StartData;
-            scolarship.DeadLine = model.DeadLine;
+            entity.Name = model.Name;
+            entity.Size = int.Parse(model.Size);
+            entity.Srok = int.Parse(model.Srok);
+            entity.StartData = model.StartData;
+            entity.DeadLine = model.DeadLine;
+            return entity;
 
-            servise.Save(scolarship);
-            return View();
         }
 
-        public override Scholarship PopulateItemToModel(EditVM model, Scholarship entity)
+        public override ScolarshipEditVM PopulateModelToItem(Scholarship entity, ScolarshipEditVM model)
         {
-            throw new NotImplementedException();
-        }
-
-        public override EditVM PopulateModelToItem(Scholarship entity, EditVM model)
-        {
-            throw new NotImplementedException();
+            model.Name = entity.Name;
+            model.Size = entity.Size.ToString();
+            model.Srok = entity.Srok.ToString();
+            model.StartData = entity.StartData;
+            model.DeadLine = entity.DeadLine;
+            return model;
         }
     }
 }

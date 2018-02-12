@@ -10,7 +10,7 @@ using System;
 namespace StudentSystem2016.Controllers
 {
     public class SingINController
-        :GenericController<SingIn,LoginVM, LoginList, LoginFilter, SingInServise>
+        :GenericController<SingIn,RegisterVM, LoginList, LoginFilter, SingInServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
         private GenericRepository<SingIn> singin;
@@ -66,14 +66,24 @@ namespace StudentSystem2016.Controllers
             return Redirect("Home/Index");
         }
 
-        public override SingIn PopulateItemToModel(LoginVM model, SingIn entity)
+        public override SingIn PopulateItemToModel(RegisterVM model, SingIn entity)
         {
-            throw new NotImplementedException();
+            entity.Name = model.Name;
+            entity.LastName = model.LastName;
+            entity.Username = model.Username;
+            entity.Password = model.Password;
+            entity.Email = model.Email;
+            return entity;
         }
 
-        public override LoginVM PopulateModelToItem(SingIn entity, LoginVM model)
+        public override RegisterVM PopulateModelToItem(SingIn entity, RegisterVM model)
         {
-            throw new NotImplementedException();
+            model.Name = entity.Name;
+            model.LastName = entity.LastName;
+            model.Username = entity.Username;
+            model.Password = entity.Password;
+            model.Email = entity.Email;
+            return model;
         }
     }
 }

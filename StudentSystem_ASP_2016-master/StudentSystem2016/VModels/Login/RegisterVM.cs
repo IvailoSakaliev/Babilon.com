@@ -8,6 +8,7 @@ namespace StudentSystem2016.VModels.Login
 {
     public class RegisterVM
     {
+        public int ID { get; set; }
         [Required]
         [MaxLength(20)]
         [MinLength(3)]

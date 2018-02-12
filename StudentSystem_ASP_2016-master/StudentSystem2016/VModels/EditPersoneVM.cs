@@ -8,6 +8,7 @@ namespace StudentSystem2016.VModels
 {
     public class EditPersoneVM
     {
+        public int ID { get; set; }
         [Required]
         [MinLength(3)]
         public string Name { get; set; }

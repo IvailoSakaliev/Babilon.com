@@ -8,7 +8,6 @@ namespace StudentSystem2016.VModels.Lectures
 {
     public class LectorEditVM: EditPersoneVM
     {
-        public int ID { get; set; }
         [Required]
         [MaxLength(4)]
         [MinLength(1)]

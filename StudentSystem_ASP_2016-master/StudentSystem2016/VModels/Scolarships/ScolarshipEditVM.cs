@@ -6,9 +6,9 @@ using System.Web;
 
 namespace StudentSystem2016.VModels.Scolarships
 {
-    public class EditVM
+    public class ScolarshipEditVM
     {
-
+        public int ID { get; set; }
         [Required]
         [MaxLength(20)]
         [MinLength(3)]

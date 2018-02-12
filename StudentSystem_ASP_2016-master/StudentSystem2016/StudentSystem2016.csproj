@@ -188,7 +188,7 @@
     <Compile Include="VModels\Login\LoginVM.cs" />
     <Compile Include="VModels\Login\RegisterVM.cs" />
     <Compile Include="VModels\Pager\PagerVM.cs" />
-    <Compile Include="VModels\Scolarships\EditVM.cs" />
+    <Compile Include="VModels\Scolarships\ScolarshipEditVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
     <Compile Include="VModels\Specialties\EditVM.cs" />
     <Compile Include="VModels\Specialties\SpecialtyList.cs" />
@@ -242,15 +242,34 @@
     <Content Include="Views\Scolarship\Edit.cshtml" />
     <Content Include="Views\SingIN\Register.cshtml" />
     <Content Include="Views\Lector\Add.cshtml" />
-    <Content Include="Views\Lector\Index.cshtml" />
     <Content Include="Views\Lector\Details.cshtml" />
     <Content Include="Views\Lector\Delete.cshtml" />
+    <Content Include="Views\Scolarship\Add.cshtml" />
+    <Content Include="Views\Scolarship\Index.cshtml" />
+    <Content Include="Views\Scolarship\Details.cshtml" />
+    <Content Include="Views\Scolarship\Delete.cshtml" />
+    <Content Include="Views\SingIN\Delete.cshtml" />
+    <Content Include="Views\SingIN\Details.cshtml" />
+    <Content Include="Views\SingIN\Index.cshtml" />
+    <Content Include="Views\Specialty\Add.cshtml" />
+    <Content Include="Views\Specialty\Delete.cshtml" />
+    <Content Include="Views\Specialty\Details.cshtml" />
+    <Content Include="Views\Specialty\Index.cshtml" />
+    <Content Include="Views\Student\Edit.cshtml" />
+    <Content Include="Views\Student\Add.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Student\Delete.cshtml" />
+    <Content Include="Views\Subject\Add.cshtml" />
+    <Content Include="Views\Subject\Details.cshtml" />
+    <Content Include="Views\Subject\Edit.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
+    <Content Include="Views\Subject\Delete.cshtml" />
+    <Content Include="Views\Lector\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Generic\" />
-    <Folder Include="Views\Student\" />
-    <Folder Include="Views\Subject\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

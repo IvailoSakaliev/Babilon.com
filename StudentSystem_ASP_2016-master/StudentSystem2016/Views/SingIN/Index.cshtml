@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAcsess.Models.Lecture>
+﻿@model IEnumerable<DataAcsess.Models.SingIn>
 
 @{
     ViewBag.Title = "Index";
@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Add")
+    @Html.ActionLink("Create New", "Register")
 </p>
 <table class="table">
     <tr>
@@ -26,17 +26,10 @@
         <th>
             @Html.DisplayNameFor(model => model.Password)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Kabinet)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </th>
         <th></th>
     </tr>
-
-    @foreach (var item in Model)
-    {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -54,18 +47,11 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Kabinet)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Mobile)
-            </td>
-            
-            <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("Details", "Details", new { id = item.ID }) |
                 @Html.ActionLink("Delete", "Delete", new { id = item.ID })
             </td>
         </tr>
-    }
+        }
 
-</table>
+    </table>
