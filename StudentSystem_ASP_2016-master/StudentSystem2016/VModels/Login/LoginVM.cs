@@ -17,5 +17,6 @@ namespace StudentSystem2016.VModels.Login
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
+
     }
 }

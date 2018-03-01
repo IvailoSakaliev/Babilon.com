@@ -31,8 +31,7 @@ namespace StudentSystem2016.Filters.Entityfilters
             Expression<Func<Student, bool>> filter =
                 u => (string.IsNullOrEmpty(this.Name) || u.Name.Contains(this.Name)) &&
                 (string.IsNullOrEmpty(this.LastName) || u.LastName.Contains(this.LastName)) &&
-                (string.IsNullOrEmpty(this.Email) || u.Email.Contains(this.Email)) &&
-                (string.IsNullOrEmpty(this.Inspector) || u.Inspector.Contains(this.Inspector));
+                (string.IsNullOrEmpty(this.Email) || u.Email.Contains(this.Email));
 
             return filter;
         }

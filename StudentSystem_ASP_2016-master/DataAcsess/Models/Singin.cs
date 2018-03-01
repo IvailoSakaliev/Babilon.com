@@ -10,5 +10,8 @@ namespace DataAcsess.Models
 {
     public class SingIn :Persone
     {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public Roles Role { get; set; }
     }
 }

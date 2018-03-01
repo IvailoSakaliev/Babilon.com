@@ -24,12 +24,12 @@ namespace StudentSystem2016.VModels
         [Required]
         [MinLength(10)]
         [MaxLength(10)]
-
         public string Username { get; set; }
 
         [Required]
         [MaxLength(50)]
         [MinLength(3)]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
     }
 }

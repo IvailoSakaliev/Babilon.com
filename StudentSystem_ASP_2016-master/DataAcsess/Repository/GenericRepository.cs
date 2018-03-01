@@ -51,7 +51,11 @@ namespace DataAcsess.Repository
             }
             
         }
-
+        public IList<Tentity> GetAll()
+        {
+            return this.set.ToList();
+        }
+       
         public IList<Tentity>GetAll(Expression<Func<Tentity, bool>> filter)
         {
             if (filter != null)

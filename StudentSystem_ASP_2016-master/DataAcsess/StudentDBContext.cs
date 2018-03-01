@@ -29,7 +29,5 @@ namespace DataAcsess
         {
             base.SaveChanges();
         }
-
-       
     }
 }

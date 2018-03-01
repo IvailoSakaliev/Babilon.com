@@ -1,5 +1,7 @@
 ﻿using DataAcsess.Enum;
 using DataAcsess.Models;
+using StudentSystem2016.VModels.Lectures;
+using StudentSystem2016.VModels.Scolarships;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,7 +12,6 @@ namespace StudentSystem2016.VModels.Students
 {
     public class EditVM : EditPersoneVM
     {
-        public int ID { get; set; }
         [Required]
         [MaxLength(1)]
         public string Course { get; set; }
@@ -20,19 +21,20 @@ namespace StudentSystem2016.VModels.Students
         public string  Groups { get; set; }
 
         [Required]
-        public string Inspector { get; set; }
-
-        [Required]
         public OKS OKS { get; set; }
 
-        public string Inmage { get; set; }
 
         [Required]
-        [MinLength(10)]
-        [MaxLength(10)]
-        public string Mobile { get; set; }
+        [MaxLength(20)]
+        [MinLength(6)]
+        [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
+        public string ConfirmPassword { get; set; }
 
-        
+        [Required]
+        public Roles Role { get; set; }
+
+
     }
   
 }

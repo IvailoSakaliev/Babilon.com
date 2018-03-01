@@ -3,6 +3,7 @@ using DataAcsess.Models;
 using StudentSystem2016.Filters;
 using StudentSystem2016.VModels;
 using System.Web.Mvc;
+using System;
 
 namespace StudentSystem2016.Controllers
 {
@@ -17,7 +18,13 @@ namespace StudentSystem2016.Controllers
     {
         public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
         public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
+        public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
+        {
+            throw new NullReferenceException();
+        }
+
         public Tservise Servise { get; set; }
+        public TEntity entity { get; set; }
 
         public GenericController()
         {
@@ -93,6 +100,22 @@ namespace StudentSystem2016.Controllers
             entity = PopulateItemToModel(model,entity);
             Tservise servise = new Tservise();
             servise.Save(entity);
+            string nameOfModel = entity.GetType().Name;
+            if (nameOfModel == "Lecture" || nameOfModel == "Student")
+            {
+                try
+                {
+                    SingIn register = new SingIn();
+                    register = PopulateRegisterInfomationInModel(register, model);
+                    SingInServise registerService = new SingInServise();
+                    registerService.Save(register);
+                }
+                catch (NullReferenceException)
+                {
+                    Add(model);
+                }
+                
+            }
             return RedirectToAction("Index");
         }
 
@@ -118,5 +141,6 @@ namespace StudentSystem2016.Controllers
             Servise.DeleteById(id);
             return RedirectToAction("Index");
         }
+
     }
 }

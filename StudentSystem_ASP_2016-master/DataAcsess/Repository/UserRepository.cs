@@ -9,10 +9,11 @@ namespace DataAcsess.Repository
 {
     public class UserRepository: GenericRepository<SingIn>
     {
-        public SingIn GetbyUsernameAndPassword(string name, string pass)
+        public UserRepository()
+            :base()
         {
-            return set.FirstOrDefault(
-                i => i.Username == name && i.Password == pass);
+
         }
+        
     }
 }

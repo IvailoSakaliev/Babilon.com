@@ -158,7 +158,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Atributes\FilterProperty.cs" />
     <Compile Include="Authentication\AuthenticationFilter.cs" />
-    <Compile Include="Authentication\AuthenticationManager.cs" />
     <Compile Include="Controllers\GenericController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LectorController.cs" />
@@ -186,7 +185,6 @@
     <Compile Include="VModels\Lectures\LectorList.cs" />
     <Compile Include="VModels\Login\LoginList.cs" />
     <Compile Include="VModels\Login\LoginVM.cs" />
-    <Compile Include="VModels\Login\RegisterVM.cs" />
     <Compile Include="VModels\Pager\PagerVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipEditVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
@@ -240,7 +238,6 @@
     <Content Include="Views\Lector\Edit.cshtml" />
     <Content Include="Views\Specialty\Edit.cshtml" />
     <Content Include="Views\Scolarship\Edit.cshtml" />
-    <Content Include="Views\SingIN\Register.cshtml" />
     <Content Include="Views\Lector\Add.cshtml" />
     <Content Include="Views\Lector\Details.cshtml" />
     <Content Include="Views\Lector\Delete.cshtml" />
@@ -256,7 +253,6 @@
     <Content Include="Views\Specialty\Details.cshtml" />
     <Content Include="Views\Specialty\Index.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
@@ -266,6 +262,8 @@
     <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Views\Subject\Delete.cshtml" />
     <Content Include="Views\Lector\Index.cshtml" />
+    <Content Include="Views\Student\Add.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -10,14 +10,33 @@ namespace DataAcsess.Models
 {
     public class Student : Persone
     {
+        private ICollection<Subject> predmet;
+
+        public Student()
+        {
+            this.predmet = new HashSet<Subject>();
+        }
+
         public int Course { get; set; }
         public int Groups { get; set; }
-        public string Inspector { get; set; }
         public OKS OKS { get; set; }
-        public string Inmage { get; set; }
-        public string Mobile { get; set; }
+        public Scholarship Scholarship_ID { get; set; }
+        public Specialty Specialty_ID { get; set; }
 
-        //public virtual Specialty Specialnost { get; set; }
-        //public virtual Facultet Facultet { get; set; }
+
+        public virtual ICollection<Subject> Predmet
+        {
+            get
+            {
+                return this.predmet;
+            }
+            set
+            {
+                this.predmet = value;
+            }
+        }
+
+
+
     }
 }

@@ -11,7 +11,6 @@ namespace DataAcsess.Models
     {
         public int Course { get; set; }
         public int Semester { get; set; }
-
-        //public virtual Lecture Lecture { get; set; }
+        
     }
 }
