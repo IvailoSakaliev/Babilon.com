@@ -23,7 +23,6 @@ namespace DataAcsess.Models
         public Scholarship Scholarship_ID { get; set; }
         public Specialty Specialty_ID { get; set; }
 
-
         public virtual ICollection<Subject> Predmet
         {
             get

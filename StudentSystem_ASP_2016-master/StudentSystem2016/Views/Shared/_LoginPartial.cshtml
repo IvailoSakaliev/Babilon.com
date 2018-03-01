@@ -1,11 +1,52 @@
-﻿@if(HttpContext.Current.Session["LoggedUser"] != null)
-{
-    <a href="#">@HttpContext.Current.Session["LoggedUser"]</a>
+﻿
+@if (HttpContext.Current.Session["LoggedUser"] != null)
+            {
+                string name = HttpContext.Current.Session["UserFirstName"].ToString();
+                string user = HttpContext.Current.Session["LoggedUser"].ToString();
+
+     if (user == "2")
+                {
+        <ul class="nav navbar-nav" style="float:left">
+            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
+            <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
+            <li>@Html.ActionLink("Specialty", "Details", "Specialty")</li>
+            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+
+        </ul>
+        <ul class="nav navbar-nav" style="float:right">
+            <li>@Html.ActionLink(name, "Details", "Student")</li>
+            <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>
+        </ul>
+    }
+    else if (user == "3")
+    {
+        <ul class="nav navbar-nav" style="float:left">
+            <li>@Html.ActionLink("Student", "Index", "Student")</li>
+            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
+            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+
+        </ul>
+        <ul class="nav navbar-nav" style="float:right">
+            <li>@Html.ActionLink(name, "Details", "Lector")</li>
+            <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>
+        </ul>
+    }
+    else if (user == "1")
+    {
+        <li>@Html.ActionLink("Student", "Index", "Student")</li>
+        <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
+        <li>@Html.ActionLink("User", "Index", "SingIn")</li>
+        <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
+        <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
+        <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+    }
 
 }
-asdfasdfas
-df
-asd
-fsa
-df
-asd
+else
+{
+    <ul class="nav navbar-nav" style="float:right">
+        <li>@Html.ActionLink("Register", "Add", "Student")</li>
+        <li>@Html.ActionLink("Login", "Login", "SingIN")</li>
+    </ul>
+}
+

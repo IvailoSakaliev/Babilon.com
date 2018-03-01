@@ -4,6 +4,7 @@ using StudentSystem2016.Filters;
 using StudentSystem2016.VModels;
 using System.Web.Mvc;
 using System;
+using DataAcsess.Enum;
 
 namespace StudentSystem2016.Controllers
 {
@@ -141,6 +142,23 @@ namespace StudentSystem2016.Controllers
             Servise.DeleteById(id);
             return RedirectToAction("Index");
         }
-
+        protected int RoleAnotation(Roles role)
+        {
+            switch (role)
+            {
+                case Roles.Student:
+                    return 2;
+                    break;
+                case Roles.Lector:
+                    return 3;
+                    break;
+                case Roles.Admin:
+                    return 1;
+                    break;
+                default:
+                    break;
+            }
+            return 0;
+        }
     }
 }

@@ -9,9 +9,7 @@ namespace DataAcsess.Enum
     public enum Roles
     {
         Student,
-        Inspector,
-        Admin,
         Lector,
-
+        Admin
     }
 }

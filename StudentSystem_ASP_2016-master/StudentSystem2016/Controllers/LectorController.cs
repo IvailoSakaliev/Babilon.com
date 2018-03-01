@@ -47,13 +47,15 @@ namespace StudentSystem2016.Controllers
             entity.LastName = model.LastName;
             entity.Username = model.Username;
             entity.Password = model.Password;
+            entity.Email = model.Email;
+
             if (model.Role != Roles.Lector)
             {
-                entity.Role = Roles.Lector;
+                entity.Role = RoleAnotation(model.Role);
             }
             else
             {
-                entity.Role = model.Role;
+                entity.Role = 3;
             }
             return entity;
         }

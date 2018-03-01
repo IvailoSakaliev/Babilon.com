@@ -27,12 +27,19 @@ namespace BissnessLogic.Sercises
 
         private void GoToSession()
         {
-            HttpContext.Current.Session["LoggedUser"] = this.LoggedUser;
+            HttpContext.Current.Session["LoggedUser"] = LoggedUser.Role;
+            HttpContext.Current.Session["UserFirstName"] = LoggedUser.Name;
+            HttpContext.Current.Session["User_ID"] = LoggedUser.ID;
+
         }
 
-        public static void LoggOut()
+        public void LoggOut()
         {
+
+            this.LoggedUser = null;
             HttpContext.Current.Session["LoggedUser"] = null;
+            HttpContext.Current.Session["UserFirstName"] = "" ;
+            HttpContext.Current.Session["User_ID"] = null;
         }
     }
 }

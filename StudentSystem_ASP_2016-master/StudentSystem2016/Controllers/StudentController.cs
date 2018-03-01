@@ -27,8 +27,19 @@ namespace StudentSystem2016.Controllers
 
         public override EditVM PopulateModelToItem(Student entity, EditVM model)
         {
-            model.Name = entity.Name;
-            model.LastName = entity.LastName;
+            try
+            {
+                model.Name = entity.Name;
+                model.LastName = entity.LastName;
+                model.Course = entity.Course.ToString();
+                model.Email = entity.Email;
+                model.OKS = entity.OKS;
+                
+            }
+            catch (NullReferenceException)
+            {
+                
+            }
             return model;
         }
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, EditVM model)
@@ -36,6 +47,7 @@ namespace StudentSystem2016.Controllers
             entity.Name = model.Name;
             entity.LastName = model.LastName;
             entity.Username = model.Username;
+            entity.Email = model.Email;
             if (model.Password == model.ConfirmPassword)
             {
                 entity.Password = model.Password;
@@ -43,11 +55,11 @@ namespace StudentSystem2016.Controllers
            
             if (model.Role != Roles.Student)
             {
-                entity.Role = Roles.Student;
+                entity.Role = RoleAnotation(model.Role);
             }
             else
             {
-                entity.Role = model.Role;
+                entity.Role = 2;
             }
             
             return entity;

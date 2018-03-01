@@ -30,7 +30,7 @@ namespace StudentSystem2016.Controllers
             authenticateService.AuthenticateUser(model.UserName, model.Password);
             if (authenticateService.LoggedUser != null)
             {
-                return Redirect("../Student/Details");
+                return Redirect("../");
             }
             model = new LoginVM();
             return View(model);
@@ -64,8 +64,8 @@ namespace StudentSystem2016.Controllers
         }
         public ActionResult Logout()
         {
-            AuthenticationServise.LoggOut();
-            return Redirect("Home/Index");
+            authenticateService.LoggOut();
+            return Redirect("../");
         }
 
         public override SingIn PopulateItemToModel(EditVM model, SingIn entity)
@@ -100,7 +100,7 @@ namespace StudentSystem2016.Controllers
             {
                 //error messegea
             }
-            entity.Role = Roles.Student;
+            entity.Role = 2;
             return entity;
 
         }
