@@ -14,6 +14,7 @@ namespace StudentSystem2016.Controllers
         : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
+
         public StudentController()
             :base()
         {

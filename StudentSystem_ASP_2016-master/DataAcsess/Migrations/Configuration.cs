@@ -1,5 +1,6 @@
 namespace DataAcsess.Migrations
 {
+    using Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -15,10 +16,10 @@ namespace DataAcsess.Migrations
 
         protected override void Seed(DataAcsess.StudentDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            // seed admin in DB
+            context.SingIns.AddOrUpdate(x => x.ID,
+                new SingIn() {ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email="ivo.sakaliev1996@gmail.com", Username="isakata", Password= "sakata96",Role=1 }
+                );
         }
     }
 }
