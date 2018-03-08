@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<DataAcsess.Models.Student>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Studnets";
 }
 
-<h2>Index</h2>
+<h2>Studnets</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Add")
-</p>
+@Html.Partial("_AddLinkPartialView")
 <table class="table">
     <tr>
         <th>
@@ -55,9 +53,20 @@
         </td>
         
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @if (HttpContext.Current.Session["LoggedUser"] != null)
+                {
+                    string sessionUser = HttpContext.Current.Session["LoggedUser"].ToString();
+                    if (sessionUser == "1")
+                    {
+                    <span>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |</span>
+                        <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
+                        <span>@Html.ActionLink("Delete", "Delete", new { id = item.ID })</span>
+                }
+                else if (sessionUser == "2" || sessionUser == "3")
+                {
+                    <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
+                }
+            }
         </td>
     </tr>
 }

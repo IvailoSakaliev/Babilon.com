@@ -1,28 +1,40 @@
 ﻿using DataAcsess.Models;
 using DataAcsess.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
+using System;
 
 namespace BissnessLogic.Sercises
 {
     public class AuthenticationServise
     {
         public SingIn  LoggedUser { get; set; }
+        public int Login_id { get; set; }
+        private List<SingIn> list { get; set; }
 
-        public void AuthenticateUser(string username, string password)
+        public void AuthenticateUser(string username, string password,int state)
         {
             UserRepository repo = new UserRepository();
-            List<SingIn> users = repo.GetAll((u) => u.Username == username && u.Password == password).ToList();
+            this.list = repo.GetAll((u) => u.Username == username && u.Password == password).ToList();
 
-            this.LoggedUser = users.Count > 0 ? users[0] : null;
+            this.LoggedUser = list.Count > 0 ? list[0] : null;
             if (this.LoggedUser != null)
             {
-                GoToSession();
+                if (state == 1)
+                {
+                    GoToSession();
+                }
+                else if (state == 2)
+                {
+                    ReturnIdFromUser();
+                }
             }
+        }
+
+        private void ReturnIdFromUser()
+        {
+            this.Login_id = LoggedUser.ID;
         }
 
         private void GoToSession()
@@ -30,7 +42,6 @@ namespace BissnessLogic.Sercises
             HttpContext.Current.Session["LoggedUser"] = LoggedUser.Role;
             HttpContext.Current.Session["UserFirstName"] = LoggedUser.Name;
             HttpContext.Current.Session["User_ID"] = LoggedUser.ID;
-
         }
 
         public void LoggOut()

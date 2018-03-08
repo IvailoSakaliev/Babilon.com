@@ -34,6 +34,11 @@ namespace StudentSystem2016.VModels.Students
         [Required]
         public Roles Role { get; set; }
 
+        [Required]
+        public SpecialtyName Specialty { get; set; }
+
+        public int login_id { get; set; }
+
 
     }
   

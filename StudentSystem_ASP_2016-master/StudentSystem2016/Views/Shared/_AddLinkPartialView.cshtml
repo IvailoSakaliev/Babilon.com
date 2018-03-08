@@ -1,0 +1,9 @@
+﻿@if (HttpContext.Current.Session["LoggedUser"] != null)
+{
+    if (HttpContext.Current.Session["LoggedUser"].ToString() == "1")
+    {
+        <p>
+            @Html.ActionLink("Create New", "Add")
+        </p>
+    }
+}

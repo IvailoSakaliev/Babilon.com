@@ -11,19 +11,19 @@ namespace StudentSystem2016.Filters.Entityfilters
     public class StudentFilter
         : GenericFiler<Student>
     {
-        [FilterProperty(DisplayName ="FacultetNumber")]
+        [FilterProperty(DisplayName = "FacultetNumber")]
         public string FacultetNumber { get; set; }
 
-        [FilterProperty (DisplayName = "Inspector")]
+        [FilterProperty(DisplayName = "Inspector")]
         public string Inspector { get; set; }
 
-        [FilterProperty (DisplayName ="Name")]
+        [FilterProperty(DisplayName = "Name")]
         public string Name { get; set; }
 
-        [FilterProperty (DisplayName = "LastName")]
+        [FilterProperty(DisplayName = "LastName")]
         public string LastName { get; set; }
 
-        [FilterProperty(DisplayName ="Email")]
+        [FilterProperty(DisplayName = "Email")]
         public string Email { get; set; }
 
         public override Expression<Func<Student, bool>> BildFilter()

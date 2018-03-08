@@ -7,7 +7,6 @@
 <h2>Details</h2>
 
 <div>
-    <h4>LectorEditVM</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -69,6 +68,17 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (HttpContext.Current.Session["LoggedUser"] != null)
+    {
+        string sessionUser = HttpContext.Current.Session["LoggedUser"].ToString();
+        if (sessionUser == "3" || sessionUser == "2")
+        {
+            <span>@Html.ActionLink("Back to List", "Index")</span>
+        }
+        else if (sessionUser == "1")
+        {
+            <span>@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |</span>
+            <span>@Html.ActionLink("Back to List", "Index")</span>
+        }
+    }
 </p>

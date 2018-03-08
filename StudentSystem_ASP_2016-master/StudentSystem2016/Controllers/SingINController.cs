@@ -1,13 +1,10 @@
 ﻿using DataAcsess.Models;
-using StudentSystem2016.Authentication;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Login;
 using System.Web.Mvc;
 using BissnessLogic.Sercises;
 using DataAcsess.Repository;
-using System;
 using StudentSystem2016.VModels.Students;
-using DataAcsess.Enum;
 
 namespace StudentSystem2016.Controllers
 {
@@ -15,7 +12,6 @@ namespace StudentSystem2016.Controllers
         :GenericController<SingIn,EditVM, LoginList, LoginFilter, SingInServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
-        private GenericRepository<SingIn> singin;
         
         [HttpGet]
         public ActionResult Login()
@@ -27,7 +23,7 @@ namespace StudentSystem2016.Controllers
         public ActionResult Login(LoginVM model)
         {
 
-            authenticateService.AuthenticateUser(model.UserName, model.Password);
+            authenticateService.AuthenticateUser(model.UserName, model.Password,1);
             if (authenticateService.LoggedUser != null)
             {
                 return Redirect("../");
@@ -35,32 +31,6 @@ namespace StudentSystem2016.Controllers
             model = new LoginVM();
             return View(model);
 
-        }
-        [HttpGet]
-        public ActionResult Register()
-        {
-            EditVM model = new EditVM();
-            return View(model);
-        }
-        [HttpPost]
-        public ActionResult Register(EditVM model)
-        {
-            if (model.Password == model.ConfirmPassword)
-            {
-                SingInServise servise = new SingInServise();
-                SingIn reg = new SingIn();
-
-                reg.Name = model.Name;
-                reg.LastName = model.LastName;
-                reg.Email = model.Email;
-                reg.Username = model.Username;
-                reg.Password = model.Password;
-
-                servise.Save(reg);
-
-                return View(new EditVM());
-            }
-            return View(model);
         }
         public ActionResult Logout()
         {
@@ -103,6 +73,15 @@ namespace StudentSystem2016.Controllers
             entity.Role = 2;
             return entity;
 
+        }
+        public override bool CheckForExitedUserInDB(EditVM model)
+        {
+            authenticateService.AuthenticateUser(model.Username, model.Password,1);
+            if (authenticateService.LoggedUser != null)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

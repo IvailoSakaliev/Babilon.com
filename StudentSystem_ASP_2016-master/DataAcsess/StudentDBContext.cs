@@ -11,7 +11,7 @@ namespace DataAcsess
     public class StudentDBContext : DbContext, IStudentDBContext
     {
          public StudentDBContext()
-            :base("StudentSystemDBase2016test")
+            :base("StudentSystemDBase2016test2")
         {
         }
 
@@ -29,5 +29,7 @@ namespace DataAcsess
         {
             base.SaveChanges();
         }
+
+       
     }
 }

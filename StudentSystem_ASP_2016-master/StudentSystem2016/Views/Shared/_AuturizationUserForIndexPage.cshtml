@@ -1,0 +1,15 @@
+﻿@if (HttpContext.Current.Session["LoggedUser"] != null)
+{
+    string sessionUser = HttpContext.Current.Session["LoggedUser"].ToString();
+    if (sessionUser == "1")
+    {
+        <span>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |</span>
+                        <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
+                        <span>@Html.ActionLink("Delete", "Delete", new { id = item.ID })</span>
+    }
+    else if (sessionUser == "2" || sessionUser == "3")
+    {
+        <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
+    }
+
+}

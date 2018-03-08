@@ -2,8 +2,6 @@
 using DataAcsess.Models;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Lectures;
-using System.Web.Mvc;
-using System;
 using DataAcsess.Enum;
 
 namespace StudentSystem2016.Controllers

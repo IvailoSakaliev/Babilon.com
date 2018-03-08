@@ -246,11 +246,9 @@
     <Content Include="Views\Scolarship\Details.cshtml" />
     <Content Include="Views\Scolarship\Delete.cshtml" />
     <Content Include="Views\SingIN\Delete.cshtml" />
-    <Content Include="Views\SingIN\Details.cshtml" />
     <Content Include="Views\SingIN\Index.cshtml" />
     <Content Include="Views\Specialty\Add.cshtml" />
     <Content Include="Views\Specialty\Delete.cshtml" />
-    <Content Include="Views\Specialty\Details.cshtml" />
     <Content Include="Views\Specialty\Index.cshtml" />
     <Content Include="Views\Student\Edit.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
@@ -262,12 +260,16 @@
     <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Views\Subject\Delete.cshtml" />
     <Content Include="Views\Lector\Index.cshtml" />
-    <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_AddLinkPartialView.cshtml" />
+    <Content Include="Views\Shared\_AuturizationUserForIndexPage.cshtml" />
+    <Content Include="Views\Student\Add.cshtml" />
+    <Content Include="Views\Specialty\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Generic\" />
+    <Folder Include="Views\Shared\PartialViews\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

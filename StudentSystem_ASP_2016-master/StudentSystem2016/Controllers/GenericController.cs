@@ -5,6 +5,7 @@ using StudentSystem2016.VModels;
 using System.Web.Mvc;
 using System;
 using DataAcsess.Enum;
+using StudentSystem2016.Authentication;
 
 namespace StudentSystem2016.Controllers
 {
@@ -17,23 +18,20 @@ namespace StudentSystem2016.Controllers
     
 
     {
-        public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
-        public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
-        public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
-        {
-            throw new NullReferenceException();
-        }
-
+        
         public Tservise Servise { get; set; }
         public TEntity entity { get; set; }
+        protected int login_id { get; set; }
 
         public GenericController()
         {
             this.Servise = new Tservise();
         }
 
+        [AuthenticationFilter]
         public ActionResult Index()
         {
+            
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
             PopulateIndex(itemVM);
@@ -66,6 +64,7 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
+        [AuthenticationFilter]
         public ActionResult Edit(int id)
         {
             TEntity entity = new TEntity();
@@ -95,21 +94,27 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpPost]
+        [AuthenticationFilter]
         public ActionResult Add(TeidtVM model)
         {
             TEntity entity = new TEntity();
-            entity = PopulateItemToModel(model,entity);
-            Tservise servise = new Tservise();
-            servise.Save(entity);
             string nameOfModel = entity.GetType().Name;
             if (nameOfModel == "Lecture" || nameOfModel == "Student")
             {
+                SingInServise registerService = new SingInServise();
+                AuthenticationServise authenticate = new AuthenticationServise();
                 try
-                {
-                    SingIn register = new SingIn();
-                    register = PopulateRegisterInfomationInModel(register, model);
-                    SingInServise registerService = new SingInServise();
-                    registerService.Save(register);
+                { 
+                    if (!CheckForExitedUserInDB(model))
+                    {
+                            
+                        SingIn register = new SingIn();
+                        register = PopulateRegisterInfomationInModel(register, model);
+                        registerService.Save(register);
+                        authenticate.AuthenticateUser(register.Username , register.Password,2);
+                        this.login_id = authenticate.Login_id;
+                    }
+                    
                 }
                 catch (NullReferenceException)
                 {
@@ -117,12 +122,17 @@ namespace StudentSystem2016.Controllers
                 }
                 
             }
+            entity = PopulateItemToModel(model, entity);
+            Tservise servise = new Tservise();
+            servise.Save(entity);
             return RedirectToAction("Index");
         }
 
         [HttpGet]
+        [AuthenticationFilter]
         public ActionResult Details(int id)
         {
+            
             TEntity entity = new TEntity();
             TeidtVM model = new TeidtVM();
             entity = Servise.GetByID(id);
@@ -142,6 +152,7 @@ namespace StudentSystem2016.Controllers
             Servise.DeleteById(id);
             return RedirectToAction("Index");
         }
+
         protected int RoleAnotation(Roles role)
         {
             switch (role)
@@ -160,5 +171,19 @@ namespace StudentSystem2016.Controllers
             }
             return 0;
         }
+
+
+        // abstract and viirtual classess 
+        public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
+        public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
+        public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
+        {
+            throw new NullReferenceException();
+        }
+        public virtual bool CheckForExitedUserInDB(TeidtVM model)
+        {
+            throw new NullReferenceException();
+        }
+
     }
 }

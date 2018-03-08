@@ -1,4 +1,4 @@
-﻿@model StudentSystem2016.VModels.Lectures.LectorEditVM
+﻿@model StudentSystem2016.VModels.Specialties.EditVM
 
 @{
     ViewBag.Title = "Details";
@@ -7,25 +7,8 @@
 <h2>Details</h2>
 
 <div>
-    <h4>LectorEditVM</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Kabinet)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Kabinet)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>
@@ -35,40 +18,43 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.LastName)
+            @Html.DisplayNameFor(model => model.YearOFStudy)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LastName)
+            @Html.DisplayFor(model => model.YearOFStudy)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Inspector)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Email)
+            @Html.DisplayFor(model => model.Inspector)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Username)
+            @Html.DisplayNameFor(model => model.OKS)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Username)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Password)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Password)
+            @Html.DisplayFor(model => model.OKS)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @if (HttpContext.Current.Session["LoggedUser"] != null)
+    {
+        string sessionUser = HttpContext.Current.Session["LoggedUser"].ToString();
+        if (sessionUser == "3" || sessionUser == "2")
+        {
+            <span>@Html.ActionLink("Back to List", "Index")</span>
+        }
+        else if (sessionUser == "1")
+        {
+            <span>@Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |</span>
+            <span>@Html.ActionLink("Back to List", "Index")</span>
+        }
+    }
 </p>

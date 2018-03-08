@@ -10,7 +10,17 @@ namespace StudentSystem2016.Controllers
     public class SpecialtyController 
         :GenericController<Specialty,EditVM, SpecialtyList, SpecialtyFilter, SpecilatyServise>
     {
-        
+
+        public ActionResult DetailForStudentSpecilty(int? id)
+        {
+            SpecilatyServise servise = new SpecilatyServise();
+            Specialty spec = new Specialty();
+            spec = servise.GetByID(id);
+            EditVM model = new EditVM();
+            PopulateModelToItem(spec, model);
+            return View(model);
+        }
+
         public override Specialty PopulateItemToModel(EditVM model, Specialty entity)
         {
             entity.Name = model.Name;

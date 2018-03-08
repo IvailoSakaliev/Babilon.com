@@ -1,20 +1,20 @@
-﻿
-@if (HttpContext.Current.Session["LoggedUser"] != null)
+﻿@if (HttpContext.Current.Session["LoggedUser"] != null)
             {
                 string name = HttpContext.Current.Session["UserFirstName"].ToString();
                 string user = HttpContext.Current.Session["LoggedUser"].ToString();
-
-     if (user == "2")
+                int id = (int)HttpContext.Current.Session["User_ID"];
+                string detailsuserLink = "DetailsID/" + id;
+                if (user == "2")
                 {
         <ul class="nav navbar-nav" style="float:left">
             <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
             <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
-            <li>@Html.ActionLink("Specialty", "Details", "Specialty")</li>
+            <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
             <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
 
         </ul>
         <ul class="nav navbar-nav" style="float:right">
-            <li>@Html.ActionLink(name, "Details", "Student")</li>
+            <li>@Html.ActionLink(name, detailsuserLink, "Student")</li>
             <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>
         </ul>
     }
@@ -27,20 +27,24 @@
 
         </ul>
         <ul class="nav navbar-nav" style="float:right">
-            <li>@Html.ActionLink(name, "Details", "Lector")</li>
+            <li>@Html.ActionLink(name, detailsuserLink, "Lector")</li>
             <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>
         </ul>
     }
     else if (user == "1")
     {
-        <li>@Html.ActionLink("Student", "Index", "Student")</li>
-        <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
-        <li>@Html.ActionLink("User", "Index", "SingIn")</li>
-        <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
-        <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
-        <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+        <ul class="nav navbar-nav" style="float:left">
+            <li>@Html.ActionLink("Student", "Index", "Student")</li>
+            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
+            <li>@Html.ActionLink("User", "Index", "SingIn")</li>
+            <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
+            <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
+            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+        </ul>
+        <ul class="nav navbar-nav" style="float:right">
+            <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>
+        </ul>
     }
-
 }
 else
 {

@@ -17,8 +17,8 @@ namespace StudentSystem2016.VModels.Specialties
         public string Name { get; set; }
 
         [Required]
-        [MinLength(4)]
-        [MaxLength(4)]
+        [MinLength(1)]
+        [MaxLength(1)]
         [Display(Name = "Year of study")]
         public string YearOFStudy { get; set; }
 

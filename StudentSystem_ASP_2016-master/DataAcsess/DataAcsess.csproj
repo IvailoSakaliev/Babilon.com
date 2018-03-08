@@ -54,6 +54,7 @@
     <Compile Include="Enum\Mounth.cs" />
     <Compile Include="Enum\OKS.cs" />
     <Compile Include="Enum\Roles.cs" />
+    <Compile Include="Enum\SpecialtyName.cs" />
     <Compile Include="IStudentDBContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />

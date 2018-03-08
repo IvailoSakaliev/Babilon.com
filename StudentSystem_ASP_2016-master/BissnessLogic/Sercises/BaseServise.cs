@@ -38,6 +38,7 @@ namespace BissnessLogic.Sercises
             return this.repo.GetByID(id);
         }
 
+
         public void Save(TEntity entity)
         {
             try
