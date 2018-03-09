@@ -6,13 +6,13 @@ namespace DataAcsess
 {
     public interface IStudentDBContext
     {
-        IDbSet<Facultet> Facultets { get; set; }
-        IDbSet<Lecture> Lecturs { get; set; }
-        IDbSet<Subject> Predmets { get; set; }
-        IDbSet<Scholarship> Scholarships { get; set; }
-        IDbSet<SingIn> SingIns { get; set; }
-        IDbSet<Specialty> Specialties { get; set; }
-        IDbSet<Student> Students { get; set; }
+        DbSet<Facultet> Facultets { get; set; }
+        DbSet<Lecture> Lecturs { get; set; }
+        DbSet<Subject> Predmets { get; set; }
+        DbSet<Scholarship> Scholarships { get; set; }
+        DbSet<SingIn> SingIns { get; set; }
+        DbSet<Specialty> Specialties { get; set; }
+        DbSet<Student> Students { get; set; }
         void SaveChanges();
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;

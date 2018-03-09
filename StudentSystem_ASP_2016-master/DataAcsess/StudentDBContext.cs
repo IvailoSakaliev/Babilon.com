@@ -10,21 +10,19 @@ namespace DataAcsess
 {
     public class StudentDBContext : DbContext, IStudentDBContext
     {
-         public StudentDBContext()
-            :base("StudentSystemDBase2016test2")
+        public StudentDBContext()
+            :base("StudentSystem-DB")
         {
         }
-
-        public IDbSet<Student> Students { get; set; }
-        public IDbSet<Scholarship> Scholarships { get; set; }
-        public IDbSet<Specialty> Specialties { get; set; }
-        public IDbSet<Subject> Predmets { get; set; }
-        public IDbSet<SingIn> SingIns { get; set; }
-        public IDbSet<Facultet> Facultets { get; set; }
-        public IDbSet<Lecture> Lecturs { get; set; }
-
         
-
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Scholarship> Scholarships { get; set; }
+        public DbSet<Specialty> Specialties { get; set; }
+        public DbSet<Subject> Predmets { get; set; }
+        public DbSet<SingIn> SingIns { get; set; }
+        public DbSet<Facultet> Facultets { get; set; }
+        public DbSet<Lecture> Lecturs { get; set; }
+        
         public new void SaveChanges()
         {
             base.SaveChanges();

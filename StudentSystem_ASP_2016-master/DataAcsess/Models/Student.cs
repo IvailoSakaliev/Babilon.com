@@ -10,12 +10,12 @@ namespace DataAcsess.Models
 {
     public class Student : Persone
     {
-        private ICollection<Subject> predmet;
+        //private ICollection<Subject> predmet;
 
-        public Student()
-        {
-            this.predmet = new HashSet<Subject>();
-        }
+        //public Student()
+        //{
+        //    this.predmet = new HashSet<Subject>();
+        //}
 
         public int Course { get; set; }
         public int Groups { get; set; }
@@ -23,17 +23,17 @@ namespace DataAcsess.Models
         public Scholarship Scholarship{ get; set; }
         public Specialty Specialties { get; set; }
 
-        public virtual ICollection<Subject> Predmet
-        {
-            get
-            {
-                return this.predmet;
-            }
-            set
-            {
-                this.predmet = value;
-            }
-        }
+        //public virtual ICollection<Subject> Predmet
+        //{
+        //    get
+        //    {
+        //        return this.predmet;
+        //    }
+        //    set
+        //    {
+        //        this.predmet = value;
+        //    }
+        //}
 
 
 

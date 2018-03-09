@@ -11,14 +11,13 @@ namespace DataAcsess.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
         }
 
         protected override void Seed(DataAcsess.StudentDBContext context)
         {
             // seed admin in DB
             context.SingIns.AddOrUpdate(x => x.ID,
-                new SingIn() {ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email="ivo.sakaliev1996@gmail.com", Username="isakata", Password= "sakata96",Role=1 }
+                new SingIn() { ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email = "ivo.sakaliev1996@gmail.com", Username = "isakata", Password = "sakata96", Role = 1 }
                 );
         }
     }
