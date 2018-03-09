@@ -19,6 +19,8 @@ namespace DataAcsess.Migrations
             context.SingIns.AddOrUpdate(x => x.ID,
                 new SingIn() { ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email = "ivo.sakaliev1996@gmail.com", Username = "isakata", Password = "sakata96", Role = 1 }
                 );
+
+
         }
     }
 }
