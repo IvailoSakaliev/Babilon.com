@@ -1,0 +1,10 @@
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\SS.SpecialtyServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\SS.SpecialtyServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\SS.GenericServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\EntityFramework.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\SS.GenericServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\bin\Debug\EntityFramework.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.pdb

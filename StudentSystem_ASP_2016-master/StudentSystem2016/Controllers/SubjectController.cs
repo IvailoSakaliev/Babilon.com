@@ -1,9 +1,7 @@
-﻿using BissnessLogic.Sercises;
-using DataAcsess.Models;
+﻿using DataAcsess.Models;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Subjects;
-using System.Web.Mvc;
-using System;
+using SS.SubjectServise;
 
 namespace StudentSystem2016.Controllers
 {

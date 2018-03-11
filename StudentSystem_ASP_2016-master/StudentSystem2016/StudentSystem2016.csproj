@@ -280,13 +280,41 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BissnessLogic\BissnessLogic.csproj">
-      <Project>{CB1B71AC-0F26-40FF-85F5-4061BF18BB22}</Project>
-      <Name>BissnessLogic</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataAcsess\DataAcsess.csproj">
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.AuthenticationServise\SS.AuthenticationServise.csproj">
+      <Project>{FE61BE72-F7BA-442B-915F-164BC6193E51}</Project>
+      <Name>SS.AuthenticationServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.GenericServise\SS.GenericServise.csproj">
+      <Project>{C3614D54-92BA-4808-8C3C-58A369AEEDC2}</Project>
+      <Name>SS.GenericServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.LectureServise\SS.LectureServise.csproj">
+      <Project>{0A3A1D65-AABA-45E4-ABE3-E00D21999EEC}</Project>
+      <Name>SS.LectureServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.ScolarshipServise\SS.ScolarshipServise.csproj">
+      <Project>{DB94FE33-9E4C-4BF4-AF76-C7BE4C86FD39}</Project>
+      <Name>SS.ScolarshipServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.SingInServise\SS.SingInServise.csproj">
+      <Project>{274B25CB-1928-4C24-89A5-393D1206D953}</Project>
+      <Name>SS.SingInServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.SpecilatyServise\SS.SpecilatyServise.csproj">
+      <Project>{EC3DDD38-35DB-4BCF-9145-110AC7B4E891}</Project>
+      <Name>SS.SpecilatyServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.StudentServise\SS.StudentServise.csproj">
+      <Project>{86A86A4E-66B2-4B36-B7DD-7502AC637CFE}</Project>
+      <Name>SS.StudentServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.SubjectServise\SS.SubjectServise.csproj">
+      <Project>{58094AF6-AC5E-4B84-9885-03DD924FB90C}</Project>
+      <Name>SS.SubjectServise</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

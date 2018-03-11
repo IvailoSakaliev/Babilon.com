@@ -1,11 +1,13 @@
-﻿using BissnessLogic.Sercises;
-using DataAcsess.Models;
+﻿using DataAcsess.Models;
 using StudentSystem2016.Filters;
 using StudentSystem2016.VModels;
 using System.Web.Mvc;
 using System;
 using DataAcsess.Enum;
 using StudentSystem2016.Authentication;
+using SS.GenericServise;
+using SS.AuthenticationServise;
+using SS.SingInServise;
 
 namespace StudentSystem2016.Controllers
 {

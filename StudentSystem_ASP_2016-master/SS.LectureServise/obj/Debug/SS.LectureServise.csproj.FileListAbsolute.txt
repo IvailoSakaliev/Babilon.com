@@ -1,0 +1,10 @@
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\SS.LectureServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\SS.LectureServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\SS.GenericServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\EntityFramework.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\SS.GenericServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\EntityFramework.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\obj\Debug\SS.LectureServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\obj\Debug\SS.LectureServise.pdb

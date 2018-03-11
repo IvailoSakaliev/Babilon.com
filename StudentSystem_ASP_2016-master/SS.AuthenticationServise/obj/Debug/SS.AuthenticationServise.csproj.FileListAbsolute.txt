@@ -1,0 +1,9 @@
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.AuthenticationServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.AuthenticationServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\EntityFramework.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\EntityFramework.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.csprojResolveAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.pdb

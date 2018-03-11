@@ -1,15 +1,16 @@
-﻿using BissnessLogic.Sercises;
-using DataAcsess.Models;
+﻿using DataAcsess.Models;
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Students;
 using System;
 using DataAcsess.Enum;
 using System.Web.Mvc;
 using StudentSystem2016.Authentication;
+using SS.AuthenticationServise;
+using SS.StudentServise;
 
 namespace StudentSystem2016.Controllers
 {
-    
+
     public class StudentController 
         : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServise>
     {

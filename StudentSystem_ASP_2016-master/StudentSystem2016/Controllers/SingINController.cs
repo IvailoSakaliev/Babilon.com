@@ -2,9 +2,9 @@
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Login;
 using System.Web.Mvc;
-using BissnessLogic.Sercises;
-using DataAcsess.Repository;
 using StudentSystem2016.VModels.Students;
+using SS.SingInServise;
+using SS.AuthenticationServise;
 
 namespace StudentSystem2016.Controllers
 {

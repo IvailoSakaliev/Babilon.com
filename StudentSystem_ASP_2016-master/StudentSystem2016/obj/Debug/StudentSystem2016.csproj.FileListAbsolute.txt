@@ -191,7 +191,6 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\StudentSystem2016.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\StudentSystem2016.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Antlr3.Runtime.dll
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\BissnessLogic.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\DataAcsess.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.AI.Agent.Intercept.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.AI.DependencyCollector.dll
@@ -212,7 +211,6 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\System.Web.WebPages.Razor.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\WebGrease.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.dll
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\BissnessLogic.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\DataAcsess.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.AI.ServerTelemetryChannel.xml
@@ -232,3 +230,19 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.SqlServer.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.SqlServer.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.AuthenticationServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.GenericServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.LectureServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.ScolarshipServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SingInServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecilatyServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.StudentServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SubjectServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.AuthenticationServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.GenericServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.LectureServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.ScolarshipServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SingInServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecilatyServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.StudentServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SubjectServise.pdb
