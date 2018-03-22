@@ -8,3 +8,4 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\bin\Debug\EntityFramework.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\obj\Debug\SS.LectureServise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\obj\Debug\SS.LectureServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.LectureServise\obj\Debug\SS.LectureServise.csprojResolveAssemblyReference.cache

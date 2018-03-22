@@ -17,5 +17,18 @@ namespace SS.SingInServise
         {
 
         }
+        public void ConfirmedRegistration(int ? id)
+        {
+            var user = GetByID(id);
+            user.isRegisted = true;
+        }
+        public static bool IsConfirmRegistartion(SingIn user)
+        {
+            if (user.isRegisted == true)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

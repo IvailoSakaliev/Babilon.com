@@ -85,6 +85,14 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SendGrid, Version=9.8.0.0, Culture=neutral, PublicKeyToken=4f047e93159395ca, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sendgrid.9.9.0\lib\net452\SendGrid.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -145,11 +153,6 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -265,6 +268,7 @@
     <Content Include="Views\Shared\_AuturizationUserForIndexPage.cshtml" />
     <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Specialty\Details.cshtml" />
+    <Content Include="Views\SingIN\Confirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +291,10 @@
     <ProjectReference Include="..\SS.AuthenticationServise\SS.AuthenticationServise.csproj">
       <Project>{FE61BE72-F7BA-442B-915F-164BC6193E51}</Project>
       <Name>SS.AuthenticationServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.EmailServise\SS.EmailServise.csproj">
+      <Project>{575BD8AB-E0EC-45B1-A10B-E40DEE72B00A}</Project>
+      <Name>SS.EmailServise</Name>
     </ProjectReference>
     <ProjectReference Include="..\SS.GenericServise\SS.GenericServise.csproj">
       <Project>{C3614D54-92BA-4808-8C3C-58A369AEEDC2}</Project>

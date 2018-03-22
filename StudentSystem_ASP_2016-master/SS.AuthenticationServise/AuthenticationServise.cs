@@ -1,10 +1,7 @@
 ﻿using DataAcsess.Models;
 using DataAcsess.Repository;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Web;
 
 namespace SS.AuthenticationServise
@@ -21,11 +18,15 @@ namespace SS.AuthenticationServise
             this.list = repo.GetAll((u) => u.Username == username && u.Password == password).ToList();
 
             this.LoggedUser = list.Count > 0 ? list[0] : null;
+            
             if (this.LoggedUser != null)
             {
                 if (state == 1)
                 {
-                    GoToSession();
+                    if (SingInServise.SingInServise.IsConfirmRegistartion(this.LoggedUser) == true)
+                    {
+                        GoToSession();
+                    }
                 }
                 else if (state == 2)
                 {

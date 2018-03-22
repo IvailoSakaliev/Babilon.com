@@ -246,3 +246,8 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecilatyServise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.StudentServise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SubjectServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EmailServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EmailServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.xml

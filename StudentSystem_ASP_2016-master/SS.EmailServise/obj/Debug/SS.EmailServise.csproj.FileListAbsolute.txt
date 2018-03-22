@@ -1,0 +1,11 @@
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.EmailServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.EmailServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\DataAcsess.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.GenericServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\EntityFramework.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\DataAcsess.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.GenericServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\EntityFramework.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.csprojResolveAssemblyReference.cache

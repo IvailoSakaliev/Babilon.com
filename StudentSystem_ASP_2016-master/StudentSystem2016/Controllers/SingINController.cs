@@ -19,6 +19,14 @@ namespace StudentSystem2016.Controllers
             LoginVM login = new LoginVM();
             return View(login);
         }
+        [HttpGet]
+        public ActionResult Confirm(int ? id)
+        {
+            SingInServise servise = new SingInServise();
+            servise.ConfirmedRegistration(id);
+            return View();
+        }
+        
         [HttpPost]
         public ActionResult Login(LoginVM model)
         {

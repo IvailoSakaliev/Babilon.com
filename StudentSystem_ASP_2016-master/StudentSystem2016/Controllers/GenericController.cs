@@ -8,6 +8,7 @@ using StudentSystem2016.Authentication;
 using SS.GenericServise;
 using SS.AuthenticationServise;
 using SS.SingInServise;
+using SS.EmailServise;
 
 namespace StudentSystem2016.Controllers
 {
@@ -115,6 +116,8 @@ namespace StudentSystem2016.Controllers
                         registerService.Save(register);
                         authenticate.AuthenticateUser(register.Username , register.Password,2);
                         this.login_id = authenticate.Login_id;
+                        EmailServise email = new EmailServise(register);
+                        email.SendEmail();
                     }
                     
                 }
