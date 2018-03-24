@@ -17,7 +17,7 @@ namespace DataAcsess.Migrations
         {
             // seed admin in DB
             context.SingIns.AddOrUpdate(x => x.ID,
-                new SingIn() { ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email = "sakaliev.ivailo@gmail.com", Username = "isakata", Password = "sakata96", Role = 1 }
+                new SingIn() { ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email = "sakaliev.ivailo@gmail.com", Username = "isakata", Password = "sakata96", Role = 1 , isRegisted = true}
                 );
 
 

@@ -31,6 +31,7 @@ namespace StudentSystem2016.Controllers
             model = PopulateModelToItem(entity, model);
             return View("Details", model);
         }
+
         public override Student PopulateItemToModel(EditVM model, Student entity)
         {
             try

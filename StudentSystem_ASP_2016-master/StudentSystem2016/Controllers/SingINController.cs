@@ -26,16 +26,31 @@ namespace StudentSystem2016.Controllers
             servise.ConfirmedRegistration(id);
             return View();
         }
+
+        [HttpGet]
+        public ActionResult GoToConfirm()
+        {
+            return View();
+        }
         
         [HttpPost]
         public ActionResult Login(LoginVM model)
         {
 
             authenticateService.AuthenticateUser(model.UserName, model.Password,1);
-            if (authenticateService.LoggedUser != null)
+            if (SingInServise.IsConfirmRegistartion(authenticateService.LoggedUser))
             {
-                return Redirect("../");
+                if (authenticateService.LoggedUser != null)
+                {
+
+                    return Redirect("../");
+                }
             }
+            else
+            {
+                return RedirectToAction("GoToConfirm");
+            }
+            
             model = new LoginVM();
             return View(model);
 

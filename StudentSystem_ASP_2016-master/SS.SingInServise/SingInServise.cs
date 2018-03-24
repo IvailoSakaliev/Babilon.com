@@ -24,11 +24,11 @@ namespace SS.SingInServise
         }
         public static bool IsConfirmRegistartion(SingIn user)
         {
-            if (user.isRegisted == true)
+            if (user.isRegisted)
             {
-                return true;
+                return user.isRegisted;
             }
-            return false;
+            return user.isRegisted;
         }
     }
 }

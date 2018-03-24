@@ -7,3 +7,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.csprojResolveAssemblyReference.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\obj\Debug\SS.AuthenticationServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.GenericServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.SingInServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.GenericServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.AuthenticationServise\bin\Debug\SS.SingInServise.pdb

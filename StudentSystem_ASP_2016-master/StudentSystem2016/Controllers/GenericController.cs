@@ -110,7 +110,7 @@ namespace StudentSystem2016.Controllers
                 { 
                     if (!CheckForExitedUserInDB(model))
                     {
-                            
+                        
                         SingIn register = new SingIn();
                         register = PopulateRegisterInfomationInModel(register, model);
                         registerService.Save(register);
@@ -130,6 +130,10 @@ namespace StudentSystem2016.Controllers
             entity = PopulateItemToModel(model, entity);
             Tservise servise = new Tservise();
             servise.Save(entity);
+            if (nameOfModel == "Student")
+            {
+                return View("../../SingIN/GoToConfirm");
+            }
             return RedirectToAction("Index");
         }
 
