@@ -19,8 +19,9 @@ namespace SS.SingInServise
         }
         public void ConfirmedRegistration(int ? id)
         {
-            var user = GetByID(id);
+            SingIn user = GetByID(id);
             user.isRegisted = true;
+            Save(user);
         }
         public static bool IsConfirmRegistartion(SingIn user)
         {
