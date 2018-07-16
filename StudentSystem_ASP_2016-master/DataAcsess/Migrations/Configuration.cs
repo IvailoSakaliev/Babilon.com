@@ -14,7 +14,7 @@ namespace DataAcsess.Migrations
         protected override void Seed(DataAcsess.StudentDBContext context)
         {
             context.SingIns.AddOrUpdate(x => x.ID,
-                new SingIn() { ID = 1, Name = "3K2yRYzCn6Q=", LastName = "whFQhV3ODZvBskURZSoZZw==", Email = "PUrEIdxhNFZrZFUMgffSB73QgUEtVGMRuT0YHZL5Oxk=", Username = "pkGdtEqxIoc=", Password = "JSExh0d0yGfBskURZSoZZw==", Role = 1, isRegisted = true }
+                new SingIn() { ID = 1, Name = "3K2yRYzCn6Q=", LastName = "whFQhV3ODZvBskURZSoZZw==", Email = "PUrEIdxhNFZrZFUMgffSB73QgUEtVGMRuT0YHZL5Oxk=", Username = "pkGdtEqxIoc=", Password = "XQQThfLuRVHrvca2WybF1w==", Role = 1, isRegisted = true }
                 );
         }
     }

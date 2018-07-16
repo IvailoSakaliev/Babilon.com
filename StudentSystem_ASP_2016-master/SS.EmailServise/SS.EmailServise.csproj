@@ -48,9 +48,17 @@
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SS.AuthenticationServise\SS.AuthenticationServise.csproj">
+      <Project>{FE61BE72-F7BA-442B-915F-164BC6193E51}</Project>
+      <Name>SS.AuthenticationServise</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SS.GenericServise\SS.GenericServise.csproj">
       <Project>{C3614D54-92BA-4808-8C3C-58A369AEEDC2}</Project>
       <Name>SS.GenericServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.SingInServise\SS.SingInServise.csproj">
+      <Project>{274B25CB-1928-4C24-89A5-393D1206D953}</Project>
+      <Name>SS.SingInServise</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -12,3 +12,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.csproj.CoreCompileInputs.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.csproj.CopyComplete
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\obj\Debug\SS.EmailServise.csprojAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.AuthenticationServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.SingInServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.AuthenticationServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.EmailServise\bin\Debug\SS.SingInServise.pdb

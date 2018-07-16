@@ -117,7 +117,7 @@ namespace StudentSystem2016.Controllers
                         authenticate.AuthenticateUser(register.Username , register.Password,2);
                         this.login_id = authenticate.Login_id;
                         EmailServise email = new EmailServise(register);
-                        email.SendEmail();
+                        email.SendConfirmEmail();
                     }
                     
                 }
