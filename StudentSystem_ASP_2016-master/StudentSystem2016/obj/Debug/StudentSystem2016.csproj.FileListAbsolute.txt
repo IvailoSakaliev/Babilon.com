@@ -172,7 +172,6 @@ E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\S
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Antlr3.Runtime.pdb
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Newtonsoft.Json.xml
 E:\Project asp.net\StudentSystem_ASP_2016-master\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.xml
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csprojResolveAssemblyReference.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\roslyn\csc.exe
@@ -251,3 +250,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EmailServise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.xml
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\DataAcsess.dll.config
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csprojAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csproj.CoreCompileInputs.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csproj.CopyComplete

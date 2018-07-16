@@ -132,7 +132,7 @@ namespace StudentSystem2016.Controllers
             servise.Save(entity);
             if (nameOfModel == "Student")
             {
-                return View("../../SingIN/GoToConfirm");
+                return RedirectToAction("GoToConfirm");
             }
             return RedirectToAction("Index");
         }

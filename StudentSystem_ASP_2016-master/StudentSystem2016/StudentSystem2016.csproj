@@ -269,7 +269,7 @@
     <Content Include="Views\Student\Add.cshtml" />
     <Content Include="Views\Specialty\Details.cshtml" />
     <Content Include="Views\SingIN\Confirm.cshtml" />
-    <Content Include="Views\SingIN\GoToConfirm.cshtml" />
+    <Content Include="Views\Student\GoToConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

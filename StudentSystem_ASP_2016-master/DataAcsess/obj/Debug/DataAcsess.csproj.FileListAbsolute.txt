@@ -45,8 +45,11 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojResolveAssemblyReference.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.Migrations.initialMigrations.resources
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csproj.GenerateResource.Cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.Migrations.updateUser.resources
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csproj.CoreCompileInputs.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csproj.CopyComplete

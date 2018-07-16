@@ -8,4 +8,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\bin\Debug\EntityFramework.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.pdb
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.csprojResolveAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\bin\Debug\DataAcsess.dll.config
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.csprojAssemblyReference.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.csproj.CoreCompileInputs.cache
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\SS.SpecilatyServise\obj\Debug\SS.SpecilatyServise.csproj.CopyComplete

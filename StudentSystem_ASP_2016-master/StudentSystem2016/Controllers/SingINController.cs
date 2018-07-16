@@ -12,7 +12,8 @@ namespace StudentSystem2016.Controllers
         :GenericController<SingIn,EditVM, LoginList, LoginFilter, SingInServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
-        
+        SingInServise singin = new SingInServise();
+
         [HttpGet]
         public ActionResult Login()
         {
@@ -27,32 +28,30 @@ namespace StudentSystem2016.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult GoToConfirm()
-        {
-            return View();
-        }
+        
         
         [HttpPost]
         public ActionResult Login(LoginVM model)
         {
-
-            authenticateService.AuthenticateUser(model.UserName, model.Password,1);
-            if (SingInServise.IsConfirmRegistartion(authenticateService.LoggedUser))
+            authenticateService.AuthenticateUser(model.UserName,model.Password,1);
+            if (authenticateService.LoggedUser == null)
             {
-                if (authenticateService.LoggedUser != null)
-                {
-
-                    return Redirect("../");
-                }
+                model = new LoginVM();
+                return View(model);
             }
             else
             {
-                return RedirectToAction("GoToConfirm");
+                if (!SingInServise.IsConfirmRegistartion(authenticateService.LoggedUser))
+                {
+                    return View("../Student/GoToConfirm");
+                }
+                else
+                {
+                    return Redirect("../");
+                }
             }
             
-            model = new LoginVM();
-            return View(model);
+            
 
         }
         public ActionResult Logout()
@@ -81,10 +80,12 @@ namespace StudentSystem2016.Controllers
         }
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, EditVM model)
         {
-            entity.Name = model.Name;
-            entity.LastName = model.LastName;
-            entity.Email = model.Email;
-            entity.Username = model.Username;
+            entity.Name = singin.EncryptData(model.Name);
+            entity.LastName = singin.EncryptData(model.LastName);
+            entity.Email = singin.EncryptData(model.Email);
+            entity.Username = singin.EncryptData(model.Username);
+            entity.Password = singin.EncryptData(model.Password);
+
             if (model.Password == model.ConfirmPassword)
             {
                 entity.Password = model.Password;

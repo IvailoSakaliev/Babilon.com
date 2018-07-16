@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using StudentSystem2016.Authentication;
 using SS.AuthenticationServise;
 using SS.StudentServise;
+using SS.SingInServise;
 
 namespace StudentSystem2016.Controllers
 {
@@ -14,12 +15,19 @@ namespace StudentSystem2016.Controllers
     public class StudentController 
         : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServise>
     {
+        SingInServise singin = new SingInServise();
         AuthenticationServise authenticateService = new AuthenticationServise();
 
         public StudentController()
             :base()
         {
 
+        }
+
+        [HttpGet]
+        public ActionResult GoToConfirm()
+        {
+            return View();
         }
         [HttpGet]
         [AuthenticationFilter]
@@ -72,13 +80,14 @@ namespace StudentSystem2016.Controllers
         }
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, EditVM model)
         {
-            entity.Name = model.Name;
-            entity.LastName = model.LastName;
-            entity.Username = model.Username;
-            entity.Email = model.Email;
+            entity.Name = singin.EncryptData(model.Name);
+            entity.LastName = singin.EncryptData(model.LastName);
+            entity.Email = singin.EncryptData(model.Email);
+            entity.Username = singin.EncryptData(model.Username);
+
             if (model.Password == model.ConfirmPassword)
             {
-                entity.Password = model.Password;
+                entity.Password = singin.EncryptData(model.Password);
             }
            
             if (model.Role != Roles.Student)

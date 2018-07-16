@@ -1,10 +1,8 @@
+
 namespace DataAcsess.Migrations
 {
-    using Models;
-    using System;
-    using System.Data.Entity;
+    using DataAcsess.Models;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<DataAcsess.StudentDBContext>
     {
@@ -15,12 +13,9 @@ namespace DataAcsess.Migrations
 
         protected override void Seed(DataAcsess.StudentDBContext context)
         {
-            // seed admin in DB
             context.SingIns.AddOrUpdate(x => x.ID,
-                new SingIn() { ID = 1, Name = "Ivailo", LastName = "Sakaliev", Email = "sakaliev.ivailo@gmail.com", Username = "isakata", Password = "sakata96", Role = 1 , isRegisted = true}
+                new SingIn() { ID = 1, Name = "3K2yRYzCn6Q=", LastName = "whFQhV3ODZvBskURZSoZZw==", Email = "PUrEIdxhNFZrZFUMgffSB73QgUEtVGMRuT0YHZL5Oxk=", Username = "pkGdtEqxIoc=", Password = "JSExh0d0yGfBskURZSoZZw==", Role = 1, isRegisted = true }
                 );
-
-
         }
     }
 }
