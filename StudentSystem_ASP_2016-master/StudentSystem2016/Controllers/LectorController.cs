@@ -72,5 +72,10 @@ namespace StudentSystem2016.Controllers
             }
             return false;
         }
+
+        public override Lecture PopulateEditItemToModel(LectorEditVM model, Lecture entity, int id)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

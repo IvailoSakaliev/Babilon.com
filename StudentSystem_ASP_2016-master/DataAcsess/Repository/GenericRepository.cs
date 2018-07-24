@@ -11,28 +11,28 @@ namespace DataAcsess.Repository
         :IGenericRepository<Tentity> where Tentity
             :BaseModel,new()
     {
-        private IStudentDBContext context { get; set; }
-        protected IDbSet<Tentity> set { get; set; }
-        private UnitOfWork.UnitOfWork unit { get; set; }
+        private IStudentDBContext _context { get; set; }
+        protected IDbSet<Tentity> _set { get; set; }
+        private UnitOfWork.UnitOfWork _unit { get; set; }
 
         public GenericRepository()
         {
-            this.context = new StudentDBContext();
-            this.set = context.Set<Tentity>();
+            _context = new StudentDBContext();
+            _set = _context.Set<Tentity>();
         }
         public GenericRepository(UnitOfWork.UnitOfWork unit)
         {
-            this.unit = unit;
-            this.context = unit.context;
-            this.set = context.Set<Tentity>();
+            _unit = unit;
+            _context = unit.context;
+            _set = _context.Set<Tentity>();
         }
 
         public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter, int page = 1 , int pageSize = 1)
         {
-            IQueryable<Tentity> query = this.set;
+            IQueryable<Tentity> query = _set;
             if (filter != null)
             {
-                return this.set.Where(filter)
+                return _set.Where(filter)
                     .OrderBy(x => x.ID)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
@@ -40,7 +40,7 @@ namespace DataAcsess.Repository
             }
             else
             {
-                return this.set.OrderBy(x => x.ID)
+                return _set.OrderBy(x => x.ID)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize)
                     .ToList();
@@ -49,35 +49,35 @@ namespace DataAcsess.Repository
         }
         public IList<Tentity> GetAll()
         {
-            return this.set.ToList();
+            return _set.ToList();
         }
        
         public IList<Tentity>GetAll(Expression<Func<Tentity, bool>> filter)
         {
             if (filter != null)
             {
-                return this.set.Where(filter).ToList();
+                return _set.Where(filter).ToList();
             }
             else
             {
-                return this.set.ToList();
+                return _set.ToList();
             }
         }
 
         public Tentity GetByID(int? id)
         {
-            return this.set.Find(id);
+            return _set.Find(id);
         }
 
         public void Delete(Tentity entity)
         {
-            set.Remove(entity);
+            _set.Remove(entity);
             Updatestation(entity, EntityState.Deleted);
         }
 
         private void Add(Tentity entity)
         {
-            set.Add(entity);
+            _set.Add(entity);
             Updatestation(entity, EntityState.Added);
         }
 
@@ -101,9 +101,9 @@ namespace DataAcsess.Repository
 
         private void Updatestation(Tentity entity, EntityState state)
         {
-           var dbentry = this.context.Entry(entity);
+           var dbentry = _context.Entry(entity);
             dbentry.State = state;
-            context.SaveChanges();
+            _context.SaveChanges();
         }
 
         public void DeleteById(int id)
@@ -111,6 +111,7 @@ namespace DataAcsess.Repository
             Tentity entity = new Tentity();
             entity = GetByID(id);
             Delete(entity);
+            _context.SaveChanges();
         }
     }
 }

@@ -5,10 +5,15 @@ using SS.ScolarshipServise;
 
 namespace StudentSystem2016.Controllers
 {
+
     public class ScolarshipController
         :GenericController<Scholarship,ScolarshipEditVM, ScolarshipList, ScollarShipFilter, ScolarshipServise>
     {
-        
+        public override Scholarship PopulateEditItemToModel(ScolarshipEditVM model, Scholarship entity, int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override Scholarship PopulateItemToModel(ScolarshipEditVM model, Scholarship entity)
         {
             entity.Name = model.Name;

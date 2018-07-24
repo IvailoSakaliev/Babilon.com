@@ -23,14 +23,8 @@ namespace StudentSystem2016.VModels.Students
         [Required]
         public OKS OKS { get; set; }
 
-
         [Required]
-        [MaxLength(20)]
-        [MinLength(6)]
-        [Display(Name = "Confirm Password")]
-        [DataType(DataType.Password)]
         public string ConfirmPassword { get; set; }
-
         [Required]
         public Roles Role { get; set; }
 

@@ -1,7 +1,5 @@
 ﻿using DataAcsess.Models;
 using SS.GenericServise;
-using SS.SingInServise;
-using System;
 using System.Net;
 using System.Net.Mail;
 
@@ -9,43 +7,72 @@ namespace SS.EmailServise
 {
     public class EmailServise : BaseServise<SingIn>
     {
-        public SingIn User { get; set; }
+        public SingIn _admin;
         private SingInServise.SingInServise singIn = new SingInServise.SingInServise();
+        private string _userEmail;
+        private int _userID;
+        private SmtpClient _smtpClient;
+        private NetworkCredential _basicCredential;
+        private MailMessage _message;
+        private MailAddress _fromAddress;
 
         public EmailServise()
-            :base()
+            : base()
         {
 
         }
 
         public EmailServise(SingIn user)
         {
-            this.User = user;
+            _admin = GetDecriptedInformationForAdmin();
+            _userEmail = singIn.DencryptData(user.Email);
+            _userID = user.ID;
+            _smtpClient = new SmtpClient();
+            _basicCredential =
+                new NetworkCredential(_admin.Email, _admin.Password);
+            _message = new MailMessage();
+            _fromAddress = new MailAddress(_userEmail);
         }
 
-        public void SendConfirmEmail()
+        public void SendEmail(int mode)
         {
-            var admin = GetDecriptedInformationForAdmin();
-            string userEmail = singIn.DencryptData(User.Email);
+            _smtpClient.Host = "smtp.gmail.com";
+            _smtpClient.UseDefaultCredentials = false;
+            _smtpClient.Credentials = _basicCredential;
+            _smtpClient.EnableSsl = true;
+            _smtpClient.Port = 587;
 
-            SmtpClient smtpClient = new SmtpClient();
-            NetworkCredential basicCredential =
-                new NetworkCredential(admin.Email, admin.Password);
-            MailMessage message = new MailMessage();
-            MailAddress fromAddress = new MailAddress(userEmail);
+            _message.From = _fromAddress;
+            _message.IsBodyHtml = true;
 
-            smtpClient.Host = "smtp.gmail.com";
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = basicCredential;
-            smtpClient.EnableSsl = true;
-            smtpClient.Port = 587;
+            switch (mode)
+            {
+                case 1:
+                    SendConfirmEmail();
+                    break;
+                case 2:
+                    SendRestorPasswordEmail();
+                    break;
+                default:
+                    break;
+            }
 
-            message.From = fromAddress;
-            message.Subject = "Confirm registration";
-            message.IsBodyHtml = true;
-            message.Body = "Please to confirm your registration in StudentSystem http://studentsystem.azurewebsites.net/SingIN/Confirm/" + User.ID;
-            message.To.Add(userEmail);
-            smtpClient.Send(message);
+        }
+
+        private void SendRestorPasswordEmail()
+        {
+            _message.Subject = "Restor Password";
+            _message.Body = "Please enter link to restor your password in StudentSystem http://studentsystem.azurewebsites.net/SingIN/ChangePassword/" + _userID;
+            _message.To.Add(_userEmail);
+            _smtpClient.Send(_message);
+        }
+
+        private void SendConfirmEmail()
+        {
+            _message.Subject = "Confirm registration";
+            _message.Body = "Please to confirm your registration in StudentSystem http://studentsystem.azurewebsites.net/SingIN/Confirm/" + _userID;
+            _message.To.Add(_userEmail);
+            _smtpClient.Send(_message);
         }
 
         private SingIn GetDecriptedInformationForAdmin()

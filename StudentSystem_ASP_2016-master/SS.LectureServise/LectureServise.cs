@@ -23,7 +23,7 @@ namespace SS.LectureServise
         {
             Lecture lector = new Lecture();
             int login_id = id;
-            List<Lecture> list = repo.GetAll((u) => u.Login == login_id).ToList();
+            List<Lecture> list = _repo.GetAll((u) => u.Login == login_id).ToList();
             lector = list.Count > 0 ? list[0] : null;
             return lector;
         }

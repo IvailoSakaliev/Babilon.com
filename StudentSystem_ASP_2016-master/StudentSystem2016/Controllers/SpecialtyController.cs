@@ -20,6 +20,13 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
+        
+
+        public override Specialty PopulateEditItemToModel(EditVM model, Specialty entity, int id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override Specialty PopulateItemToModel(EditVM model, Specialty entity)
         {
             entity.Name = model.Name;

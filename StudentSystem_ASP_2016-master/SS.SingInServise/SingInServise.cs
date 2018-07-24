@@ -2,6 +2,7 @@
 using DataAcsess.UnitOfWork;
 using SS.GenericServise;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Security.Cryptography;
 using System.Text;
@@ -16,12 +17,12 @@ namespace SS.SingInServise
         public SingInServise()
             : base()
         {
-
+            
         }
         public SingInServise(UnitOfWork unit)
             : base(unit)
         {
-
+            
         }
         public void ConfirmedRegistration(int ? id)
         {
@@ -64,6 +65,27 @@ namespace SS.SingInServise
                     return UTF8Encoding.UTF8.GetString(result);
                 }
             }
+        }
+
+        public void ChangePassword(int id, string password)
+        {
+            var user = GetByID(id);
+            user.Password = EncryptData(password);
+            Save(user);
+        }
+
+        public SingIn ResetPassword(List<SingIn> users, string email)
+        {
+            string decriptedEmail;
+            for (int i = 0; i < users.Count; i++)
+            {
+                decriptedEmail = DencryptData(users[i].Email);
+                if (email == decriptedEmail)
+                {
+                    return users[i];
+                }
+            }
+            return null;
         }
     }
 }

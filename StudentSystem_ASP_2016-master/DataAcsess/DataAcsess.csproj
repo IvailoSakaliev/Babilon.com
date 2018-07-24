@@ -56,14 +56,6 @@
     <Compile Include="Enum\Roles.cs" />
     <Compile Include="Enum\SpecialtyName.cs" />
     <Compile Include="IStudentDBContext.cs" />
-    <Compile Include="Migrations\201803091250344_initialMigrations.cs" />
-    <Compile Include="Migrations\201803091250344_initialMigrations.Designer.cs">
-      <DependentUpon>201803091250344_initialMigrations.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201803300843325_updateUser.cs" />
-    <Compile Include="Migrations\201803300843325_updateUser.Designer.cs">
-      <DependentUpon>201803300843325_updateUser.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Facultet.cs" />
@@ -85,14 +77,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201803091250344_initialMigrations.resx">
-      <DependentUpon>201803091250344_initialMigrations.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201803300843325_updateUser.resx">
-      <DependentUpon>201803300843325_updateUser.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

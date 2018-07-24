@@ -22,7 +22,7 @@ namespace StudentSystem2016.VModels
         public string Email { get; set; }
 
         [Required]
-        [MinLength(10)]
+        [MinLength(6)]
         [MaxLength(10)]
         public string Username { get; set; }
 

@@ -22,13 +22,15 @@ namespace StudentSystem2016.Controllers
 
     {
         
-        public Tservise Servise { get; set; }
+        public Tservise _Servise { get; set; }
         public TEntity entity { get; set; }
         protected int login_id { get; set; }
+        private SingInServise _singin { get; set; }
 
         public GenericController()
         {
-            this.Servise = new Tservise();
+            _Servise = new Tservise();
+            _singin = new SingInServise();
         }
 
         [AuthenticationFilter]
@@ -49,7 +51,7 @@ namespace StudentSystem2016.Controllers
             itemVM.Pager.Controler = controllerName;
             itemVM.Pager.Action = actionname;
 
-            itemVM.Items = Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage, 10);
+            itemVM.Items = _Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage, 10);
             itemVM.Filter.Pager = itemVM.Pager;
             itemVM.Pager.Prefix = "Pager.";
             itemVM.Filter.Prefix = "Filter.";
@@ -75,16 +77,17 @@ namespace StudentSystem2016.Controllers
             Tservise servise = new Tservise();
             entity = servise.GetByID(id);
             model = PopulateModelToItem(entity, model);
-            servise.DeleteById(id);
+            //servise.DeleteById(id);
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Edit(TeidtVM model)
+        public ActionResult Edit(TeidtVM model, int id)
         {
             TEntity entity = new TEntity();
             Tservise servise = new Tservise();
-            entity = PopulateItemToModel(model, entity);
+            entity = PopulateEditItemToModel(model, entity, id);
+
             servise.Save(entity);
             return RedirectToAction("Index");
         }
@@ -108,16 +111,30 @@ namespace StudentSystem2016.Controllers
                 AuthenticationServise authenticate = new AuthenticationServise();
                 try
                 { 
-                    if (!CheckForExitedUserInDB(model))
+                    if (CheckForExitedUserInDB(model))
                     {
                         
                         SingIn register = new SingIn();
                         register = PopulateRegisterInfomationInModel(register, model);
-                        registerService.Save(register);
-                        authenticate.AuthenticateUser(register.Username , register.Password,2);
+                        if (register != null)
+                        {
+                            registerService.Save(register);
+                        }
+                        else
+                        {
+                            return View(model);
+                        }
+                        authenticate.AuthenticateUser(_singin.DencryptData(register.Username), _singin.DencryptData(register.Password),2);
                         this.login_id = authenticate.Login_id;
-                        EmailServise email = new EmailServise(register);
-                        email.SendConfirmEmail();
+                        //EmailServise email = new EmailServise(register);
+                        //email.SendEmail(1);
+                        entity = PopulateItemToModel(model, entity);
+                        Tservise servise = new Tservise();
+                        servise.Save(entity);
+                        if (nameOfModel == "Student")
+                        {
+                            return RedirectToAction("GoToConfirm");
+                        }
                     }
                     
                 }
@@ -127,13 +144,7 @@ namespace StudentSystem2016.Controllers
                 }
                 
             }
-            entity = PopulateItemToModel(model, entity);
-            Tservise servise = new Tservise();
-            servise.Save(entity);
-            if (nameOfModel == "Student")
-            {
-                return RedirectToAction("GoToConfirm");
-            }
+            
             return RedirectToAction("Index");
         }
 
@@ -144,7 +155,7 @@ namespace StudentSystem2016.Controllers
             
             TEntity entity = new TEntity();
             TeidtVM model = new TeidtVM();
-            entity = Servise.GetByID(id);
+            entity = _Servise.GetByID(id);
             model = PopulateModelToItem(entity, model);
             return View(model);
         }
@@ -158,7 +169,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Delete(int id)
         {
-            Servise.DeleteById(id);
+            _Servise.DeleteById(id);
             return RedirectToAction("Index");
         }
 
@@ -185,6 +196,7 @@ namespace StudentSystem2016.Controllers
         // abstract and viirtual classess 
         public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
         public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
+        public abstract TEntity PopulateEditItemToModel(TeidtVM model, TEntity entity, int id);
         public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
         {
             throw new NullReferenceException();

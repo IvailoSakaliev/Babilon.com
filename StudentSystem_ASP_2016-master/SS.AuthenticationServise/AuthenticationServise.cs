@@ -30,6 +30,8 @@ namespace SS.AuthenticationServise
                 if (decriptedUsername == username && decriptedPassword == password)
                 {
                     this.LoggedUser = item;
+                    AddSession(state);
+                    return;
                 }
                 else
                 {
@@ -38,6 +40,11 @@ namespace SS.AuthenticationServise
             }
             
             
+            
+        }
+
+        private void AddSession(int state)
+        {
             if (this.LoggedUser != null)
             {
                 if (state == 1)
@@ -53,7 +60,6 @@ namespace SS.AuthenticationServise
                 }
             }
         }
-
         private void ReturnIdFromUser()
         {
             this.Login_id = LoggedUser.ID;

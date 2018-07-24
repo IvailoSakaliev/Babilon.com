@@ -8,7 +8,10 @@ namespace StudentSystem2016.Controllers
     public class SubjectController 
         :GenericController<Subject, EditVM, SubjectList, SubjectFilter, SubjectServise> 
     {
-       
+        public override Subject PopulateEditItemToModel(EditVM model, Subject entity, int id)
+        {
+            throw new System.NotImplementedException();
+        }
 
         public override Subject PopulateItemToModel(EditVM model, Subject entity)
         {

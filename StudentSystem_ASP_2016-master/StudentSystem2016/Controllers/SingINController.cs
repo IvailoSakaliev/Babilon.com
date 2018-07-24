@@ -5,11 +5,13 @@ using System.Web.Mvc;
 using StudentSystem2016.VModels.Students;
 using SS.SingInServise;
 using SS.AuthenticationServise;
+using System.Collections.Generic;
+using SS.EmailServise;
 
 namespace StudentSystem2016.Controllers
 {
     public class SingINController
-        :GenericController<SingIn,EditVM, LoginList, LoginFilter, SingInServise>
+        : GenericController<SingIn, EditVM, LoginList, LoginFilter, SingInServise>
     {
         AuthenticationServise authenticateService = new AuthenticationServise();
         SingInServise singin = new SingInServise();
@@ -21,19 +23,19 @@ namespace StudentSystem2016.Controllers
             return View(login);
         }
         [HttpGet]
-        public ActionResult Confirm(int ? id)
+        public ActionResult Confirm(int? id)
         {
             SingInServise servise = new SingInServise();
             servise.ConfirmedRegistration(id);
             return View();
         }
 
-        
-        
+
+
         [HttpPost]
         public ActionResult Login(LoginVM model)
         {
-            authenticateService.AuthenticateUser(model.UserName,model.Password,1);
+            authenticateService.AuthenticateUser(model.UserName, model.Password, 1);
             if (authenticateService.LoggedUser == null)
             {
                 model = new LoginVM();
@@ -50,10 +52,49 @@ namespace StudentSystem2016.Controllers
                     return Redirect("../");
                 }
             }
-            
-            
-
         }
+
+        [HttpGet]
+        public ActionResult EmailForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult EmailForgotPassword(string email)
+        {
+            List<SingIn> users = singin.GetAll();
+            var user = singin.ResetPassword(users, email);
+            EmailServise emailServise = new EmailServise(user);
+            emailServise.SendEmail(2);
+            return View("GoToEmail");
+        }
+
+        [HttpGet]
+        public ActionResult GoTOEmail()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult ChangePassword(int? id)
+        {
+            Session["ChangePasswordUserID"] = id;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ChangePassword(string password, string confirmPassword)
+        {
+            if (password != confirmPassword)
+            {
+                return View();
+            }
+            singin.ChangePassword((int)Session["ChangePasswordUserID"], password);
+            return Redirect("../Login");
+        }
+
+        //back-end function
         public ActionResult Logout()
         {
             authenticateService.LoggOut();
@@ -106,6 +147,11 @@ namespace StudentSystem2016.Controllers
                 return true;
             }
             return false;
+        }
+
+        public override SingIn PopulateEditItemToModel(EditVM model, SingIn entity, int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

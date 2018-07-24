@@ -27,7 +27,7 @@ namespace SS.StudentServise
         public Student GetByloginID(int id)
         {
             Student student = new Student();
-            List<Student> list = repo.GetAll((u) => u.Login == id).ToList();
+            List<Student> list = _repo.GetAll((u) => u.Login == id).ToList();
             student = list.Count > 0 ? list[0] : null;
             return student;
         }

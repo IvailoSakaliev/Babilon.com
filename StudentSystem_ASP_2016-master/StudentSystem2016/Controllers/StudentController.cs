@@ -8,6 +8,7 @@ using StudentSystem2016.Authentication;
 using SS.AuthenticationServise;
 using SS.StudentServise;
 using SS.SingInServise;
+using static System.Collections.Specialized.BitVector32;
 
 namespace StudentSystem2016.Controllers
 {
@@ -40,16 +41,19 @@ namespace StudentSystem2016.Controllers
             return View("Details", model);
         }
 
-        public override Student PopulateItemToModel(EditVM model, Student entity)
+        public override Student PopulateEditItemToModel(EditVM model, Student entity, int id)
         {
             try
             {
+                entity.ID = id;
                 entity.Name = model.Name;
                 entity.LastName = model.LastName;
                 entity.Email = model.Email;
                 entity.Course = int.Parse(model.Course);
                 entity.Groups = int.Parse(model.Groups);
-                entity.Login = base.login_id;
+                entity.Login = (int)Session["loginID"];
+               
+
             }
             catch (NullReferenceException)
             {
@@ -58,7 +62,26 @@ namespace StudentSystem2016.Controllers
 
             return entity;
         }
+        public override Student PopulateItemToModel(EditVM model, Student entity)
+        {
+            try
+            {
+                
+                entity.Name = model.Name;
+                entity.LastName = model.LastName;
+                entity.Email = model.Email;
+                entity.Course = int.Parse(model.Course);
+                entity.Groups = int.Parse(model.Groups);
+                entity.Login = base.login_id;
 
+            }
+            catch (NullReferenceException)
+            {
+
+            }
+
+            return entity;
+        }
         public override EditVM PopulateModelToItem(Student entity, EditVM model)
         {
             try
@@ -69,8 +92,7 @@ namespace StudentSystem2016.Controllers
                 model.Email = entity.Email;
                 model.Groups =entity.Groups.ToString();
                 model.OKS = entity.OKS;
-
-                
+                Session["loginID"] = entity.Login;
             }
             catch (NullReferenceException)
             {
@@ -84,10 +106,14 @@ namespace StudentSystem2016.Controllers
             entity.LastName = singin.EncryptData(model.LastName);
             entity.Email = singin.EncryptData(model.Email);
             entity.Username = singin.EncryptData(model.Username);
-
+            
             if (model.Password == model.ConfirmPassword)
             {
                 entity.Password = singin.EncryptData(model.Password);
+            }
+            else
+            {
+                entity = null;
             }
            
             if (model.Role != Roles.Student)
@@ -105,9 +131,9 @@ namespace StudentSystem2016.Controllers
             authenticateService.AuthenticateUser(model.Username, model.Password,1);
             if (authenticateService.LoggedUser != null)
             {
-                return true;
+                return false;
             }
-            return false;
+            return true;
         }
     }
 }

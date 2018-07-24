@@ -9,50 +9,54 @@ namespace SS.GenericServise
 {
     public class BaseServise<TEntity> where TEntity : BaseModel, new()
         {
-            public GenericRepository<TEntity> repo { get; set; }
+            public GenericRepository<TEntity> _repo { get; set; }
             public UnitOfWork unit;
 
             public BaseServise()
             {
-                this.repo = new GenericRepository<TEntity>(new UnitOfWork());
+                _repo = new GenericRepository<TEntity>(new UnitOfWork());
                 this.unit = new UnitOfWork();
             }
 
             public BaseServise(UnitOfWork unit)
             {
-                this.repo = new GenericRepository<TEntity>(unit);
+                _repo = new GenericRepository<TEntity>(unit);
                 this.unit = unit;
+            }
+            public List<SingIn> GetAll()
+            {
+                return (List<SingIn>)_repo.GetAll();
             }
 
             public IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, int page = 1, int pageSize = 1)
             {
-                return this.repo.GetAll(filter, page, pageSize);
+                return _repo.GetAll(filter, page, pageSize);
             }
 
             public TEntity GetByID(int? id)
             {
-                return this.repo.GetByID(id);
+                return _repo.GetByID(id);
             }
 
 
             public void Save(TEntity entity)
             {
-                try
-                {
-                    this.repo.Save(entity);
+                //try
+                //{
+                    _repo.Save(entity);
                     this.unit.Commit();
-                }
-                catch (Exception)
-                {
-                    this.unit.Rowback();
-                }
+                //}
+                //catch (Exception)
+                //{
+                //    this.unit.Rowback();
+                //}
             }
 
             public void Delete(TEntity entity)
             {
                 try
                 {
-                    this.repo.Delete(entity);
+                    _repo.Delete(entity);
                     this.unit.Commit();
                 }
                 catch (Exception)
@@ -64,7 +68,7 @@ namespace SS.GenericServise
             {
                 try
                 {
-                    this.repo.DeleteById(id);
+                    _repo.DeleteById(id);
                     this.unit.Commit();
                 }
                 catch (Exception)
