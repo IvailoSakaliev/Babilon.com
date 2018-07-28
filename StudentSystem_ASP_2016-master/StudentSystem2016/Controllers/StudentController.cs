@@ -30,6 +30,7 @@ namespace StudentSystem2016.Controllers
         {
             return View();
         }
+
         [HttpGet]
         [AuthenticationFilter]
         public ActionResult DetailsID(int id)
@@ -62,6 +63,7 @@ namespace StudentSystem2016.Controllers
 
             return entity;
         }
+
         public override Student PopulateItemToModel(EditVM model, Student entity)
         {
             try
@@ -82,6 +84,7 @@ namespace StudentSystem2016.Controllers
 
             return entity;
         }
+
         public override EditVM PopulateModelToItem(Student entity, EditVM model)
         {
             try
@@ -100,6 +103,7 @@ namespace StudentSystem2016.Controllers
             }
             return model;
         }
+
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, EditVM model)
         {
             entity.Name = singin.EncryptData(model.Name);
@@ -126,6 +130,7 @@ namespace StudentSystem2016.Controllers
             }
             return entity;
         }
+
         public override bool CheckForExitedUserInDB(EditVM model)
         {
             authenticateService.AuthenticateUser(model.Username, model.Password,1);

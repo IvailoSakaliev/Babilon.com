@@ -266,6 +266,7 @@
     <Content Include="Views\SingIN\GoToEmail.cshtml" />
     <Content Include="Views\SingIN\ChangePassword.cshtml" />
     <Content Include="Web.config" />
+    <Content Include="Views\Shared\_PagerView.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

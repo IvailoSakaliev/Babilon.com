@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAcsess.Models.Lecture>
+﻿@model StudentSystem2016.VModels.Lectures.LectorList
 
 @{
     ViewBag.Title = "Lectors";
@@ -11,24 +11,24 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+           Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.LastName)
+            Last Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            Email
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Kabinet)
+            Kabinet
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Mobile)
+            Mobile
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model.Items)
     {
         <tr>
             <td>
@@ -69,3 +69,8 @@
     }
 
 </table>
+
+<div style="text-align:right">
+    @Html.Partial("~/Views/Shared/_PagerView.cshtml", Model.Pager
+    )
+</div>

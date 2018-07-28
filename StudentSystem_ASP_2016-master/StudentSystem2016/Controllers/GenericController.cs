@@ -40,7 +40,7 @@ namespace StudentSystem2016.Controllers
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
             PopulateIndex(itemVM);
-            return View(itemVM.Items);
+            return View(itemVM);
         }
 
         protected virtual void PopulateIndex(TlistVM itemVM)
@@ -51,7 +51,7 @@ namespace StudentSystem2016.Controllers
             itemVM.Pager.Controler = controllerName;
             itemVM.Pager.Action = actionname;
 
-            itemVM.Items = _Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage, 10);
+            itemVM.Items = _Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage,10);
             itemVM.Filter.Pager = itemVM.Pager;
             itemVM.Pager.Prefix = "Pager.";
             itemVM.Filter.Prefix = "Filter.";
@@ -87,7 +87,6 @@ namespace StudentSystem2016.Controllers
             TEntity entity = new TEntity();
             Tservise servise = new Tservise();
             entity = PopulateEditItemToModel(model, entity, id);
-
             servise.Save(entity);
             return RedirectToAction("Index");
         }
@@ -126,13 +125,13 @@ namespace StudentSystem2016.Controllers
                         }
                         authenticate.AuthenticateUser(_singin.DencryptData(register.Username), _singin.DencryptData(register.Password),2);
                         this.login_id = authenticate.Login_id;
-                        //EmailServise email = new EmailServise(register);
-                        //email.SendEmail(1);
                         entity = PopulateItemToModel(model, entity);
                         Tservise servise = new Tservise();
                         servise.Save(entity);
                         if (nameOfModel == "Student")
                         {
+                            EmailServise email = new EmailServise(register);
+                            email.SendEmail(1);
                             return RedirectToAction("GoToConfirm");
                         }
                     }

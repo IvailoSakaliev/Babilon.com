@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DataAcsess.Models.Specialty>
+﻿@model StudentSystem2016.VModels.Specialties.SpecialtyList
 
 @{
     ViewBag.Title = "Specialty";
@@ -10,21 +10,21 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.YearOFStudy)
+            Year of study
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Inspector)
+            inspector
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.OKS)
+            OKS
         </th>
         <th></th>
     </tr>
-        @foreach (var item in Model)
-        {
+    @foreach (var item in Model.Items)
+    {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
@@ -39,7 +39,7 @@
                 @Html.DisplayFor(modelItem => item.OKS)
             </td>
             <td>
-               @if (HttpContext.Current.Session["LoggedUser"] != null)
+                @if (HttpContext.Current.Session["LoggedUser"] != null)
                 {
                     string sessionUser = HttpContext.Current.Session["LoggedUser"].ToString();
                     if (sessionUser == "1")
@@ -47,15 +47,18 @@
                         <span>@Html.ActionLink("Edit", "Edit", new { id = item.ID }) |</span>
                         <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
                         <span>@Html.ActionLink("Delete", "Delete", new { id = item.ID })</span>
-                   }
-                   else if (sessionUser == "2" || sessionUser == "3")
-                   {
-                    <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
-                   }
+                    }
+                    else if (sessionUser == "2" || sessionUser == "3")
+                    {
+                        <span>@Html.ActionLink("Details", "Details", new { id = item.ID }) |</span>
+                    }
 
-               }
+                }
             </td>
         </tr>
-        }
+    }
 
-    </table>
+</table>
+<div style="text-align:right">
+    @Html.Partial("~/Views/Shared/_PagerView.cshtml", Model.Pager)
+</div>

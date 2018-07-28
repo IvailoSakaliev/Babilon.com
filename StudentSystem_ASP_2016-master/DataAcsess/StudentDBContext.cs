@@ -22,7 +22,8 @@ namespace DataAcsess
         public DbSet<SingIn> SingIns { get; set; }
         public DbSet<Facultet> Facultets { get; set; }
         public DbSet<Lecture> Lecturs { get; set; }
-        
+        public DbSet<SpecialtySubject> SubjectSpecialty { get; set; }
+
         public new void SaveChanges()
         {
             base.SaveChanges();

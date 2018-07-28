@@ -25,3 +25,4 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\S
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.csproj.CopyComplete
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\SS.SpecialtyServise\obj\Debug\SS.SpecialtyServise.csprojAssemblyReference.cache
