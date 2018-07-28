@@ -2,6 +2,7 @@
 using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Subjects;
 using SS.SubjectServise;
+using System.Collections.Generic;
 
 namespace StudentSystem2016.Controllers
 {
@@ -27,6 +28,14 @@ namespace StudentSystem2016.Controllers
             model.Course = entity.Course.ToString();
             model.Semester = entity.Semester.ToString();
             return model;
+        }
+        
+        public override void PopulateSpecialtyList(List<Specialty> listEntity, EditVM model)
+        {
+            for (int i = 0; i < listEntity.Count - 1; i++)
+            {
+                model.Specialties.Add(listEntity[i]);
+            }
         }
     }
 }

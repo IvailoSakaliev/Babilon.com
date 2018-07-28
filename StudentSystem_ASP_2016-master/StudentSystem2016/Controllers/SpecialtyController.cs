@@ -3,6 +3,7 @@ using StudentSystem2016.Filters.Entityfilters;
 using StudentSystem2016.VModels.Specialties;
 using System.Web.Mvc;
 using SS.SpecilatyServise;
+using System.Collections.Generic;
 
 namespace StudentSystem2016.Controllers
 {
@@ -43,6 +44,13 @@ namespace StudentSystem2016.Controllers
             model.OKS = entity.OKS;
             model.YearOFStudy = entity.YearOFStudy.ToString();
             return model;
+        }
+        public override void PopulateFacultetList(List<Facultet> facultets, EditVM model)
+        {
+            for (int i = 0; i < facultets.Count - 1; i++)
+            {
+                model.Facultet.Add(facultets[i]);
+            }
         }
     }
 }

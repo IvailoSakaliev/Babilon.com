@@ -23,6 +23,9 @@ namespace StudentSystem2016.Controllers
         {
 
         }
+
+        
+
         [HttpGet]
         [AuthenticationFilter]
         public ActionResult DetailsID(int id)
@@ -33,6 +36,7 @@ namespace StudentSystem2016.Controllers
             model = PopulateModelToItem(entity, model);
             return View("Details", model);
         }
+
         public override LectorEditVM PopulateModelToItem(Lecture entity, LectorEditVM model)
         {
             model.Name = entity.Name;
@@ -53,6 +57,7 @@ namespace StudentSystem2016.Controllers
             entity.Login = base.login_id;
             return entity;
         }
+
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, LectorEditVM model)
         {
             entity.Name = model.Name;
@@ -63,6 +68,7 @@ namespace StudentSystem2016.Controllers
             entity.Role = 3;
             return entity;
         }
+
         public override bool CheckForExitedUserInDB(LectorEditVM model)
         {
             authenticateService.AuthenticateUser(model.Username, model.Password, 1);

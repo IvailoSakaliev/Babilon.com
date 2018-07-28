@@ -9,6 +9,9 @@ using SS.GenericServise;
 using SS.AuthenticationServise;
 using SS.SingInServise;
 using SS.EmailServise;
+using SS.SpecialtyServise;
+using System.Collections.Generic;
+using SS.FacultelServise;
 
 namespace StudentSystem2016.Controllers
 {
@@ -18,8 +21,6 @@ namespace StudentSystem2016.Controllers
         where Tfilter: GenericFiler<TEntity> , new()
         where TlistVM : GenericList<TEntity, Tfilter>, new()
         where Tservise: BaseServise<TEntity> , new()
-    
-
     {
         
         public Tservise _Servise { get; set; }
@@ -77,7 +78,6 @@ namespace StudentSystem2016.Controllers
             Tservise servise = new Tservise();
             entity = servise.GetByID(id);
             model = PopulateModelToItem(entity, model);
-            //servise.DeleteById(id);
             return View(model);
         }
 
@@ -95,6 +95,20 @@ namespace StudentSystem2016.Controllers
         public ActionResult Add()
         {
             TeidtVM model = new TeidtVM();
+            string nameOfModel = entity.GetType().Name;
+            if (nameOfModel == "Subject")
+            {
+                SpecialtyServise spec = new SpecialtyServise();
+                var listEntity = spec.GetAll();
+                PopulateSpecialtyList(listEntity, model);
+            }
+            if (nameOfModel == "Specialty")
+            {
+                FacultetServise servise = new FacultetServise();
+                var facultets = servise.GetAll();
+                PopulateFacultetList(facultets, model);
+
+            }
             return View(model);
         }
 
@@ -151,7 +165,6 @@ namespace StudentSystem2016.Controllers
         [AuthenticationFilter]
         public ActionResult Details(int id)
         {
-            
             TEntity entity = new TEntity();
             TeidtVM model = new TeidtVM();
             entity = _Servise.GetByID(id);
@@ -196,6 +209,14 @@ namespace StudentSystem2016.Controllers
         public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
         public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
         public abstract TEntity PopulateEditItemToModel(TeidtVM model, TEntity entity, int id);
+        public virtual void PopulateSpecialtyList(List<Specialty> listEntity, TeidtVM model)
+        {
+            throw new NullReferenceException();
+        }
+        public virtual void PopulateFacultetList(List<Facultet> facultets, TeidtVM model)
+        {
+            throw new NotImplementedException();
+        }
         public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
         {
             throw new NullReferenceException();

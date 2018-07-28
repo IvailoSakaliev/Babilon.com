@@ -23,9 +23,9 @@ namespace SS.GenericServise
                 _repo = new GenericRepository<TEntity>(unit);
                 this.unit = unit;
             }
-            public List<SingIn> GetAll()
+            public List<TEntity> GetAll()
             {
-                return (List<SingIn>)_repo.GetAll();
+                return (List<TEntity>)_repo.GetAll();
             }
 
             public IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null, int page = 1, int pageSize = 1)
