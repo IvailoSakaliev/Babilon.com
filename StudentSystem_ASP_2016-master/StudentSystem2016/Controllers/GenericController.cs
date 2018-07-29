@@ -92,13 +92,14 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
+        [AuthenticationFilter]
         public ActionResult Add()
         {
             TeidtVM model = new TeidtVM();
             string nameOfController = GetControlerName();
             try
             {
-                if (nameOfController == "Student")
+                if (nameOfController == "Student" || nameOfController == "Subject")
                 {
                     model = PopilateSelectListIthem(model);
                 }
@@ -114,7 +115,6 @@ namespace StudentSystem2016.Controllers
         
 
         [HttpPost]
-        [AuthenticationFilter]
         public ActionResult Add(TeidtVM model)
         {
             TEntity entity = new TEntity();
@@ -140,9 +140,7 @@ namespace StudentSystem2016.Controllers
                         }
                         authenticate.AuthenticateUser(_singin.DencryptData(register.Username), _singin.DencryptData(register.Password),2);
                         this.login_id = authenticate.Login_id;
-                        entity = PopulateItemToModel(model, entity);
-                        Tservise servise = new Tservise();
-                        servise.Save(entity);
+                        AddInformation(entity, model);
                         if (nameOfModel == "Student")
                         {
                             EmailServise email = new EmailServise(register);
@@ -158,8 +156,15 @@ namespace StudentSystem2016.Controllers
                 }
                 
             }
-            
+            AddInformation(entity, model);
             return RedirectToAction("Index");
+        }
+
+        private void AddInformation(TEntity entity, TeidtVM model)
+        {
+            entity = PopulateItemToModel(model, entity);
+            Tservise servise = new Tservise();
+            servise.Save(entity);
         }
 
         [HttpGet]

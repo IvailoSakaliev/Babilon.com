@@ -4,13 +4,14 @@ using StudentSystem2016.VModels.Specialties;
 using System.Web.Mvc;
 using SS.SpecilatyServise;
 using System.Collections.Generic;
+using StudentSystem2016.Authentication;
 
 namespace StudentSystem2016.Controllers
 {
     public class SpecialtyController 
         :GenericController<Specialty,EditVM, SpecialtyList, SpecialtyFilter, SpecilatyServise>
     {
-
+        [AuthenticationFilter]
         public ActionResult DetailForStudentSpecilty(int? id)
         {
             SpecilatyServise servise = new SpecilatyServise();
