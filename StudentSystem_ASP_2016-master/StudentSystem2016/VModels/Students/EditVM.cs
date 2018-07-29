@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace StudentSystem2016.VModels.Students
 {
@@ -29,7 +30,7 @@ namespace StudentSystem2016.VModels.Students
         public Roles Role { get; set; }
 
         [Required]
-        public SpecialtyName Specialty { get; set; }
+        public IEnumerable<SelectListItem>  Specialty { get; set; }
 
         public int login_id { get; set; }
 

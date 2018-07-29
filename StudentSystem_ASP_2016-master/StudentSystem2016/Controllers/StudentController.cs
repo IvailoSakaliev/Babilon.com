@@ -9,6 +9,8 @@ using SS.AuthenticationServise;
 using SS.StudentServise;
 using SS.SingInServise;
 using static System.Collections.Specialized.BitVector32;
+using System.Collections.Generic;
+using SS.SpecialtyServise;
 
 namespace StudentSystem2016.Controllers
 {
@@ -140,6 +142,29 @@ namespace StudentSystem2016.Controllers
                 return false;
             }
             return true;
+        }
+
+        // ithem list specialty
+        private IEnumerable<SelectListItem> GetSelectedListIthem(List<Specialty> result)
+        {
+            var selectedList = new List<SelectListItem>();
+            for (int i = 0; i < result.Count; i++)
+            {
+                selectedList.Add(new SelectListItem
+                {
+                    Value = result[i].ID.ToString(),
+                    Text = result[i].Name.ToString()
+                });
+            }
+
+            return selectedList;
+        }
+        public override EditVM PopilateSelectListIthem(EditVM model)
+        {
+            SpecialtyServise spec = new SpecialtyServise();
+            var result = spec.GetAll();
+            model.Specialty = GetSelectedListIthem(result);
+            return model;
         }
     }
 }

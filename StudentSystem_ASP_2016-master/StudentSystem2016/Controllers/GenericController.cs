@@ -46,7 +46,7 @@ namespace StudentSystem2016.Controllers
 
         protected virtual void PopulateIndex(TlistVM itemVM)
         {
-            string controllerName = GerControlerName();
+            string controllerName = GetControlerName();
             string actionname = GetActionName();
 
             itemVM.Pager.Controler = controllerName;
@@ -64,7 +64,7 @@ namespace StudentSystem2016.Controllers
             return this.ControllerContext.RouteData.Values["action"].ToString();
         }
 
-        private string GerControlerName()
+        private string GetControlerName()
         {
             return this.ControllerContext.RouteData.Values["controller"].ToString();
         }
@@ -95,22 +95,23 @@ namespace StudentSystem2016.Controllers
         public ActionResult Add()
         {
             TeidtVM model = new TeidtVM();
-            string nameOfModel = entity.GetType().Name;
-            if (nameOfModel == "Subject")
+            string nameOfController = GetControlerName();
+            try
             {
-                SpecialtyServise spec = new SpecialtyServise();
-                var listEntity = spec.GetAll();
-                PopulateSpecialtyList(listEntity, model);
+                if (nameOfController == "Student")
+                {
+                    model = PopilateSelectListIthem(model);
+                }
             }
-            if (nameOfModel == "Specialty")
+            catch (NullReferenceException)
             {
-                FacultetServise servise = new FacultetServise();
-                var facultets = servise.GetAll();
-                PopulateFacultetList(facultets, model);
 
+                throw;
             }
             return View(model);
         }
+
+        
 
         [HttpPost]
         [AuthenticationFilter]
@@ -209,13 +210,9 @@ namespace StudentSystem2016.Controllers
         public abstract TEntity PopulateItemToModel(TeidtVM model, TEntity entity);
         public abstract TeidtVM PopulateModelToItem(TEntity entity, TeidtVM model);
         public abstract TEntity PopulateEditItemToModel(TeidtVM model, TEntity entity, int id);
-        public virtual void PopulateSpecialtyList(List<Specialty> listEntity, TeidtVM model)
+        public virtual TeidtVM PopilateSelectListIthem(TeidtVM model)
         {
             throw new NullReferenceException();
-        }
-        public virtual void PopulateFacultetList(List<Facultet> facultets, TeidtVM model)
-        {
-            throw new NotImplementedException();
         }
         public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
         {

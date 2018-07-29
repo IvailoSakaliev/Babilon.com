@@ -336,3 +336,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\S
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\StudentSystem2016.dll.config
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.FacultelServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecialtyServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.FacultelServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecialtyServise.pdb

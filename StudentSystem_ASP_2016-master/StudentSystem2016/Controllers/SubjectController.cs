@@ -30,12 +30,6 @@ namespace StudentSystem2016.Controllers
             return model;
         }
         
-        public override void PopulateSpecialtyList(List<Specialty> listEntity, EditVM model)
-        {
-            for (int i = 0; i < listEntity.Count - 1; i++)
-            {
-                model.Specialties.Add(listEntity[i]);
-            }
-        }
+        
     }
 }

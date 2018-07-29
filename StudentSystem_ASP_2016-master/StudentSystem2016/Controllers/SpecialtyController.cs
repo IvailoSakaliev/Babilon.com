@@ -45,12 +45,6 @@ namespace StudentSystem2016.Controllers
             model.YearOFStudy = entity.YearOFStudy.ToString();
             return model;
         }
-        public override void PopulateFacultetList(List<Facultet> facultets, EditVM model)
-        {
-            for (int i = 0; i < facultets.Count - 1; i++)
-            {
-                model.Facultet.Add(facultets[i]);
-            }
-        }
+       
     }
 }
