@@ -249,7 +249,7 @@
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Subject\Add.cshtml" />
+    <Content Include="Views\Subject\AddSubject.cshtml" />
     <Content Include="Views\Subject\Details.cshtml" />
     <Content Include="Views\Subject\Edit.cshtml" />
     <Content Include="Views\Subject\Index.cshtml" />
@@ -323,6 +323,10 @@
     <ProjectReference Include="..\SS.SpecialtyServise\SS.SpecialtyServise.csproj">
       <Project>{4839E1E7-0CC4-4F0A-BEED-A17C96BFB213}</Project>
       <Name>SS.SpecialtyServise</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SS.SpecialtySubject\SS.SpecialtySubjectServise.csproj">
+      <Project>{6EAB8EF9-E7A9-41F3-86E1-6909510D0C87}</Project>
+      <Name>SS.SpecialtySubjectServise</Name>
     </ProjectReference>
     <ProjectReference Include="..\SS.SpecilatyServise\SS.SpecilatyServise.csproj">
       <Project>{EC3DDD38-35DB-4BCF-9145-110AC7B4E891}</Project>

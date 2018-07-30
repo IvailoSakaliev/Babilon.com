@@ -9,7 +9,7 @@ namespace DataAcsess.Repository
 {
     public class GenericRepository<Tentity> 
         :IGenericRepository<Tentity> where Tentity
-            :BaseModel,new()
+            :Parent,new()
     {
         private IStudentDBContext _context { get; set; }
         protected IDbSet<Tentity> _set { get; set; }

@@ -9,9 +9,9 @@ namespace DataAcsess.Models
 {
    
     public class BaseModel
+        :Parent
     {
-        [Key]
-        public int ID { get; set; }
+        
         public string Name { get; set; }
     }
 }

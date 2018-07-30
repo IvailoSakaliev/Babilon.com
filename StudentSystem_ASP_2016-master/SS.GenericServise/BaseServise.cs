@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace SS.GenericServise
 {
-    public class BaseServise<TEntity> where TEntity : BaseModel, new()
+    public class BaseServise<TEntity> where TEntity : Parent, new()
         {
             public GenericRepository<TEntity> _repo { get; set; }
             public UnitOfWork unit;

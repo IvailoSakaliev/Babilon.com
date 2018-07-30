@@ -99,9 +99,14 @@ namespace StudentSystem2016.Controllers
             string nameOfController = GetControlerName();
             try
             {
-                if (nameOfController == "Student" || nameOfController == "Subject")
+                if (nameOfController == "Subject")
+                {
+                    return RedirectToAction("AddSubject");
+                }
+                if (nameOfController == "Student" )
                 {
                     model = PopilateSelectListIthem(model);
+                   
                 }
             }
             catch (NullReferenceException)

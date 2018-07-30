@@ -13,7 +13,7 @@ namespace StudentSystem2016.VModels.Specialties
         public int ID { get; set; }
         [Required]
         [MinLength(3)]
-        [MaxLength(20)]
+        [MaxLength(200)]
         [Display(Name = "Specialties")]
         public string Name { get; set; }
 
