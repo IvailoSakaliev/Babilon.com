@@ -58,6 +58,7 @@
     <Compile Include="IStudentDBContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Evaluation.cs" />
     <Compile Include="Models\Facultet.cs" />
     <Compile Include="Models\Lecture.cs" />
     <Compile Include="Models\Parent.cs" />

@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.EmailServise", "SS.Email
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.SpecialtySubjectServise", "SS.SpecialtySubject\SS.SpecialtySubjectServise.csproj", "{6EAB8EF9-E7A9-41F3-86E1-6909510D0C87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SS.EvaluationServise", "SS.EvaluationServise\SS.EvaluationServise.csproj", "{9F86D67F-8329-45A3-9654-DB7DD22D0584}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{6EAB8EF9-E7A9-41F3-86E1-6909510D0C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EAB8EF9-E7A9-41F3-86E1-6909510D0C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EAB8EF9-E7A9-41F3-86E1-6909510D0C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F86D67F-8329-45A3-9654-DB7DD22D0584}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F86D67F-8329-45A3-9654-DB7DD22D0584}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F86D67F-8329-45A3-9654-DB7DD22D0584}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F86D67F-8329-45A3-9654-DB7DD22D0584}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
