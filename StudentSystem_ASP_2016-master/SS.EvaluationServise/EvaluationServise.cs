@@ -10,19 +10,17 @@ using System.Threading.Tasks;
 namespace SS.EvaluationServise
 {
     public class EvaluationServise
-        :BaseServise<Evaluation>
+        : BaseServise<Evaluation>
     {
         public EvaluationServise()
-            :base()
+            : base()
         {
 
         }
         public EvaluationServise(UnitOfWork unit)
-            :base(unit)
+            : base(unit)
         {
 
         }
     }
-
-    
 }

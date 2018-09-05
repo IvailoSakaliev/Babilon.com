@@ -11,7 +11,7 @@ using SS.SpecialtyServise;
 namespace StudentSystem2016.Controllers
 {
     public class SubjectController
-        : GenericController<Subject, EditVM, SubjectList, SubjectFilter, SubjectServise>
+        : GenericController<Subject, EditVM, SubjectList, SubjectFilter, SubjectServises>
     {
         
         public override Subject PopulateEditItemToModel(EditVM model, Subject entity, int id)
@@ -30,16 +30,16 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult AddSubject(EditVM model)
         {
-            string idSpecialty = Request.Form["specialty"].ToString(); ;
+            string idSpecialty = Request.Form["specialty"].ToString(); 
             Add(model);
             AddSubjetcWithSpecialty(idSpecialty);
-            return View(model);
+            return RedirectToAction("AddSubject");
         }
 
         private void AddSubjetcWithSpecialty(string id)
         {
-            SpecialtySubjectServise servise = new SpecialtySubjectServise();
-            SubjectServise serviseSubject = new SubjectServise();
+            SpecialtySubjectServises servise = new SpecialtySubjectServises();
+            SubjectServises serviseSubject = new SubjectServises();
             SpecialtySubject entity = new SpecialtySubject();
             var subjects = serviseSubject.GetAll();
             entity = PopulateSubjectSpecialtyModel(entity,subjects, id);
@@ -88,7 +88,7 @@ namespace StudentSystem2016.Controllers
 
         public override EditVM PopilateSelectListIthem(EditVM model)
         {
-            SpecialtyServise spec = new SpecialtyServise();
+            SpecialtyServises spec = new SpecialtyServises();
             var result = spec.GetAll();
             model.Specialty = GetSelectedListIthem(result);
             return model;

@@ -2,20 +2,19 @@
 using DataAcsess.UnitOfWork;
 using SS.GenericServise;
 
-namespace SS.SpecilatyServise
+namespace SS.SpecialtyServise
 {
-    public class SpecilatyServise : BaseServise<Specialty>
+    public class SpecialtyServises : BaseServise<Specialty>
     {
-        public SpecilatyServise()
+        public SpecialtyServises()
             : base()
         {
 
         }
-        public SpecilatyServise(UnitOfWork unit)
+        public SpecialtyServises(UnitOfWork unit)
             : base(unit)
         {
 
         }
-         
     }
 }

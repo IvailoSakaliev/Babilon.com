@@ -14,9 +14,9 @@ namespace StudentSystem2016.Controllers
             LectorEditVM,
             LectorList, 
             LectorFilter,
-            LectureServise>
+            LectureServises>
     {
-        AuthenticationServise authenticateService = new AuthenticationServise();
+        AuthenticationServises authenticateService = new AuthenticationServises();
 
         public LectorController()
             :base()
@@ -30,7 +30,7 @@ namespace StudentSystem2016.Controllers
         [AuthenticationFilter]
         public ActionResult DetailsID(int id)
         {
-            LectureServise servise = new LectureServise();
+            LectureServises servise = new LectureServises();
             Lecture entity = servise.GetByloginID(id);
             LectorEditVM model = new LectorEditVM();
             model = PopulateModelToItem(entity, model);
@@ -69,15 +69,15 @@ namespace StudentSystem2016.Controllers
             return entity;
         }
 
-        public override bool CheckForExitedUserInDB(LectorEditVM model)
-        {
-            authenticateService.AuthenticateUser(model.Username, model.Password, 1);
-            if (authenticateService.LoggedUser != null)
-            {
-                return true;
-            }
-            return false;
-        }
+        //public override bool CheckForExitedUserInDB(LectorEditVM model)
+        //{
+        //    authenticateService.AuthenticateUser(model.Username, model.Password, 1);
+        //    if (authenticateService.LoggedUser != null)
+        //    {
+        //        return true;
+        //    }
+        //    return false;
+        //}
 
         public override Lecture PopulateEditItemToModel(LectorEditVM model, Lecture entity, int id)
         {

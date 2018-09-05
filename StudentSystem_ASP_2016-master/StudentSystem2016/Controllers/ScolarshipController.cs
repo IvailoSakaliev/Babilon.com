@@ -7,7 +7,7 @@ namespace StudentSystem2016.Controllers
 {
 
     public class ScolarshipController
-        :GenericController<Scholarship,ScolarshipEditVM, ScolarshipList, ScollarShipFilter, ScolarshipServise>
+        :GenericController<Scholarship,ScolarshipEditVM, ScolarshipList, ScollarShipFilter, ScolarshipServises>
     {
         public override Scholarship PopulateEditItemToModel(ScolarshipEditVM model, Scholarship entity, int id)
         {

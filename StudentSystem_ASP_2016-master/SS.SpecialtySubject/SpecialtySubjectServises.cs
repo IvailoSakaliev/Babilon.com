@@ -4,16 +4,16 @@ using SS.GenericServise;
 
 namespace SS.SpecialtySubjectServise
 {
-    public class SpecialtySubjectServise
+    public class SpecialtySubjectServises
         :BaseServise<SpecialtySubject>
     {
-        public SpecialtySubjectServise()
+        public SpecialtySubjectServises()
             :base()
         {
 
         }
 
-        public SpecialtySubjectServise(UnitOfWork unit)
+        public SpecialtySubjectServises(UnitOfWork unit)
             :base(unit)
         {
 

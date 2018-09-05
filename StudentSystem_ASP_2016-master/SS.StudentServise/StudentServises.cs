@@ -9,16 +9,16 @@ using System.Threading.Tasks;
 
 namespace SS.StudentServise
 {
-    public class StudentServise
+    public class StudentServises
         : BaseServise<Student>
     {
-        public StudentServise()
+        public StudentServises()
             : base()
         {
 
         }
 
-        public StudentServise(UnitOfWork unit)
+        public StudentServises(UnitOfWork unit)
             : base(unit)
         {
 

@@ -342,3 +342,7 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\S
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecialtyServise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecialtySubject.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.SpecialtySubject.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EvaluationServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EvaluationServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EncriptServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EncriptServise.pdb

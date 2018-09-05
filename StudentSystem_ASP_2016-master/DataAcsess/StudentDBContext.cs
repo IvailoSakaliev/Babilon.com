@@ -23,6 +23,7 @@ namespace DataAcsess
         public DbSet<Facultet> Facultets { get; set; }
         public DbSet<Lecture> Lecturs { get; set; }
         public DbSet<SpecialtySubject> SubjectSpecialty { get; set; }
+        public DbSet<Evaluation> Evaluations { get; set; }
 
         public new void SaveChanges()
         {

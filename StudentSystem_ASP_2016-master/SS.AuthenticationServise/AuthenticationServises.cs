@@ -6,16 +6,16 @@ using System.Web;
 
 namespace SS.AuthenticationServise
 {
-    public class AuthenticationServise
+    public class AuthenticationServises
     {
         public SingIn LoggedUser { get; set; }
         public int Login_id { get; set; }
         private List<SingIn> list { get; set; }
-        public  SingInServise.SingInServise singIn { get; set; }
+        public  SingInServise.SingInServises singIn { get; set; }
 
-        public AuthenticationServise()
+        public AuthenticationServises()
         {
-            this.singIn = new SingInServise.SingInServise();
+            this.singIn = new SingInServise.SingInServises();
         }
         public void AuthenticateUser(string username, string password, int state)
         {
@@ -25,8 +25,8 @@ namespace SS.AuthenticationServise
             this.list = repo.GetAll().ToList();
             foreach (var item in list)
             {
-                decriptedUsername = this.singIn.DencryptData(item.Username);
-                decriptedPassword = this.singIn.DencryptData(item.Password);
+                decriptedUsername = this.singIn.EncriptServise.DencryptData(item.Username);
+                decriptedPassword = this.singIn.EncriptServise.DencryptData(item.Password);
                 if (decriptedUsername == username && decriptedPassword == password)
                 {
                     this.LoggedUser = item;
@@ -49,7 +49,7 @@ namespace SS.AuthenticationServise
             {
                 if (state == 1)
                 {
-                    if (SS.SingInServise.SingInServise.IsConfirmRegistartion(this.LoggedUser) == true)
+                    if (SS.SingInServise.SingInServises.IsConfirmRegistartion(this.LoggedUser) == true)
                     {
                         GoToSession();
                     }
@@ -69,7 +69,7 @@ namespace SS.AuthenticationServise
         {
 
             HttpContext.Current.Session["LoggedUser"] = LoggedUser.Role;
-            HttpContext.Current.Session["UserFirstName"] = this.singIn.DencryptData(LoggedUser.Name);
+            HttpContext.Current.Session["UserFirstName"] = this.singIn.EncriptServise.DencryptData(LoggedUser.Name);
             HttpContext.Current.Session["User_ID"] = LoggedUser.ID;
         }
 

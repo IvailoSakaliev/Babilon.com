@@ -5,10 +5,10 @@ using System.Net.Mail;
 
 namespace SS.EmailServise
 {
-    public class EmailServise : BaseServise<SingIn>
+    public class EmailServises : BaseServise<SingIn>
     {
         public SingIn _admin;
-        private SingInServise.SingInServise singIn = new SingInServise.SingInServise();
+        private SingInServise.SingInServises singIn = new SingInServise.SingInServises();
         private string _userEmail;
         private int _userID;
         private SmtpClient _smtpClient;
@@ -16,16 +16,16 @@ namespace SS.EmailServise
         private MailMessage _message;
         private MailAddress _fromAddress;
 
-        public EmailServise()
+        public EmailServises()
             : base()
         {
 
         }
 
-        public EmailServise(SingIn user)
+        public EmailServises(SingIn user)
         {
             _admin = GetDecriptedInformationForAdmin();
-            _userEmail = singIn.DencryptData(user.Email);
+            _userEmail = singIn.EncriptServise.DencryptData(user.Email);
             _userID = user.ID;
             _smtpClient = new SmtpClient();
             _basicCredential =
@@ -79,8 +79,8 @@ namespace SS.EmailServise
         {
             var admin = GetByID(1);
             SingIn result = new SingIn();
-            result.Email = singIn.DencryptData(admin.Email);
-            result.Password = singIn.DencryptData(admin.Password);
+            result.Email = singIn.EncriptServise.DencryptData(admin.Email);
+            result.Password = singIn.EncriptServise.DencryptData(admin.Password);
             return result;
         }
     }

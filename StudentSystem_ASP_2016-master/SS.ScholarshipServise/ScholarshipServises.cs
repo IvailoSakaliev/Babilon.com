@@ -4,14 +4,14 @@ using SS.GenericServise;
 
 namespace SS.ScholarshipServise
 {
-    public class ScholarshipServise : BaseServise<Scholarship>
+    public class ScholarshipServises : BaseServise<Scholarship>
     {
-        public ScholarshipServise()
+        public ScholarshipServises()
             : base()
         {
 
         }
-        public ScholarshipServise(UnitOfWork unit)
+        public ScholarshipServises(UnitOfWork unit)
             : base(unit)
         {
 

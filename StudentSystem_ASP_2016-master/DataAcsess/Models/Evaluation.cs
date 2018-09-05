@@ -11,5 +11,6 @@ namespace DataAcsess.Models
     {
         public int StudentID { get; set; }
         public int SubjectID { get; set; }
+        public int Ocenka { get; set; }
     }
 }

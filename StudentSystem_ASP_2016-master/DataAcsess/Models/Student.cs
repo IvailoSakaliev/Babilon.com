@@ -21,7 +21,7 @@ namespace DataAcsess.Models
         public int Groups { get; set; }
         public OKS OKS { get; set; }
         public Scholarship Scholarship{ get; set; }
-        public Specialty Specialties { get; set; }
+        public int Specialties { get; set; }
 
         //public virtual ICollection<Subject> Predmet
         //{

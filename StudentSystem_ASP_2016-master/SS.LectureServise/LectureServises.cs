@@ -6,14 +6,14 @@ using System.Linq;
 
 namespace SS.LectureServise
 {
-    public class LectureServise : BaseServise<Lecture>
+    public class LectureServises : BaseServise<Lecture>
     {
-        public LectureServise()
+        public LectureServises()
             : base()
         {
 
         }
-        public LectureServise(UnitOfWork unit)
+        public LectureServises(UnitOfWork unit)
             : base(unit)
         {
 

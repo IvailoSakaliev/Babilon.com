@@ -11,7 +11,6 @@ namespace DataAcsess.Models
     public class BaseModel
         :Parent
     {
-        
         public string Name { get; set; }
     }
 }

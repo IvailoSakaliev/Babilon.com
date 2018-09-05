@@ -4,6 +4,7 @@
                 string user = HttpContext.Current.Session["LoggedUser"].ToString();
                 int id = (int)HttpContext.Current.Session["User_ID"];
                 string detailsuserLink = "DetailsID/" + id;
+                string evaluationLink = "Index/" + id;
                 if (user == "2")
                 {
         <ul class="nav navbar-nav" style="float:left">
@@ -40,6 +41,7 @@
             <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
             <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
             <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+            <li>@Html.ActionLink("Evaluation", evaluationLink, "Evaluation")</li>
         </ul>
         <ul class="nav navbar-nav" style="float:right">
             <li>@Html.ActionLink("Log out", "Logout", "SingIN")</li>

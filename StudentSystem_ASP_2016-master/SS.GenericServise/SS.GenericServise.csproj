@@ -48,6 +48,10 @@
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SS.EncriptServise\SS.EncriptServise.csproj">
+      <Project>{FC477A60-2263-40E9-B9F8-DCC32AB4DB8D}</Project>
+      <Name>SS.EncriptServise</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -13,6 +13,8 @@ namespace DataAcsess
         DbSet<SingIn> SingIns { get; set; }
         DbSet<Specialty> Specialties { get; set; }
         DbSet<Student> Students { get; set; }
+        DbSet<Evaluation> Evaluations { get; set; }
+
         void SaveChanges();
 
         DbSet<TEntity> Set<TEntity>() where TEntity : class;

@@ -16,10 +16,10 @@ namespace StudentSystem2016.Controllers
 {
 
     public class StudentController 
-        : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServise>
+        : GenericController<Student, EditVM, StudentList, StudentFilter, StudentServises>
     {
-        SingInServise singin = new SingInServise();
-        AuthenticationServise authenticateService = new AuthenticationServise();
+        SingInServises singin = new SingInServises();
+        AuthenticationServises authenticateService = new AuthenticationServises();
 
         public StudentController()
             :base()
@@ -38,7 +38,7 @@ namespace StudentSystem2016.Controllers
         [AuthenticationFilter]
         public ActionResult DetailsID(int id)
         {
-            StudentServise servise = new StudentServise();
+            StudentServises servise = new StudentServises();
             Student entity = servise.GetByloginID(id);
             EditVM model = new EditVM();
             model = PopulateModelToItem(entity, model);
@@ -78,6 +78,8 @@ namespace StudentSystem2016.Controllers
                 entity.Course = int.Parse(model.Course);
                 entity.Groups = int.Parse(model.Groups);
                 entity.Login = base.login_id;
+                entity.Specialties = int.Parse(Request.Form["specialty"].ToString());
+
 
             }
             catch (NullReferenceException)
@@ -99,6 +101,7 @@ namespace StudentSystem2016.Controllers
                 model.Groups =entity.Groups.ToString();
                 model.OKS = entity.OKS;
                 Session["loginID"] = entity.Login;
+                
             }
             catch (NullReferenceException)
             {
@@ -109,14 +112,14 @@ namespace StudentSystem2016.Controllers
 
         public override SingIn PopulateRegisterInfomationInModel(SingIn entity, EditVM model)
         {
-            entity.Name = singin.EncryptData(model.Name);
-            entity.LastName = singin.EncryptData(model.LastName);
-            entity.Email = singin.EncryptData(model.Email);
-            entity.Username = singin.EncryptData(model.Username);
+            entity.Name = singin.EncriptServise.EncryptData(model.Name);
+            entity.LastName = singin.EncriptServise.EncryptData(model.LastName);
+            entity.Email = singin.EncriptServise.EncryptData(model.Email);
+            entity.Username = singin.EncriptServise.EncryptData(model.Username);
             
             if (model.Password == model.ConfirmPassword)
             {
-                entity.Password = singin.EncryptData(model.Password);
+                entity.Password = singin.EncriptServise.EncryptData(model.Password);
             }
             else
             {
@@ -161,7 +164,7 @@ namespace StudentSystem2016.Controllers
         }
         public override EditVM PopilateSelectListIthem(EditVM model)
         {
-            SpecialtyServise spec = new SpecialtyServise();
+            SpecialtyServises spec = new SpecialtyServises();
             var result = spec.GetAll();
             model.Specialty = GetSelectedListIthem(result);
             return model;

@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace SS.SubjectServise
 {
-    public class SubjectServise : BaseServise<Subject>
+    public class SubjectServises : BaseServise<Subject>
     {
-        public SubjectServise()
+        public SubjectServises()
             : base()
         {
 
         }
-        public SubjectServise(UnitOfWork unit)
+        public SubjectServises(UnitOfWork unit)
             : base(unit)
         {
 

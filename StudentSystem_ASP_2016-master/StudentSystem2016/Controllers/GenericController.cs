@@ -26,18 +26,17 @@ namespace StudentSystem2016.Controllers
         public Tservise _Servise { get; set; }
         public TEntity entity { get; set; }
         protected int login_id { get; set; }
-        private SingInServise _singin { get; set; }
+        private SingInServises _singin { get; set; }
 
         public GenericController()
         {
             _Servise = new Tservise();
-            _singin = new SingInServise();
+            _singin = new SingInServises();
         }
 
         [AuthenticationFilter]
         public ActionResult Index()
         {
-            
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
             PopulateIndex(itemVM);
@@ -84,11 +83,15 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Edit(TeidtVM model, int id)
         {
-            TEntity entity = new TEntity();
-            Tservise servise = new Tservise();
-            entity = PopulateEditItemToModel(model, entity, id);
-            servise.Save(entity);
-            return RedirectToAction("Index");
+            if (ModelState.IsValid == true)
+            {
+                TEntity entity = new TEntity();
+                Tservise servise = new Tservise();
+                entity = PopulateEditItemToModel(model, entity, id);
+                servise.Save(entity);
+                return RedirectToAction("Index");
+            }
+            return View(model);
         }
 
         [HttpGet]
@@ -122,47 +125,51 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Add(TeidtVM model)
         {
-            TEntity entity = new TEntity();
-            string nameOfModel = entity.GetType().Name;
-            if (nameOfModel == "Lecture" || nameOfModel == "Student")
+            if (!ModelState.IsValid)
             {
-                SingInServise registerService = new SingInServise();
-                AuthenticationServise authenticate = new AuthenticationServise();
-                try
-                { 
-                    if (CheckForExitedUserInDB(model))
-                    {
-                        
-                        SingIn register = new SingIn();
-                        register = PopulateRegisterInfomationInModel(register, model);
-                        if (register != null)
-                        {
-                            registerService.Save(register);
-                        }
-                        else
-                        {
-                            return View(model);
-                        }
-                        authenticate.AuthenticateUser(_singin.DencryptData(register.Username), _singin.DencryptData(register.Password),2);
-                        this.login_id = authenticate.Login_id;
-                        AddInformation(entity, model);
-                        if (nameOfModel == "Student")
-                        {
-                            EmailServise email = new EmailServise(register);
-                            email.SendEmail(1);
-                            return RedirectToAction("GoToConfirm");
-                        }
-                    }
-                    
-                }
-                catch (NullReferenceException)
+                TEntity entity = new TEntity();
+                string nameOfModel = entity.GetType().Name;
+                if (nameOfModel == "Lecture" || nameOfModel == "Student")
                 {
-                    Add(model);
+                    SingInServises registerService = new SingInServises();
+                    AuthenticationServises authenticate = new AuthenticationServises();
+                    try
+                    {
+                        if (CheckForExitedUserInDB(model))
+                        {
+
+                            SingIn register = new SingIn();
+                            register = PopulateRegisterInfomationInModel(register, model);
+                            if (register != null)
+                            {
+                                registerService.Save(register);
+                            }
+                            else
+                            {
+                                return View(model);
+                            }
+                            authenticate.AuthenticateUser(_singin.EncriptServise.DencryptData(register.Username), _singin.EncriptServise.DencryptData(register.Password), 2);
+                            this.login_id = authenticate.Login_id;
+                            AddInformation(entity, model);
+                            if (nameOfModel == "Student")
+                            {
+                                EmailServises email = new EmailServises(register);
+                                //email.SendEmail(1);
+                                return RedirectToAction("GoToConfirm");
+                            }
+                        }
+
+                    }
+                    catch (NullReferenceException)
+                    {
+                        Add(model);
+                    }
+
                 }
-                
+                AddInformation(entity, model);
+                return RedirectToAction("Index");
             }
-            AddInformation(entity, model);
-            return RedirectToAction("Index");
+            return View(model);
         }
 
         private void AddInformation(TEntity entity, TeidtVM model)

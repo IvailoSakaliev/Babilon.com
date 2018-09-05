@@ -9,12 +9,12 @@ using StudentSystem2016.Authentication;
 namespace StudentSystem2016.Controllers
 {
     public class SpecialtyController 
-        :GenericController<Specialty,EditVM, SpecialtyList, SpecialtyFilter, SpecilatyServise>
+        :GenericController<Specialty,EditVM, SpecialtyList, SpecialtyFilter, SpecilatyServises>
     {
         [AuthenticationFilter]
         public ActionResult DetailForStudentSpecilty(int? id)
         {
-            SpecilatyServise servise = new SpecilatyServise();
+            SpecilatyServises servise = new SpecilatyServises();
             Specialty spec = new Specialty();
             spec = servise.GetByID(id);
             EditVM model = new EditVM();
