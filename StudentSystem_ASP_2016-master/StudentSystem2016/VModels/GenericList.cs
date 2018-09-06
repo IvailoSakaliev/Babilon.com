@@ -1,6 +1,5 @@
 ﻿using DataAcsess.Models;
 using StudentSystem2016.Filters;
-using StudentSystem2016.VModels.Pager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,13 +12,16 @@ namespace StudentSystem2016.VModels
         where Tfilter : GenericFiler<Tentity>, new()
     {
         public IList<Tentity> Items{ get; set; }
-        public PagerVM Pager { get; set; }
+        public IList<Tentity> AllItems{ get; set; }
+        public int Pages { get; set; }
+        public string ControllerName { get; set; }
+        public int  StartItem { get; set; }
+        public string ActionName { get; set; }
         public Tfilter  Filter { get; set; }
 
         public GenericList()
         {
             this.Filter = new Tfilter();
-            this.Pager = new PagerVM();
             this.Items = new List<Tentity>();
         }
         

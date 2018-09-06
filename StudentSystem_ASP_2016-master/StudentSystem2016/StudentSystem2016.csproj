@@ -191,7 +191,6 @@
     <Compile Include="VModels\Lectures\LectorList.cs" />
     <Compile Include="VModels\Login\LoginList.cs" />
     <Compile Include="VModels\Login\LoginVM.cs" />
-    <Compile Include="VModels\Pager\PagerVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipEditVM.cs" />
     <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
     <Compile Include="VModels\Specialties\EditVM.cs" />

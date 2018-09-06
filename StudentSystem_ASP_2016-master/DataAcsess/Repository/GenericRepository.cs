@@ -27,7 +27,7 @@ namespace DataAcsess.Repository
             _set = _context.Set<Tentity>();
         }
 
-        public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter, int page = 1 , int pageSize = 1)
+        public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter, int page = 1 , int pageSize = 10)
         {
             IQueryable<Tentity> query = _set;
             if (filter != null)

@@ -35,27 +35,42 @@ namespace StudentSystem2016.Controllers
         }
 
         [AuthenticationFilter]
-        public ActionResult Index()
+        public ActionResult Index(int Curentpage)
         {
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
-            PopulateIndex(itemVM);
+            itemVM = PopulateIndex(itemVM, Curentpage);
             return View(itemVM);
         }
 
-        protected virtual void PopulateIndex(TlistVM itemVM)
+        protected virtual TlistVM PopulateIndex(TlistVM itemVM , int curentPage)
         {
             string controllerName = GetControlerName();
             string actionname = GetActionName();
 
-            itemVM.Pager.Controler = controllerName;
-            itemVM.Pager.Action = actionname;
+            itemVM.ControllerName = controllerName;
+            itemVM.ActionName = actionname;
+            itemVM.AllItems = _Servise.GetAll();
+            itemVM.Pages = itemVM.AllItems.Count / 10;
+            double doublePages = itemVM.AllItems.Count / 10.0;
+            if (doublePages > itemVM.Pages)
+            {
+                itemVM.Pages++;
+            }
+            itemVM.StartItem = 10 * curentPage;
+            try
+            {
+                for (int i = itemVM.StartItem - 10; i < itemVM.StartItem; i++)
+                {
+                    itemVM.Items.Add(itemVM.AllItems[i]);
+                }
+            }
+            catch (Exception)
+            {
+                
+            }
 
-            itemVM.Items = _Servise.GetAll(itemVM.Filter.BildFilter(), itemVM.Pager.CurrentPage,10);
-            itemVM.Filter.Pager = itemVM.Pager;
-            itemVM.Pager.Prefix = "Pager.";
-            itemVM.Filter.Prefix = "Filter.";
-
+            return itemVM;
         }
 
         private string GetActionName()

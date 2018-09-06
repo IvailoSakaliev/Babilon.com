@@ -1,5 +1,4 @@
 ﻿using DataAcsess.Models;
-using StudentSystem2016.VModels.Pager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +11,6 @@ namespace StudentSystem2016.Filters
         :  IGenericFilter where Tentity: BaseModel
     {
         public string Prefix { get; set; }
-        public PagerVM Pager { get; set; }
         public abstract Expression<Func<Tentity, bool>> BildFilter();
     }
         
