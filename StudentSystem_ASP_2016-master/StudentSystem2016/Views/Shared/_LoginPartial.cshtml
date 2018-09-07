@@ -1,18 +1,19 @@
 ﻿@if (HttpContext.Current.Session["LoggedUser"] != null)
-            {
-                string name = HttpContext.Current.Session["UserFirstName"].ToString();
-                string user = HttpContext.Current.Session["LoggedUser"].ToString();
-                int id = (int)HttpContext.Current.Session["User_ID"];
-                string detailsuserLink = "DetailsID/" + id;
-                string evaluationLink = "Index/" + id;
-                if (user == "2")
-                {
+{
+    string name = HttpContext.Current.Session["UserFirstName"].ToString();
+    string user = HttpContext.Current.Session["LoggedUser"].ToString();
+    int id = (int)HttpContext.Current.Session["User_ID"];
+    string detailsuserLink = "DetailsID/" + id;
+    string evaluationLink = "Index/" + id;
+    if (user == "2")
+    {
         <ul class="nav navbar-nav" style="float:left">
-            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
-            <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
-            <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
-            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
-
+            <li><a href="../Lector/Index?Curentpage=1">Lectors</a></li>
+            <li><a href="../User/Index?Curentpage=1">Users</a></li>
+            <li><a href="../Scolarship/Index?Curentpage=1">Scolarship</a></li>
+            <li><a href="../Specialty/Index?Curentpage=1">Specialty</a></li>
+            <li><a href="../Subject/Index?Curentpage=1">Subjects</a></li>
+            <li>@Html.ActionLink("Evaluation", evaluationLink, "Evaluation")</li>
         </ul>
         <ul class="nav navbar-nav" style="float:right">
             <li>@Html.ActionLink(name, detailsuserLink, "Student")</li>
@@ -22,9 +23,9 @@
     else if (user == "3")
     {
         <ul class="nav navbar-nav" style="float:left">
-            <li>@Html.ActionLink("Student", "Index", "Student")</li>
-            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
-            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+            <li><a href="../Student/Index?Curentpage=1">Student</a></li>
+            <li><a href="../Lectors/Index?Curentpage=1">Lectors</a></li>
+            <li><a href="../Subject/Index?Curentpage=1">Subjects</a></li>
 
         </ul>
         <ul class="nav navbar-nav" style="float:right">
@@ -36,11 +37,11 @@
     {
         <ul class="nav navbar-nav" style="float:left">
             <li><a href="../Student/Index?Curentpage=1">Student</a></li>
-            <li>@Html.ActionLink("Lectors", "Index", "Lector")</li>
-            <li>@Html.ActionLink("User", "Index", "SingIn")</li>
-            <li>@Html.ActionLink("Scolarship", "Index", "Scolarship")</li>
-            <li>@Html.ActionLink("Specialty", "Index", "Specialty")</li>
-            <li>@Html.ActionLink("Subject", "Index", "Subject")</li>
+            <li><a href="../Lector/Index?Curentpage=1">Lectors</a></li>
+            <li><a href="../SingIN/Index?Curentpage=1">Users</a></li>
+            <li><a href="../Scolarship/Index?Curentpage=1">Scolarship</a></li>
+            <li><a href="../Specialty/Index?Curentpage=1">Specialty</a></li>
+            <li><a href="../Subject/Index?Curentpage=1">Subjects</a></li>
             <li>@Html.ActionLink("Evaluation", evaluationLink, "Evaluation")</li>
         </ul>
         <ul class="nav navbar-nav" style="float:right">

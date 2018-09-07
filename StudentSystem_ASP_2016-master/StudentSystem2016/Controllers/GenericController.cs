@@ -53,7 +53,7 @@ namespace StudentSystem2016.Controllers
             itemVM.AllItems = _Servise.GetAll();
             itemVM.Pages = itemVM.AllItems.Count / 10;
             double doublePages = itemVM.AllItems.Count / 10.0;
-            if (doublePages > itemVM.Pages)
+            if (doublePages > itemVM.Pages) 
             {
                 itemVM.Pages++;
             }
