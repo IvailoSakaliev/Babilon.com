@@ -20,6 +20,17 @@ namespace StudentSystem2016.Controllers
         public ActionResult Login()
         {
             LoginVM login = new LoginVM();
+            List<string> loginInfo = new List<string>();
+            loginInfo = singin.AutoLogin();
+            if (loginInfo.Count == 2)
+            {
+                login.UserName = loginInfo[0];
+                login.Password = loginInfo[1];
+                login.Remember = false;
+                Login(login);
+                return Redirect("../Home/Index");
+            }
+            
             return View(login);
         }
         [HttpGet]
@@ -43,6 +54,10 @@ namespace StudentSystem2016.Controllers
             }
             else
             {
+                if (model.Remember)
+                {
+                    singin.RememberMe(model.UserName, model.Password);
+                }
                 if (!SingInServises.IsConfirmRegistartion(authenticateService.LoggedUser))
                 {
                     return View("../Student/GoToConfirm");
