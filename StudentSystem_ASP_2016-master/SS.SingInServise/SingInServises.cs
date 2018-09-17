@@ -1,6 +1,7 @@
 ﻿using DataAcsess.Models;
 using DataAcsess.UnitOfWork;
 using SS.GenericServise;
+using System;
 using System.Collections.Generic;
 using System.Web;
 
@@ -62,9 +63,15 @@ namespace SS.SingInServise
             List<string> loginInfo = new List<string>();
             
             HttpCookie cookie = HttpContext.Current.Request.Cookies["UserInformation"];
-            loginInfo.Add(EncriptServise.DencryptData(cookie["username"]));
-            loginInfo.Add(EncriptServise.DencryptData(cookie["password"]));
-
+            try
+            {
+                loginInfo.Add(EncriptServise.DencryptData(cookie["username"]));
+                loginInfo.Add(EncriptServise.DencryptData(cookie["password"]));
+            }
+            catch (NullReferenceException)
+            {
+                
+            }
             return loginInfo;
         }
     }

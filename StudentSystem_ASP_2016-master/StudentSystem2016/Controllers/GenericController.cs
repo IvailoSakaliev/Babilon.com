@@ -15,14 +15,14 @@ using SS.FacultelServise;
 
 namespace StudentSystem2016.Controllers
 {
-    public abstract  class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
+    public abstract class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
         where TEntity : BaseModel, new()
-        where TeidtVM :  new()
-        where Tfilter: GenericFiler<TEntity> , new()
+        where TeidtVM : new()
+        where Tfilter : GenericFiler<TEntity>, new()
         where TlistVM : GenericList<TEntity, Tfilter>, new()
-        where Tservise: BaseServise<TEntity> , new()
+        where Tservise : BaseServise<TEntity>, new()
     {
-        
+
         public Tservise _Servise { get; set; }
         public TEntity entity { get; set; }
         protected int login_id { get; set; }
@@ -43,7 +43,7 @@ namespace StudentSystem2016.Controllers
             return View(itemVM);
         }
 
-        protected virtual TlistVM PopulateIndex(TlistVM itemVM , int curentPage)
+        protected virtual TlistVM PopulateIndex(TlistVM itemVM, int curentPage)
         {
             string controllerName = GetControlerName();
             string actionname = GetActionName();
@@ -53,7 +53,7 @@ namespace StudentSystem2016.Controllers
             itemVM.AllItems = _Servise.GetAll();
             itemVM.Pages = itemVM.AllItems.Count / 10;
             double doublePages = itemVM.AllItems.Count / 10.0;
-            if (doublePages > itemVM.Pages) 
+            if (doublePages > itemVM.Pages)
             {
                 itemVM.Pages++;
             }
@@ -67,7 +67,7 @@ namespace StudentSystem2016.Controllers
             }
             catch (Exception)
             {
-                
+
             }
 
             return itemVM;
@@ -121,10 +121,10 @@ namespace StudentSystem2016.Controllers
                 {
                     return RedirectToAction("AddSubject");
                 }
-                if (nameOfController == "Student" )
+                if (nameOfController == "Student")
                 {
                     model = PopilateSelectListIthem(model);
-                   
+
                 }
             }
             catch (NullReferenceException)
@@ -135,7 +135,7 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        
+
 
         [HttpPost]
         public ActionResult Add(TeidtVM model)
@@ -217,7 +217,6 @@ namespace StudentSystem2016.Controllers
             _Servise.DeleteById(id);
             return RedirectToAction("Index");
         }
-
         protected int RoleAnotation(Roles role)
         {
             switch (role)

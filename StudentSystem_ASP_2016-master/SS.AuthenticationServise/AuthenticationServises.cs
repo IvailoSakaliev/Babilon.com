@@ -1,5 +1,6 @@
 ﻿using DataAcsess.Models;
 using DataAcsess.Repository;
+using SS.CoockieServise;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -80,6 +81,9 @@ namespace SS.AuthenticationServise
             HttpContext.Current.Session["LoggedUser"] = null;
             HttpContext.Current.Session["UserFirstName"] = "";
             HttpContext.Current.Session["User_ID"] = null;
+            CoockieServises cookie = new CoockieServises();
+            cookie.DeleteCoockie("UserInformation");
+
         }
     }
 }

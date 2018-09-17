@@ -1,0 +1,21 @@
+﻿body {
+}
+.notificationForCookies
+{
+    background-color: #671f79;
+    padding:20px;
+    width:100%;
+    position:fixed;
+    bottom:0px;
+    z-index:999;
+    display: none;
+
+}
+.hideCookieWindow
+{
+    display:none;
+}
+.notificationForCookies p
+{
+    color:white
+}

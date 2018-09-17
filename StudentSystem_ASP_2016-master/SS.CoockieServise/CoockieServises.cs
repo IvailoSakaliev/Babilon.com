@@ -20,11 +20,11 @@ namespace SS.CoockieServise
             cookie.Expires = DateTime.Now.AddDays(30);
             HttpContext.Current.Response.Cookies.Add(cookie);
         }
-        public void DeleteCoockie()
+        public void DeleteCoockie(string nameOfCookie)
         {
-            if (HttpContext.Current.Response.Cookies["UserInformation"] != null)
+            if (HttpContext.Current.Response.Cookies[nameOfCookie] != null)
             {
-                HttpCookie cookie = new HttpCookie("UserInformation");
+                HttpCookie cookie = new HttpCookie(nameOfCookie);
                 cookie.Expires = DateTime.Now.AddDays(-30);
                 HttpContext.Current.Response.Cookies.Add(cookie);
             }
