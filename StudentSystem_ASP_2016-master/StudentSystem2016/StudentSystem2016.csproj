@@ -300,6 +300,10 @@
       <Project>{FE61BE72-F7BA-442B-915F-164BC6193E51}</Project>
       <Name>SS.AuthenticationServise</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SS.CoockieServise\SS.CoockieServise.csproj">
+      <Project>{B85DD388-B992-44C0-B7C3-790DBEB1136E}</Project>
+      <Name>SS.CoockieServise</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SS.EmailServise\SS.EmailServise.csproj">
       <Project>{575BD8AB-E0EC-45B1-A10B-E40DEE72B00A}</Project>
       <Name>SS.EmailServise</Name>

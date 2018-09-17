@@ -7,6 +7,7 @@ using SS.SingInServise;
 using SS.AuthenticationServise;
 using System.Collections.Generic;
 using SS.EmailServise;
+using SS.CoockieServise;
 
 namespace StudentSystem2016.Controllers
 {
@@ -56,7 +57,8 @@ namespace StudentSystem2016.Controllers
             {
                 if (model.Remember)
                 {
-                    singin.RememberMe(model.UserName, model.Password);
+                    CoockieServises coockie = new CoockieServises();
+                    coockie.AddCoockiesForLogin(model.UserName, model.Password);
                 }
                 if (!SingInServises.IsConfirmRegistartion(authenticateService.LoggedUser))
                 {

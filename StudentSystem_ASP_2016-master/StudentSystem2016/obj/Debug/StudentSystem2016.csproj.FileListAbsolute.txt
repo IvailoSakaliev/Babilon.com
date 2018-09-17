@@ -346,3 +346,5 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\S
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EvaluationServise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EncriptServise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.EncriptServise.pdb
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.CoockieServise.dll
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SS.CoockieServise.pdb
