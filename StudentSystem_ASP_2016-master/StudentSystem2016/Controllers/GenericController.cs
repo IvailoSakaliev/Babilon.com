@@ -1,47 +1,55 @@
 ﻿using DataAcsess.Models;
+using StudentSystem.Servise;
+using StudentSystem.Servise.EntityServise;
+using StudentSystem.Servise.ProjectServise;
+using StudentSystem2016.Authentication;
 using StudentSystem2016.Filters;
 using StudentSystem2016.VModels;
-using System.Web.Mvc;
 using System;
-using DataAcsess.Enum;
-using StudentSystem2016.Authentication;
-using SS.GenericServise;
-using SS.AuthenticationServise;
-using SS.SingInServise;
-using SS.EmailServise;
-using SS.SpecialtyServise;
 using System.Collections.Generic;
-using SS.FacultelServise;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
     public abstract class GenericController<TEntity, TeidtVM, TlistVM, Tfilter, Tservise> : Controller
-        where TEntity : BaseModel, new()
-        where TeidtVM : new()
-        where Tfilter : GenericFiler<TEntity>, new()
-        where TlistVM : GenericList<TEntity, Tfilter>, new()
-        where Tservise : BaseServise<TEntity>, new()
+         where TEntity : BaseModel, new()
+         where TeidtVM : new()
+         where Tfilter : GenericFiler<TEntity>, new()
+         where TlistVM : IGenericList<TEntity, Tfilter>, new()
+         where Tservise : IGenericServise<TEntity>, new()
     {
 
         public Tservise _Servise { get; set; }
         public TEntity entity { get; set; }
         protected int login_id { get; set; }
-        private SingInServises _singin { get; set; }
+        private LoginServise _singin { get; set; }
+        private IEncriptServises _encript;
+        private BaseTypeServise _baseType { get; set; }
+        private TypeServise _typeServise { get; set; }
+
 
         public GenericController()
         {
             _Servise = new Tservise();
-            _singin = new SingInServises();
+            _singin = new LoginServise();
+            _baseType = new BaseTypeServise();
+            _typeServise = new TypeServise();
         }
 
-        [AuthenticationFilter]
+        [HttpGet]
         public ActionResult Index(int Curentpage)
         {
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
             itemVM = PopulateIndex(itemVM, Curentpage);
+            string controllerNAme = GetControlerName();
+
             return View(itemVM);
         }
+
+
 
         protected virtual TlistVM PopulateIndex(TlistVM itemVM, int curentPage)
         {
@@ -51,26 +59,51 @@ namespace StudentSystem2016.Controllers
             itemVM.ControllerName = controllerName;
             itemVM.ActionName = actionname;
             itemVM.AllItems = _Servise.GetAll();
-            itemVM.Pages = itemVM.AllItems.Count / 10;
-            double doublePages = itemVM.AllItems.Count / 10.0;
+            itemVM.Pages = itemVM.AllItems.Count / 12;
+            double doublePages = itemVM.AllItems.Count / 12.0;
             if (doublePages > itemVM.Pages)
             {
                 itemVM.Pages++;
             }
-            itemVM.StartItem = 10 * curentPage;
+            itemVM.StartItem = 12 * curentPage;
             try
             {
-                for (int i = itemVM.StartItem - 10; i < itemVM.StartItem; i++)
+                if (controllerName == "Type")
                 {
-                    itemVM.Items.Add(itemVM.AllItems[i]);
+                    for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
+                    {
+                        itemVM.Items.Add(itemVM.AllItems[i]);
+                        itemVM.BaseTypeName.Add(PopulateINdexType(itemVM, i));
+                    }
+                }
+                else
+                {
+
+                    for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
+                    {
+                        if (controllerName == "Contact")
+                        {
+                            itemVM.Items.Add(PopulateIndexContactInfo(itemVM.AllItems[i]));
+
+                        }
+                        else
+                        {
+                            itemVM.Items.Add(itemVM.AllItems[i]);
+                        }
+                    }
                 }
             }
-            catch (Exception)
+            catch (ArgumentOutOfRangeException ex)
             {
 
             }
 
             return itemVM;
+        }
+
+        public virtual TEntity PopulateIndexContactInfo(TEntity entity)
+        {
+            return null;
         }
 
         private string GetActionName()
@@ -82,6 +115,7 @@ namespace StudentSystem2016.Controllers
         {
             return this.ControllerContext.RouteData.Values["controller"].ToString();
         }
+
 
         [HttpGet]
         [AuthenticationFilter]
@@ -104,7 +138,12 @@ namespace StudentSystem2016.Controllers
                 Tservise servise = new Tservise();
                 entity = PopulateEditItemToModel(model, entity, id);
                 servise.Save(entity);
-                return RedirectToAction("Index");
+                string controllername = GetControlerName();
+                if (controllername == "Type")
+                {
+                    return Redirect("../Index?Curentpage=1");
+                }
+                return Redirect("Index?Curentpage=1");
             }
             return View(model);
         }
@@ -114,23 +153,11 @@ namespace StudentSystem2016.Controllers
         public ActionResult Add()
         {
             TeidtVM model = new TeidtVM();
-            string nameOfController = GetControlerName();
-            try
+            string controllerName = GetControlerName();
+            if (controllerName == "Type")
             {
-                if (nameOfController == "Subject")
-                {
-                    return RedirectToAction("AddSubject");
-                }
-                if (nameOfController == "Student")
-                {
-                    model = PopilateSelectListIthem(model);
+                model = PopilateSelectListIthem(model);
 
-                }
-            }
-            catch (NullReferenceException)
-            {
-
-                throw;
             }
             return View(model);
         }
@@ -140,51 +167,21 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Add(TeidtVM model)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 TEntity entity = new TEntity();
-                string nameOfModel = entity.GetType().Name;
-                if (nameOfModel == "Lecture" || nameOfModel == "Student")
+                entity = PopulateItemToModel(model, entity);
+                if (entity == null)
                 {
-                    SingInServises registerService = new SingInServises();
-                    AuthenticationServises authenticate = new AuthenticationServises();
-                    try
-                    {
-                        if (CheckForExitedUserInDB(model))
-                        {
-
-                            SingIn register = new SingIn();
-                            register = PopulateRegisterInfomationInModel(register, model);
-                            if (register != null)
-                            {
-                                registerService.Save(register);
-                            }
-                            else
-                            {
-                                return View(model);
-                            }
-                            authenticate.AuthenticateUser(_singin.EncriptServise.DencryptData(register.Username), _singin.EncriptServise.DencryptData(register.Password), 2);
-                            this.login_id = authenticate.Login_id;
-                            AddInformation(entity, model);
-                            if (nameOfModel == "Student")
-                            {
-                                EmailServises email = new EmailServises(register);
-                                //email.SendEmail(1);
-                                return RedirectToAction("GoToConfirm");
-                            }
-                        }
-
-                    }
-                    catch (NullReferenceException)
-                    {
-                        Add(model);
-                    }
-
+                    return View(model);
                 }
-                AddInformation(entity, model);
-                return RedirectToAction("Index");
+                else
+                {
+                    _Servise.Save(entity);
+                }
+
             }
-            return View(model);
+            return Redirect("Index?CurentPage=1");
         }
 
         private void AddInformation(TEntity entity, TeidtVM model)
@@ -195,7 +192,7 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
-        [AuthenticationFilter]
+        [UserFilter]
         public ActionResult Details(int id)
         {
             TEntity entity = new TEntity();
@@ -205,36 +202,34 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        [HttpGet]
-        public ActionResult Delete()
-        {
-            return View();
-        }
 
-        [HttpPost]
+
+        [HttpGet]
         public ActionResult Delete(int id)
         {
-            _Servise.DeleteById(id);
-            return RedirectToAction("Index");
-        }
-        protected int RoleAnotation(Roles role)
-        {
-            switch (role)
+            string controllerName = GetControlerName();
+            if (controllerName == "BaseType")
             {
-                case Roles.Student:
-                    return 2;
-                    break;
-                case Roles.Lector:
-                    return 3;
-                    break;
-                case Roles.Admin:
-                    return 1;
-                    break;
-                default:
-                    break;
+                ProductServise _product = new ProductServise();
+                var elementID = _typeServise.GetAll(x => x.BaseTypeID == id);
+                var productElement = _product.GetAll(x => x.Basetype == id);
+                foreach (var item in productElement)
+                {
+                    item.Basetype = 0;
+                    item.Type = 0;
+                    _product.Save(item);
+                }
+                foreach (var item in elementID)
+                {
+                    _typeServise.DeleteById(item.ID);
+
+                }
             }
-            return 0;
+            _Servise.DeleteById(id);
+            return Redirect("../Index?Curentpage=1");
         }
+
+
 
 
         // abstract and viirtual classess 
@@ -245,14 +240,15 @@ namespace StudentSystem2016.Controllers
         {
             throw new NullReferenceException();
         }
-        public virtual SingIn PopulateRegisterInfomationInModel(SingIn entity, TeidtVM model)
+        public virtual Login PopulateRegisterInfomationInModel(Login entity, TeidtVM model)
         {
             throw new NullReferenceException();
         }
         public virtual bool CheckForExitedUserInDB(TeidtVM model)
         {
             throw new NullReferenceException();
-        }
 
+        }
+        internal abstract string PopulateINdexType(TlistVM itemVM, int id);
     }
 }

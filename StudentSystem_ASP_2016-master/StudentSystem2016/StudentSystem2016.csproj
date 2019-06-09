@@ -162,46 +162,50 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Atributes\FilterProperty.cs" />
     <Compile Include="Authentication\AuthenticationFilter.cs" />
-    <Compile Include="Controllers\EvaluationController.cs" />
+    <Compile Include="Authentication\UserFilter.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseTypeController.cs" />
+    <Compile Include="Controllers\CategotyController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\GenericController.cs" />
+    <Compile Include="Controllers\GenericSelectedList.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LectorController.cs" />
-    <Compile Include="Controllers\ScolarshipController.cs" />
-    <Compile Include="Controllers\SingINController.cs" />
-    <Compile Include="Controllers\SpecialtyController.cs" />
-    <Compile Include="Controllers\StudentController.cs" />
-    <Compile Include="Controllers\SubjectController.cs" />
-    <Compile Include="Filters\AuturizationFilter.cs" />
-    <Compile Include="Filters\Entityfilters\LectorFilter.cs" />
-    <Compile Include="Filters\Entityfilters\LoginFilter.cs" />
-    <Compile Include="Filters\Entityfilters\ScollarShipFilter.cs" />
-    <Compile Include="Filters\Entityfilters\SpecialtyFilter.cs" />
-    <Compile Include="Filters\Entityfilters\StudentFilter.cs" />
-    <Compile Include="Filters\Entityfilters\SubjectFilter.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\TypeController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Filters\EntityFilter\BaseTypeFilter.cs" />
+    <Compile Include="Filters\EntityFilter\ContactFilter.cs" />
+    <Compile Include="Filters\EntityFilter\OrderFilter.cs" />
+    <Compile Include="Filters\EntityFilter\PruductFilter.cs" />
+    <Compile Include="Filters\EntityFilter\TypeFilter.cs" />
     <Compile Include="Filters\GenericFiler.cs" />
     <Compile Include="Filters\IGenericFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VModels\Evaluations\EvaluationList.cs" />
     <Compile Include="VModels\GenericList.cs" />
-    <Compile Include="VModels\EditPersoneVM.cs" />
-    <Compile Include="VModels\Lectures\LectorEditVM.cs" />
-    <Compile Include="VModels\Lectures\LectorList.cs" />
-    <Compile Include="VModels\Login\LoginList.cs" />
-    <Compile Include="VModels\Login\LoginVM.cs" />
-    <Compile Include="VModels\Scolarships\ScolarshipEditVM.cs" />
-    <Compile Include="VModels\Scolarships\ScolarshipList.cs" />
-    <Compile Include="VModels\Specialties\EditVM.cs" />
-    <Compile Include="VModels\Specialties\SpecialtyList.cs" />
-    <Compile Include="VModels\Students\EditVM.cs" />
-    <Compile Include="VModels\Students\StudentList.cs" />
-    <Compile Include="VModels\Subjects\EditVM.cs" />
-    <Compile Include="VModels\Subjects\SubjectList.cs" />
+    <Compile Include="VModels\IGenericList.cs" />
+    <Compile Include="VModels\Models\BaseTypes\BaseTypeEditVm.cs" />
+    <Compile Include="VModels\Models\BaseTypes\BaseTypeList.cs" />
+    <Compile Include="VModels\Models\Contacts\ContactLIst.cs" />
+    <Compile Include="VModels\Models\Contacts\ContactVm.cs" />
+    <Compile Include="VModels\Models\Login\ForgotPassM.cs" />
+    <Compile Include="VModels\Models\Login\RegistrationVM.cs" />
+    <Compile Include="VModels\Models\Orders\OrderList.cs" />
+    <Compile Include="VModels\Models\Orders\OrderVM.cs" />
+    <Compile Include="VModels\Models\Products\ProducLIst.cs" />
+    <Compile Include="VModels\Models\Products\ProductVM.cs" />
+    <Compile Include="VModels\Models\Type\TypeList.cs" />
+    <Compile Include="VModels\Models\Type\TypeVM.cs" />
+    <Compile Include="VModels\Models\User\LoginVM.cs" />
+    <Compile Include="VModels\Models\User\UserEditVm.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Administrator.css" />
+    <Content Include="Content\adminStyle.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Style.css" />
@@ -224,6 +228,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -232,48 +237,47 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\SingIN\Login.cshtml" />
-    <Content Include="Views\Lector\Edit.cshtml" />
-    <Content Include="Views\Specialty\Edit.cshtml" />
-    <Content Include="Views\Scolarship\Edit.cshtml" />
-    <Content Include="Views\Lector\Add.cshtml" />
-    <Content Include="Views\Lector\Details.cshtml" />
-    <Content Include="Views\Lector\Delete.cshtml" />
-    <Content Include="Views\Scolarship\Add.cshtml" />
-    <Content Include="Views\Scolarship\Index.cshtml" />
-    <Content Include="Views\Scolarship\Details.cshtml" />
-    <Content Include="Views\Scolarship\Delete.cshtml" />
-    <Content Include="Views\SingIN\Delete.cshtml" />
-    <Content Include="Views\SingIN\Index.cshtml" />
-    <Content Include="Views\Specialty\Add.cshtml" />
-    <Content Include="Views\Specialty\Delete.cshtml" />
-    <Content Include="Views\Specialty\Index.cshtml" />
-    <Content Include="Views\Student\Edit.cshtml" />
-    <Content Include="Views\Student\Details.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
-    <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Subject\AddSubject.cshtml" />
-    <Content Include="Views\Subject\Details.cshtml" />
-    <Content Include="Views\Subject\Edit.cshtml" />
-    <Content Include="Views\Subject\Index.cshtml" />
-    <Content Include="Views\Subject\Delete.cshtml" />
-    <Content Include="Views\Lector\Index.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_AddLinkPartialView.cshtml" />
-    <Content Include="Views\Shared\_AuturizationUserForIndexPage.cshtml" />
-    <Content Include="Views\Student\Add.cshtml" />
-    <Content Include="Views\Specialty\Details.cshtml" />
-    <Content Include="Views\SingIN\Confirm.cshtml" />
-    <Content Include="Views\Student\GoToConfirm.cshtml" />
-    <Content Include="Views\SingIN\EmailForgotPassword.cshtml" />
-    <Content Include="Views\SingIN\GoToEmail.cshtml" />
-    <Content Include="Views\SingIN\ChangePassword.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Views\Shared\_PagerView.cshtml" />
-    <Compile Include="VModels\Evaluations\AddEvaluation.cs" />
-    <Content Include="Views\Evaluation\Add.cshtml" />
-    <Content Include="Views\Evaluation\Index.cshtml" />
-    <Content Include="Views\Shared\_CooienotificationWindow.cshtml" />
+    <Content Include="Views\Shared\_fixedMenu.cshtml" />
+    <Content Include="Views\Shared\_adminPageVm.cshtml" />
+    <Content Include="Views\Shared\_loginMenu.cshtml" />
+    <Content Include="Views\Shared\_PageView.cshtml" />
+    <Content Include="Views\Admin\_admin.cshtml" />
+    <Content Include="Views\Admin\ProductIndex.cshtml" />
+    <Content Include="Views\Admin\Product.cshtml" />
+    <Content Include="Views\Admin\ListProducts.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\EditProduct.cshtml" />
+    <Content Include="Views\BaseType\Add.cshtml" />
+    <Content Include="Views\BaseType\Edit.cshtml" />
+    <Content Include="Views\BaseType\Index.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\SendEmailTOUser.cshtml" />
+    <Content Include="Views\Login\Confirm.cshtml" />
+    <Content Include="Views\Login\EnableAccount.cshtml" />
+    <Content Include="Views\Login\ForgotPassword.cshtml" />
+    <Content Include="Views\Login\GoToEmail.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\Registration.cshtml" />
+    <Content Include="Views\Login\RestorePassword.cshtml" />
+    <Content Include="Views\Login\SuccessChangePassword.cshtml" />
+    <Content Include="Views\Order\AdminIndex.cshtml" />
+    <Content Include="Views\Order\CungratOrder.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\ListOrders.cshtml" />
+    <Content Include="Views\Order\MakeOrder.cshtml" />
+    <Content Include="Views\Order\Orders.cshtml" />
+    <Content Include="Views\Product\index.cshtml" />
+    <Content Include="Views\Product\GaleryProduct.cshtml" />
+    <Content Include="Views\Product\ListProduct.cshtml" />
+    <Content Include="Views\Type\Add.cshtml" />
+    <Content Include="Views\Type\Edit.cshtml" />
+    <Content Include="Views\Type\Index.cshtml" />
+    <Content Include="Views\User\ChangeDetails.cshtml" />
+    <Content Include="Views\User\ChangeEmail.cshtml" />
+    <Content Include="Views\User\ChangePassword.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -283,8 +287,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Generic\" />
-    <Folder Include="Views\Shared\PartialViews\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -298,6 +300,10 @@
     <ProjectReference Include="..\DataAcsess\DataAcsess.csproj">
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentSystem.Servise\StudentSystem.Servise.csproj">
+      <Project>{7397B65C-4A3C-4063-A4BC-5DDE9D0F575B}</Project>
+      <Name>StudentSystem.Servise</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -1,20 +1,19 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using DataAcsess.Models;
 
 namespace DataAcsess.Repository
 {
-    public interface IGenericRepository<TEntity>
+    public interface IGenericRepository1<Tentity> where Tentity : BaseModel, new()
     {
-        IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null ,int page = 1, int pageSize = 1);
-        IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null);
-        TEntity GetByID(int? id);
-        void Delete(TEntity entity);
-        void Save(TEntity entity);
+        void Delete(Expression<Func<Tentity, bool>> filter);
+        void Delete(Tentity entity);
         void DeleteById(int id);
+        List<Tentity> GetAll();
+        List<Tentity> GetAll(Expression<Func<Tentity, bool>> filter);
+        Tentity GetByID(int? id);
+        Tentity GetLastElement();
+        void Save(Tentity entity);
     }
 }

@@ -15,15 +15,15 @@ namespace DataAcsess
         {
         }
         
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Scholarship> Scholarships { get; set; }
-        public DbSet<Specialty> Specialties { get; set; }
-        public DbSet<Subject> Predmets { get; set; }
-        public DbSet<SingIn> SingIns { get; set; }
-        public DbSet<Facultet> Facultets { get; set; }
-        public DbSet<Lecture> Lecturs { get; set; }
-        public DbSet<SpecialtySubject> SubjectSpecialty { get; set; }
-        public DbSet<Evaluation> Evaluations { get; set; }
+        public DbSet<BaseType> BaseTypes { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Hash> Hashes { get; set; }
+        public DbSet<Images> Images { get; set; }
+        public DbSet<Login> Logins { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<TypeSubject> TypeSubjects { get; set; }
+        public DbSet<User> Users { get; set; }
 
         public new void SaveChanges()
         {

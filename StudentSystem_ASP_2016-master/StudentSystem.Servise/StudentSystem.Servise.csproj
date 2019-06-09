@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,11 +42,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityServise\BaseTypeServise.cs" />
+    <Compile Include="EntityServise\ContactServise.cs" />
+    <Compile Include="EntityServise\HashServise.cs" />
+    <Compile Include="EntityServise\ImageServise.cs" />
+    <Compile Include="EntityServise\LoginServise.cs" />
+    <Compile Include="EntityServise\OrderServise.cs" />
+    <Compile Include="EntityServise\ProductServise.cs" />
+    <Compile Include="EntityServise\TypeServise.cs" />
+    <Compile Include="EntityServise\UserServise.cs" />
+    <Compile Include="GenericServise.cs" />
+    <Compile Include="IGenericServise.cs" />
+    <Compile Include="ProjectServise\AuthenticationServises.cs" />
+    <Compile Include="ProjectServise\CookieServise.cs" />
+    <Compile Include="ProjectServise\EmailServises.cs" />
+    <Compile Include="ProjectServise\EncriptServises.cs" />
+    <Compile Include="ProjectServise\IEncriptServises.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="EntityServise\" />
-    <Folder Include="ProjectServise\" />
+    <ProjectReference Include="..\DataAcsess\DataAcsess.csproj">
+      <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
+      <Name>DataAcsess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,52 +7,27 @@ using System.Linq.Expressions;
 
 namespace DataAcsess.Repository
 {
-    public class GenericRepository<Tentity> 
-        :IGenericRepository<Tentity> where Tentity
-            :Parent,new()
+    public class GenericRepository<Tentity>
+         :  IGenericRepository1<Tentity> where Tentity
+         : BaseModel, new()
     {
-        private IStudentDBContext _context { get; set; }
-        protected IDbSet<Tentity> _set { get; set; }
-        private UnitOfWork.UnitOfWork _unit { get; set; }
+        private StudentDBContext _context { get; set; }
+        protected DbSet<Tentity> _set { get; set; }
 
         public GenericRepository()
         {
             _context = new StudentDBContext();
             _set = _context.Set<Tentity>();
         }
-        public GenericRepository(UnitOfWork.UnitOfWork unit)
-        {
-            _unit = unit;
-            _context = unit.context;
-            _set = _context.Set<Tentity>();
-        }
 
-        public IList<Tentity> GetAll(Expression<Func<Tentity, bool>> filter, int page = 1 , int pageSize = 10)
-        {
-            IQueryable<Tentity> query = _set;
-            if (filter != null)
-            {
-                return _set.Where(filter)
-                    .OrderBy(x => x.ID)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-            }
-            else
-            {
-                return _set.OrderBy(x => x.ID)
-                    .Skip((page - 1) * pageSize)
-                    .Take(pageSize)
-                    .ToList();
-            }
-            
-        }
-        public IList<Tentity> GetAll()
+
+
+        public List<Tentity> GetAll()
         {
             return _set.ToList();
         }
-       
-        public IList<Tentity>GetAll(Expression<Func<Tentity, bool>> filter)
+
+        public List<Tentity> GetAll(Expression<Func<Tentity, bool>> filter)
         {
             if (filter != null)
             {
@@ -67,6 +42,11 @@ namespace DataAcsess.Repository
         public Tentity GetByID(int? id)
         {
             return _set.Find(id);
+        }
+
+        public Tentity GetLastElement()
+        {
+            return _set.LastOrDefault();
         }
 
         public void Delete(Tentity entity)
@@ -101,7 +81,7 @@ namespace DataAcsess.Repository
 
         private void Updatestation(Tentity entity, EntityState state)
         {
-           var dbentry = _context.Entry(entity);
+            var dbentry = _context.Entry(entity);
             dbentry.State = state;
             _context.SaveChanges();
         }
@@ -113,5 +93,17 @@ namespace DataAcsess.Repository
             Delete(entity);
             _context.SaveChanges();
         }
+
+        public void Delete(Expression<Func<Tentity, bool>> filter)
+        {
+            List<Tentity> list = _set.Where(filter).ToList();
+            foreach (var item in list)
+            {
+                _set.Remove(item);
+                Updatestation(item, EntityState.Deleted);
+            }
+        }
+
+
     }
 }
