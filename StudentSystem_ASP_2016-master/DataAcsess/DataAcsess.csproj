@@ -57,29 +57,18 @@
     <Compile Include="Enum\SpecialtyName.cs" />
     <Compile Include="IStudentDBContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\Evaluation.cs" />
-    <Compile Include="Models\Facultet.cs" />
-    <Compile Include="Models\Lecture.cs" />
-    <Compile Include="Models\Parent.cs" />
-    <Compile Include="Models\Persone.cs" />
-    <Compile Include="Models\Scholarship.cs" />
-    <Compile Include="Models\Singin.cs" />
-    <Compile Include="Models\Specialty.cs" />
-    <Compile Include="Models\SpecialtySubject.cs" />
-    <Compile Include="Models\Student.cs" />
-    <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="StudentDBContext.cs" />
-    <Compile Include="UnitOfWork\IUnitOfWork.cs" />
-    <Compile Include="UnitOfWork\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
