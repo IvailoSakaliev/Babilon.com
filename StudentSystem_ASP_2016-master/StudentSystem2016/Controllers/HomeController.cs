@@ -28,11 +28,11 @@ namespace StudentSystem2016.Controllers
         {
 
 
-            LoginServise _login = new LoginServise();
-            if (!_login.CheckForAdmin())
-            {
-                return Redirect("Login/Registration");
-            }
+            //LoginServise _login = new LoginServise();
+            //if (!_login.CheckForAdmin())
+            //{
+            //    return Redirect("Login/Registration");
+            //}
 
             ProducLIst itemVM = new ProducLIst();
             itemVM = PopulateIndex(itemVM);
