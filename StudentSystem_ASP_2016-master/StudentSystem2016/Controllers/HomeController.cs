@@ -4,8 +4,6 @@ using StudentSystem.Servise.ProjectServise;
 using StudentSystem2016.VModels.Models.Contacts;
 using StudentSystem2016.VModels.Models.Products;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -14,15 +12,10 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-        private IEncriptServises _encript;
-        private ContactServise _contact;
-        private ProductServise _product;
-        public HomeController()
-        {
-            _encript = new EncriptServises();
-            _contact = new ContactServise();
-            _product = new ProductServise();
-        }
+        private IEncriptServises _encript = new EncriptServises();
+        private ContactServise _contact = new ContactServise();
+        private ProductServise _product = new ProductServise();
+       
 
         public ActionResult Index()
         {
