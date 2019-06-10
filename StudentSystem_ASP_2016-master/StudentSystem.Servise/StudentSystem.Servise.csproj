@@ -60,7 +60,6 @@
     <Compile Include="ProjectServise\IEncriptServises.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\DataAcsess\DataAcsess.csproj">
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>

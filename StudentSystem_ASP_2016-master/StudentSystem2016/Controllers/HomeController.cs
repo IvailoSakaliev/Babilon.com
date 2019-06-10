@@ -12,9 +12,9 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-        private IEncriptServises _encript = new EncriptServises();
-        private ContactServise _contact = new ContactServise();
-        private ProductServise _product = new ProductServise();
+        //private IEncriptServises _encript = new EncriptServises();
+        //private ContactServise _contact = new ContactServise();
+        //private ProductServise _product = new ProductServise();
        
 
         public ActionResult Index()
@@ -51,17 +51,17 @@ namespace StudentSystem2016.Controllers
             return View();
         }
 
-        [HttpPost]
-        public ActionResult Contact(ContactVm model)
-        {
-            Contact entity = new Contact();
-            entity.Email = _encript.EncryptData(model.Email);
-            entity.Name = _encript.EncryptData(model.Subject);
-            entity.Message = _encript.EncryptData(model.Message);
-            entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
-            _contact.Save(entity);
-            return Redirect("SuccessSendEmail");
-        }
+        //[HttpPost]
+        //public ActionResult Contact(ContactVm model)
+        //{
+        //    Contact entity = new Contact();
+        //    entity.Email = _encript.EncryptData(model.Email);
+        //    entity.Name = _encript.EncryptData(model.Subject);
+        //    entity.Message = _encript.EncryptData(model.Message);
+        //    entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
+        //    _contact.Save(entity);
+        //    return Redirect("SuccessSendEmail");
+        //}
 
         public ActionResult SuccessSendEmail()
         {
