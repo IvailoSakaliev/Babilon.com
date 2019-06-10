@@ -35,7 +35,7 @@ namespace StudentSystem2016.Controllers
 
         private ProducLIst PopulateIndex(ProducLIst itemVM)
         {
-            itemVM.Items = _product.GetAll(x => x.Front == 1);
+            //itemVM.Items = _product.GetAll(x => x.Front == 1);
             return itemVM;
         }
 
