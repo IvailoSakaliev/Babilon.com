@@ -301,10 +301,6 @@
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StudentSystem.Servise\StudentSystem.Servise.csproj">
-      <Project>{7397B65C-4A3C-4063-A4BC-5DDE9D0F575B}</Project>
-      <Name>StudentSystem.Servise</Name>
-    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

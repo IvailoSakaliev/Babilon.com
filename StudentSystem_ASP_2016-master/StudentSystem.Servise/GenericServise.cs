@@ -2,16 +2,14 @@
 using DataAcsess.Repository;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace StudentSystem.Servise
 {
     public class GenericServise<TEntity>
-       :  IGenericServise<TEntity> where TEntity
-       : BaseModel, new()
+        :  IGenericServise<TEntity> where TEntity
+        : BaseModel, new()
     {
         public GenericRepository<TEntity> _repo { get; set; }
 
