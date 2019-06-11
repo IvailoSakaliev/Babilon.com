@@ -2,12 +2,14 @@
 using StudentSystem.Servise.EntityServise;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace StudentSystem.Servise.ProjectServise
 {
     public class AuthenticationServises
-         : GenericServise<Login>
+        : GenericServise<Login>
     {
         public Login _LoggedUser { get; set; }
         private List<Login> list { get; set; }

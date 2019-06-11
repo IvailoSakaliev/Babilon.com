@@ -2,12 +2,14 @@
 using StudentSystem.Servise.ProjectServise;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace StudentSystem.Servise.EntityServise
 {
     public class LoginServise
-         : GenericServise<Login>
+       : GenericServise<Login>
     {
         public IEncriptServises _encritp { get; set; }
         public AuthenticationServises authenticateService { get; set; }

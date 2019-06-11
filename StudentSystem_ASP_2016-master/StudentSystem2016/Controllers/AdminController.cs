@@ -14,7 +14,7 @@ namespace StudentSystem2016.Controllers
     public class AdminController : Controller
     {
         private ProductServise _product { get; set; }
-        private ImageServise _image { get; set; }
+        //private ImageServise _image { get; set; }
         private TypeServise _type { get; set; }
         private BaseTypeServise _basetype { get; set; }
         private static int type;
@@ -26,7 +26,7 @@ namespace StudentSystem2016.Controllers
         public AdminController()
         {
             _product = new ProductServise();
-            _image = new ImageServise();
+            //_image = new ImageServise();
             _type = new TypeServise();
             _basetype = new BaseTypeServise();
         }
@@ -100,7 +100,7 @@ namespace StudentSystem2016.Controllers
             string result = "";
             try
             {
-                _image.DeleteById(id);
+                //_image.DeleteById(id);
                 result = "ok";
             }
             catch (Exception)
@@ -237,7 +237,7 @@ namespace StudentSystem2016.Controllers
             model.BaseType = listBAseType.GetSelectedListIthem(baseType);
 
             List<Images> img = new List<Images>();
-            img = _image.GetAll(x => x.Subject_id == id);
+            //img = _image.GetAll(x => x.Subject_id == id);
             foreach (var item in img)
             {
                 model.ImageS.Add(item);
@@ -281,7 +281,7 @@ namespace StudentSystem2016.Controllers
         public ActionResult DeleteProduct(int id)
         {
             _product.DeleteById(id);
-            _image.Delete(x => x.Subject_id == id);
+           // _image.Delete(x => x.Subject_id == id);
             return Redirect("../ProductIndex?Curentpage=1");
         }
 

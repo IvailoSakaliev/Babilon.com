@@ -17,7 +17,7 @@ namespace StudentSystem2016.Controllers
         : Controller
     {
         private ProductServise _product = new ProductServise();
-        private ImageServise _image = new ImageServise();
+        //private ImageServise _image = new ImageServise();
         private OrderServise _order = new OrderServise();
         private int _orderNumber;
         private static string _FilterOrder = "";
@@ -46,12 +46,12 @@ namespace StudentSystem2016.Controllers
             GenericSelectedList<Order> listUser = new GenericSelectedList<Order>();
 
             model.Quantity = listUser.GetSelectedListIthemQuantity(quantity);
-            List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
+            //List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
 
-            foreach (var item in listImg)
-            {
-                model.Image.Add(item.Path);
-            }
+            //foreach (var item in listImg)
+            //{
+            //    model.Image.Add(item.Path);
+            //}
 
 
             return View(model);
