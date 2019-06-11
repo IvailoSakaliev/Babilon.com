@@ -15,8 +15,9 @@ namespace StudentSystem2016
 
             routes.MapRoute(
                name: "Login",
-               url: "Login",
-               defaults: new { controller = "Login", action = "Index" };
+               url: "Login/Index",
+               defaults: new { controller = "Login", action = "Index" }
+               );
 
            routes.MapRoute(
                 name: "Default",
