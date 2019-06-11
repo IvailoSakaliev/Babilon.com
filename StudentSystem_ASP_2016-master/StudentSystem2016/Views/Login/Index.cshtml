@@ -27,32 +27,31 @@
 
     <div class="container login">
 
-        
+        <a href="../../Home/Index"><img src="~/images/Vavilonci.png" width="100%" alt="Home" /></a>
         <h3>Login</h3>
 
 
         <form method="post" asp-controller="Login" asp-action="Index">
             <div style="color:red" asp-validation-summary="ModelOnly"></div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                </div>
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
             </div>
             <div class="form-group">
-                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                </div>
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label " })
+
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <span><a href="Registration">Create new account</a>/ <a href="ForgotPassword">Forgot Password</a></span>
             </div>
-            <div class="form-check">
-                @Html.CheckBoxFor(model => model.RememberME, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.LabelFor(model => model.RememberME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="form-group">
+                @Html.CheckBoxFor(model => model.RememberME, new { htmlAttributes = new { @class = "form-control" } })<b>  Remember Me</b>
+                
             </div>
+
             <input type="submit" class="btn btn-primary loginButton" value="Login" />
-            <a href="../../Home/Index"><img src="~/images/Vavilonci.png" width="100%" alt="Home" />Go to Home</a>
+
         </form>
 
     </div>

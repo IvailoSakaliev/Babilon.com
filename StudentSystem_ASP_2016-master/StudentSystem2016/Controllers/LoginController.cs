@@ -26,7 +26,7 @@ namespace StudentSystem2016.Controllers
                 try
                 {
                 HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
-                    if (cookie["UserEmail"] != null || cookie["UserEmail"] != "")
+                    if (cookie != null)
                     {
                         login.Email = _encript.DencryptData(cookie["UserEmail"]);
                         login.Password = _encript.DencryptData(cookie["Userpassword"]);
@@ -77,7 +77,8 @@ namespace StudentSystem2016.Controllers
             [HttpGet]
             public ActionResult ForgotPassword()
             {
-                return View();
+            ForgotPassM model = new ForgotPassM();
+                return View(model);
             }
 
             [HttpPost]

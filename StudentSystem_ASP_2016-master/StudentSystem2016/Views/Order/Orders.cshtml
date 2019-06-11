@@ -65,7 +65,7 @@
         <div class="col-md-3">
             @{
                 double totalPrice = 0;
-                @foreach (var item in @Model.Items)
+                foreach (var item in Model.Items)
                 {
                     totalPrice += (item.Price * item.Quantity);
                 }
@@ -73,8 +73,8 @@
             }
 
             @{
-                if (Context.Session.GetString("OrderProduct") == "" ||
-                    Context.Session.GetString("OrderProduct") == null)
+                if (Session["OrderProduct"] == "" ||
+                    Session["OrderProduct"] == null)
                 {
                     <a class="btn btn-primary makeOrder" href="#" style="pointer-events:none">Направи поръчка</a>
                 }
@@ -85,7 +85,7 @@
             }
         </div>
         <div style="visibility:hidden" class="session">
-            @Context.Session.GetString("OrderProduct")
+            @Session["OrderProduct"]
         </div>
     </div>
 

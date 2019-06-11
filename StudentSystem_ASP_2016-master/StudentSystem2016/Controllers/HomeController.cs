@@ -19,7 +19,13 @@ namespace StudentSystem2016.Controllers
 
         public ActionResult Index()
         {
+            if (Request.Cookies["CookieUsing"] == null)
+            {
 
+                HttpCookie cookie = new HttpCookie("CookieUsing");
+                cookie.Values["cookieUsing"] =null ;
+                HttpContext.Response.Cookies.Add(cookie);
+            }
 
             //LoginServise _login = new LoginServise();
             //if (!_login.CheckForAdmin())

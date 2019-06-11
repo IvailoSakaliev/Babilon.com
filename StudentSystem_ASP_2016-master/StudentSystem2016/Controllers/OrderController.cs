@@ -122,8 +122,19 @@ namespace StudentSystem2016.Controllers
             _orderNumber = rd.Next(0, 999999);
             ViewData["NumberOfOrder"] = _orderNumber;
             Session["OrderNumber"] = _orderNumber.ToString();
-            string productsId = Session["OrderProduct"].ToString();
-            string quantities = Session["ProductQuantity"].ToString();
+            string quantities = null;
+            string productsId = null;
+            if (Session["OrderProduct"] != null)
+            {
+                productsId = Session["OrderProduct"].ToString();
+            }
+
+            if (Session["ProductQuantity"] != null)
+            {
+                quantities = Session["ProductQuantity"].ToString();
+            }
+
+            
             ProducLIst itemVM = new ProducLIst();
 
             if (productsId == null || productsId == ""
@@ -156,8 +167,17 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public JsonResult DeleteOrderProduct(int id)
         {
-            string productsId = Session["OrderProduct"].ToString();
-            string quantities = Session["ProductQuantity"].ToString();
+            string quantities = "";
+            string productsId = "";
+            if (Session["OrderProduct"] != null)
+            {
+                productsId = Session["OrderProduct"].ToString();
+            }
+
+            if (Session["ProductQuantity"] != null)
+            {
+                quantities = Session["ProductQuantity"].ToString();
+            }
 
             string[] keyProduct = productsId.Split(',');
             string[] keyQuantity = quantities.Split(',');
@@ -186,7 +206,12 @@ namespace StudentSystem2016.Controllers
         public ActionResult MakeOrder()
         {
             RegistrationVM model = new RegistrationVM();
-            string userID = Session["User_ID"].ToString();
+
+            string userID = null;
+            if (Session["User_ID"] != null)
+            {
+                userID = Session["UserID"].ToString();
+            }
             if (userID != null)
             {
                 UserServise _login = new UserServise();
