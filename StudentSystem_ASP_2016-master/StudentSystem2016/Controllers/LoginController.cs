@@ -26,8 +26,7 @@ namespace StudentSystem2016.Controllers
                 try
                 {
                 HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
-                    if (cookie != null
-                    || cookie["UserEmail"] != "")
+                    if (cookie["UserEmail"] != null || cookie["UserEmail"] != "")
                     {
                         login.Email = _encript.DencryptData(cookie["UserEmail"]);
                         login.Password = _encript.DencryptData(cookie["Userpassword"]);
