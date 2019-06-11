@@ -20,26 +20,26 @@ namespace StudentSystem2016.Controllers
             private static int userID;
 
             [HttpGet]
-            [Route("Login/Index")]
+            [Route("/Login/Index")]
             public ActionResult Index()
             {
                 LoginVM login = new LoginVM();
-                try
-                {
+            try
+            {
                 HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
-                    if (cookie != null)
-                    {
-                        login.Email = _encript.DencryptData(cookie["UserEmail"]);
-                        login.Password = _encript.DencryptData(cookie["Userpassword"]);
-                    }
-                }
-                catch (ArgumentNullException ex)
+                if (cookie != null)
                 {
-
-                    return View(login);
+                    login.Email = _encript.DencryptData(cookie["UserEmail"]);
+                    login.Password = _encript.DencryptData(cookie["Userpassword"]);
                 }
+            }
+            catch (ArgumentNullException ex)
+            {
 
                 return View(login);
+            }
+
+            return View(login);
             }
 
             [HttpPost]
