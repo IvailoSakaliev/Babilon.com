@@ -25,7 +25,7 @@ namespace StudentSystem2016.Controllers
                 LoginVM login = new LoginVM();
                 try
                 {
-                    HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
+                HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
                     if (cookie != null)
                     {
                         login.Email = _encript.DencryptData(cookie["UserEmail"]);

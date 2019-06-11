@@ -12,10 +12,10 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-        private IEncriptServises _encript = new EncriptServises();
-        private ContactServise _contact = new ContactServise();
-        private ProductServise _product = new ProductServise();
-
+        //private IEncriptServises _encript = new EncriptServises();
+        //private ContactServise _contact = new ContactServise();
+        //private ProductServise _product = new ProductServise();
+       
 
         public ActionResult Index()
         {
