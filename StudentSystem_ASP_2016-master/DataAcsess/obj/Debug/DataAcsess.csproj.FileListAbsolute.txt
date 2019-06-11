@@ -65,3 +65,4 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\D
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csproj.GenerateResource.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_2016\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojAssemblyReference.cache
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.Migrations.init.resources
+C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\DataAcsess\obj\Debug\DataAcsess.csprojAssemblyReference.cache
