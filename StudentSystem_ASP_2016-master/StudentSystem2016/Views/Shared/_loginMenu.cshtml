@@ -34,15 +34,15 @@
             if (HttpContext.Current.Session["User_ID"] == ""
                 || HttpContext.Current.Session["User_ID"] == null)
             {
-                <li><a href="../../Login/Registration">Registration</a></li>
+                <li>@Html.ActionLink("Registration", "Registration", "Login")</li>
                 <li>@Html.ActionLink("Login", "Index", "Login")</li>
 
             }
             else
             {
 
-                <li><a asp-controller="User" asp-action="Details">My Account</a></li>
-                <li><a href="../../Login/Loggout">Logout</a></li>
+                <li>@Html.ActionLink("My Account", "Details", "User")</li>
+                <li>@Html.ActionLink("Loggout", "Loggout", "Login")</li>
 
 
             }

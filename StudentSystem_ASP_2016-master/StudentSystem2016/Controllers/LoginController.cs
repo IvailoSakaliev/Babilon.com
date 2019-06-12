@@ -7,16 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.ApplicationServices;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
     public class LoginController : Controller
     {
-        //private AuthenticationServises _aut = new AuthenticationServises();
-        //private IEncriptServises _encript = new EncriptServises();
-        //private LoginServise _servise = new LoginServise();
-        //private static int userID;
+        private AuthenticationService _aut = new AuthenticationService();
+        private IEncriptServises _encript = new EncriptServises();
+        private LoginServise _servise = new LoginServise();
+        private static int userid;
 
         [HttpGet]
         public ActionResult Index()
@@ -27,8 +28,8 @@ namespace StudentSystem2016.Controllers
 
                 if (Request.Cookies["UserInformation"] != null)
                 {
-                    //login.Email = _encript.DencryptData(cookie["UserEmail"]);
-                    //login.Password = _encript.DencryptData(cookie["Userpassword"]);
+                    login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
+                    login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
                 }
             }
             catch (ArgumentNullException ex)
@@ -114,12 +115,12 @@ namespace StudentSystem2016.Controllers
         //    return View();
         //}
 
-        //[HttpGet]
-        //public ActionResult Registration()
-        //{
-        //RegistrationVM model = new RegistrationVM();
-        //    return View(model);
-        //}
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            RegistrationVM model = new RegistrationVM();
+            return View(model);
+        }
 
         //[HttpPost]
         //public ActionResult Registration(RegistrationVM reg)

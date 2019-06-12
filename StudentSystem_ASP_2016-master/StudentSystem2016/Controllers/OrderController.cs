@@ -35,23 +35,23 @@ namespace StudentSystem2016.Controllers
         public ActionResult Details(int id)
         {
             OrderVM model = new OrderVM();
-            Product entity = _product.GetByID(id);
-            model.Code = entity.Code;
-            model.Description = entity.Description;
-            model.Price = entity.Price;
-            model.Title = entity.Title;
-            model.FromtImage = entity.Image;
+            //Product entity = _product.GetByID(id);
+            //model.Code = entity.Code;
+            //model.Description = entity.Description;
+            //model.Price = entity.Price;
+            //model.Title = entity.Title;
+            //model.FromtImage = entity.Image;
 
-            int quantity = entity.Quantity;
-            GenericSelectedList<Order> listUser = new GenericSelectedList<Order>();
+            //int quantity = entity.Quantity;
+            //GenericSelectedList<Order> listUser = new GenericSelectedList<Order>();
 
-            model.Quantity = listUser.GetSelectedListIthemQuantity(quantity);
-            //List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
+            //model.Quantity = listUser.GetSelectedListIthemQuantity(quantity);
+            ////List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
 
-            //foreach (var item in listImg)
-            //{
-            //    model.Image.Add(item.Path);
-            //}
+            ////foreach (var item in listImg)
+            ////{
+            ////    model.Image.Add(item.Path);
+            ////}
 
 
             return View(model);
