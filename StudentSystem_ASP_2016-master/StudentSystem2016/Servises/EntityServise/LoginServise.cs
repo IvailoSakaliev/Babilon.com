@@ -1,12 +1,11 @@
 ﻿using StudentSystem2016.Models;
-using StudentSystem2016.Repository.EntityRepository;
 using StudentSystem2016.Servises.ProjectServise;
 using System.Collections.Generic;
 
 namespace StudentSystem2016.Servises.EntityServise
 {
     public class LoginServise
-       : LoginRepository
+       : GenericServise<Login>
     {
         public IEncriptServises _encritp { get; set; }
         public AuthenticationServises authenticateService { get; set; }
@@ -15,7 +14,7 @@ namespace StudentSystem2016.Servises.EntityServise
         {
 
         }
-        public void ConfirmedRegistration(int id)
+        public void ConfirmedRegistration(int? id)
         {
             Login user = GetByID(id);
             user.isRegisted = true;
@@ -24,7 +23,7 @@ namespace StudentSystem2016.Servises.EntityServise
 
         public bool CheckForAdmin()
         {
-            List<Login> admin = GetAll().FindAll(x => x.Role == 1);
+            List<Login> admin = GetAll(x => x.Role == 1);
             if (admin.Count != 0)
             {
                 return true;

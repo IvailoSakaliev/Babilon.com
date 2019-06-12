@@ -167,6 +167,7 @@
     <Compile Include="Controllers\BaseTypeController.cs" />
     <Compile Include="Controllers\CategotyController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GenericController.cs" />
     <Compile Include="Controllers\GenericSelectedList.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -207,18 +208,8 @@
     <Compile Include="Models\TypeSubject.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\EntityRepository\BaseTypeRepository.cs" />
-    <Compile Include="Repository\EntityRepository\ContactRepository.cs" />
-    <Compile Include="Repository\EntityRepository\HashRepository.cs" />
-    <Compile Include="Repository\EntityRepository\ImagesRepository.cs" />
-    <Compile Include="Repository\EntityRepository\LoginRepository.cs" />
-    <Compile Include="Repository\EntityRepository\OrderRepository.cs" />
-    <Compile Include="Repository\EntityRepository\Productrepository.cs" />
-    <Compile Include="Repository\EntityRepository\TypeRepository.cs" />
-    <Compile Include="Repository\EntityRepository\UserRepository.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\IGenericRepository.cs" />
-    <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Servises\EntityServise\baseTypeServise.cs" />
     <Compile Include="Servises\EntityServise\ContactServise.cs" />
     <Compile Include="Servises\EntityServise\HashServise.cs" />
@@ -227,6 +218,8 @@
     <Compile Include="Servises\EntityServise\ProductServise.cs" />
     <Compile Include="Servises\EntityServise\typeServise.cs" />
     <Compile Include="Servises\EntityServise\UserServise.cs" />
+    <Compile Include="Servises\GenericServise.cs" />
+    <Compile Include="Servises\IGenericServise.cs" />
     <Compile Include="Servises\ProjectServise\AuthenticationServises.cs" />
     <Compile Include="Servises\ProjectServise\EmailServises.cs" />
     <Compile Include="Servises\ProjectServise\EncriptServises.cs" />
@@ -365,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Generic\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

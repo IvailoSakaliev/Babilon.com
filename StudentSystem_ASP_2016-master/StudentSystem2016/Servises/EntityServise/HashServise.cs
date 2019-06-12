@@ -1,6 +1,5 @@
 ﻿using StudentSystem2016.Models;
 using StudentSystem2016.Repository;
-using StudentSystem2016.Repository.EntityRepository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 namespace StudentSystem2016.Servises.EntityServise
 {
     public class HashServise
-       : HashRepository
+       : GenericServise<Hash>
     {
         public HashServise()
             : base()

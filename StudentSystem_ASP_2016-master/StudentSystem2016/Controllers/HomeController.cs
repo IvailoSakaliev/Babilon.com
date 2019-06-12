@@ -10,13 +10,14 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-        private IEncriptServises _encript = new EncriptServises();
+
         private ContactServise _contact = new ContactServise();
         private ProductServise _product = new ProductServise();
 
         [HttpGet]
         public ActionResult Index()
         {
+
             if (Request.Cookies["CookieUsing"] == null)
             {
 

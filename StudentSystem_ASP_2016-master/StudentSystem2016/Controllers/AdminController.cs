@@ -132,7 +132,7 @@ namespace StudentSystem2016.Controllers
             itemVM.ActionName = actionname;
             if (_code != null)
             {
-                itemVM.AllItems = _product.GetAll().FindAll(x => x.Code.Contains(_code));
+                itemVM.AllItems = _product.GetAll(x => x.Code.Contains(_code));
             }
             else
             {
@@ -162,7 +162,7 @@ namespace StudentSystem2016.Controllers
 
             return itemVM;
         }
-        
+
         private string AddNameOftypes(ProducLIst itemVM, int id, int v)
         {
             if (v == 2)
@@ -276,13 +276,13 @@ namespace StudentSystem2016.Controllers
         //    return Redirect("../ProductIndex?Curentpage=1");
         //}
 
-        //[HttpGet]
-        //public ActionResult DeleteProduct(int id)
-        //{
-        //    _product.DeleteById(id);
-        //   // _image.Delete(x => x.Subject_id == id);
-        //    return Redirect("../ProductIndex?Curentpage=1");
-        //}
+        [HttpGet]
+        public ActionResult DeleteProduct(int id)
+        {
+            _product.DeleteById(id);
+            // _image.Delete(x => x.Subject_id == id);
+            return Redirect("../ProductIndex?Curentpage=1");
+        }
 
         [HttpGet]
         public ActionResult ListProducts(int Curentpage)
@@ -305,7 +305,7 @@ namespace StudentSystem2016.Controllers
             string error = "";
             if (mode == 1)
             {
-                var list = _product.GetAll().FindAll(x => x.Front == 1);
+                var list = _product.GetAll(x => x.Front == 1);
                 if (list.Count == 4)
                 {
                     error = "4";

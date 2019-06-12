@@ -30,7 +30,7 @@ namespace StudentSystem2016.Controllers
             itemVM = new ProducLIst();
             itemVM.Filter = new PruductFilter();
             itemVM = GetElement(itemVM, Curentpage);
-           
+
             if (Request.Cookies["ViewProduct"] == null)
             {
                 HttpCookie cookie = new HttpCookie("ViewProduct");
@@ -50,7 +50,7 @@ namespace StudentSystem2016.Controllers
                 string[] keys = search.Split(' ');
                 List<Product> list = new List<Product>();
 
-                list = _productServise.GetAll().FindAll(x => x.Title.ToLower().Contains(keys[0].ToLower()));
+                list = _productServise.GetAll(x => x.Title.ToLower().Contains(keys[0].ToLower()));
                 itemVM.Filter = new PruductFilter();
                 if (keys.Length == 1)
                 {
@@ -63,7 +63,7 @@ namespace StudentSystem2016.Controllers
                 {
                     itemVM = Check(keys, list, 1, itemVM);
                 }
-            
+
                 return View(itemVM);
             }
 
@@ -270,7 +270,7 @@ namespace StudentSystem2016.Controllers
             }
             else
             {
-                _priceTo = _productServise.GetAll().FindAll(x => x.Price < int.Parse(element));
+                _priceTo = _productServise.GetAll(x => x.Price < int.Parse(element));
             }
             return Json(Request.Cookies["ViewProducr"]);
         }
@@ -285,7 +285,7 @@ namespace StudentSystem2016.Controllers
             }
             else
             {
-                _priceFrom = _productServise.GetAll().FindAll(x => x.Price > int.Parse(element));
+                _priceFrom = _productServise.GetAll(x => x.Price > int.Parse(element));
             }
             return Json(Request.Cookies["ViewProducr"]);
         }
@@ -313,7 +313,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public JsonResult ChangBaseTypeValue(int id)
         {
-            _baseType = _productServise.GetAll().FindAll(x => x.Basetype == id);
+            _baseType = _productServise.GetAll(x => x.Basetype == id);
             return Json(Request.Cookies["ViewProducr"]);
         }
 
@@ -321,7 +321,7 @@ namespace StudentSystem2016.Controllers
         public JsonResult ChangeType(int id)
         {
             Restore();
-            _subType = _productServise.GetAll().FindAll(x => x.Type == id);
+            _subType = _productServise.GetAll(x => x.Type == id);
             return Json("ok");
         }
 

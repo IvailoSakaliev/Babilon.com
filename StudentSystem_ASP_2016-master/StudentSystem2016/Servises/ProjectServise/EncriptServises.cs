@@ -11,14 +11,12 @@ namespace StudentSystem2016.Servises.ProjectServise
 {
     public class EncriptServises : IEncriptServises
     {
-        HashServise _servise = new HashServise();
         private string _hash { get; set; }
 
         public EncriptServises()
         {
-            Hash model = new Hash();
-            model = _servise.GetByID(1);
-            _hash = model.Name;
+
+            _hash = "9fd568921212b9e8de63f80a3a1512f7";
         }
         public string EncryptData(string toEncrypted)
         {
