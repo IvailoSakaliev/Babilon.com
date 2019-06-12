@@ -26,8 +26,7 @@ namespace StudentSystem2016.Repository
         public GenericRepository()
         {
             Connection = new OleDbConnection();
-            Connection.ConnectionString = @"
-Provider=SQLNCLI11; Server=localhost\SQLEXPRESS; Database=PhoneBookDB; Trusted_Connection=yes";
+            Connection.ConnectionString = @"Data Source=(local);Initial Catalog=vavilonci_;User ID=vavilonci;Password=Edzh826@";
         }
 
         public GenericRepository(UnitOfWork uof)
