@@ -122,35 +122,35 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Registration(RegistrationVM reg)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (CheckForExitedUserInDB(reg))
-        //        {
-        //            ModelState.AddModelError(string.Empty, "Email already exist in site. Please enter anoither emeil");
-        //            return View(reg);
-        //        }
-        //        else
-        //        {
+        [HttpPost]
+        public ActionResult Registration(RegistrationVM reg)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CheckForExitedUserInDB(reg))
+                {
+                    ModelState.AddModelError(string.Empty, "Email already exist in site. Please enter anoither emeil");
+                    return View(reg);
+                }
+                else
+                {
 
-        //            string error = EnterLoginInformation(reg);
-        //            if (error != "OK")
-        //            {
-        //                ModelState.AddModelError(string.Empty, error);
-        //                return View(reg);
-        //            }
-        //            else
-        //            {
-        //                AddUSerINformation(reg);
+                    string error = EnterLoginInformation(reg);
+                    if (error != "OK")
+                    {
+                        ModelState.AddModelError(string.Empty, error);
+                        return View(reg);
+                    }
+                    else
+                    {
+                        AddUSerINformation(reg);
 
-        //            }
-        //        }
+                    }
+                }
 
-        //    }
-        //    return RedirectToAction("Confirm");
-        //}
+            }
+            return RedirectToAction("Confirm");
+        }
 
         //private User AddUSerINformation(RegistrationVM reg)
         //{
