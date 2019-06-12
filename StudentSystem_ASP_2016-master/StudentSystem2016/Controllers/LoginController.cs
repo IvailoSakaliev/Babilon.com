@@ -28,8 +28,8 @@ namespace StudentSystem2016.Controllers
 
                 if (Request.Cookies["UserInformation"] != null)
                 {
-                    login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
-                    login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
+                    //login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
+                    //login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
                 }
             }
             catch (ArgumentNullException ex)
