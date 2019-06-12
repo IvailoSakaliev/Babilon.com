@@ -1,5 +1,5 @@
 ﻿using DataAcsess.Models;
-using StudentSystem.Servise.EntityServise;
+using StudentSystem2016.Servises.EntityServise;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentSystem.Servise.ProjectServise
+namespace StudentSystem2016.Servises.ProjectServise
 {
     public class EncriptServises : IEncriptServises
     {

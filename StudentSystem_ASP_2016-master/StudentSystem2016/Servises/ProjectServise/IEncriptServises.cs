@@ -1,4 +1,4 @@
-﻿namespace StudentSystem.Servise.ProjectServise
+﻿namespace StudentSystem2016.Servises.ProjectServise
 {
     public interface IEncriptServises
     {

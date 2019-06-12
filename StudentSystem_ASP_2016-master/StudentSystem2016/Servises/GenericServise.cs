@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentSystem.Servise
+namespace StudentSystem2016.Servises
 {
     public class GenericServise<TEntity>
         :   IGenericServise<TEntity> where TEntity

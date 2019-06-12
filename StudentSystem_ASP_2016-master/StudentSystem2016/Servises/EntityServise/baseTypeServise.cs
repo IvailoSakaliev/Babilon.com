@@ -5,13 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudentSystem.Servise.EntityServise
+namespace StudentSystem2016.Servises.EntityServise
 {
-    public class OrderServise
-         : GenericServise<Order>
-
+    public class BaseTypeServise
+       : GenericServise<BaseType>
     {
-        public OrderServise()
+        public BaseTypeServise()
             : base()
         {
 

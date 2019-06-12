@@ -1,13 +1,10 @@
 ﻿using DataAcsess.Models;
-using StudentSystem.Servise.EntityServise;
-using StudentSystem.Servise.ProjectServise;
 using StudentSystem2016.Authentication;
 using StudentSystem2016.Filters.EntityFilter;
+using StudentSystem2016.Servises.EntityServise;
+using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Contacts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers

@@ -1,4 +1,5 @@
 ﻿using DataAcsess.Models;
+using StudentSystem2016.Servises.ProjectServise;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace StudentSystem.Servise.ProjectServise
+namespace StudentSystem2016.Controllers
 {
     public class GenericSelectedList<T> where T : BaseModel, new()
     {

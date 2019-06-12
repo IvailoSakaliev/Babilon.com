@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAcsess", "DataAcsess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem2016", "StudentSystem2016\StudentSystem2016.csproj", "{0087FB25-9543-4F5A-A6A4-5C776241845A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem.Servise", "StudentSystem.Servise\StudentSystem.Servise.csproj", "{9954CFD9-45CC-4405-9382-48DE07A4CB71}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{0087FB25-9543-4F5A-A6A4-5C776241845A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0087FB25-9543-4F5A-A6A4-5C776241845A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0087FB25-9543-4F5A-A6A4-5C776241845A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9954CFD9-45CC-4405-9382-48DE07A4CB71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9954CFD9-45CC-4405-9382-48DE07A4CB71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9954CFD9-45CC-4405-9382-48DE07A4CB71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9954CFD9-45CC-4405-9382-48DE07A4CB71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,8 @@
 ﻿using DataAcsess.Models;
-using StudentSystem.Servise.ProjectServise;
-using System;
+using StudentSystem2016.Servises.ProjectServise;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace StudentSystem.Servise.EntityServise
+namespace StudentSystem2016.Servises.EntityServise
 {
     public class LoginServise
        : GenericServise<Login>

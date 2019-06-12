@@ -1,7 +1,6 @@
 ﻿using DataAcsess.Models;
-using StudentSystem.Servise.EntityServise;
-using StudentSystem.Servise.ProjectServise;
-using StudentSystem2016.Authentication;
+using StudentSystem2016.Servises.EntityServise;
+using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Login;
 using StudentSystem2016.VModels.Models.User;
 using System;
@@ -14,12 +13,12 @@ namespace StudentSystem2016.Controllers
 {
         public class LoginController : Controller
         {
-            //private AuthenticationServises _aut = new AuthenticationServises();
-            //private IEncriptServises _encript = new EncriptServises();
-            //private LoginServise _servise = new LoginServise();
-            //private static int userID;
+        private AuthenticationServises _aut = new AuthenticationServises();
+        private IEncriptServises _encript = new EncriptServises();
+        private LoginServise _servise = new LoginServise();
+        private static int userID;
 
-            [HttpGet]
+        [HttpGet]
             public ActionResult Index()
             {
                 LoginVM login = new LoginVM();

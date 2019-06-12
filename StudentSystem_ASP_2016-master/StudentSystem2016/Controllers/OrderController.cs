@@ -1,7 +1,7 @@
 ﻿using DataAcsess.Enum;
 using DataAcsess.Models;
-using StudentSystem.Servise.EntityServise;
-using StudentSystem.Servise.ProjectServise;
+using StudentSystem2016.Servises.EntityServise;
+using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Login;
 using StudentSystem2016.VModels.Models.Orders;
 using StudentSystem2016.VModels.Models.Products;

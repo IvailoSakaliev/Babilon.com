@@ -270,7 +270,6 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Newtonsoft.Json.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\SendGrid.dll
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\StudentSystem.Servise.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\System.Web.Helpers.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\System.Web.Mvc.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\System.Web.Optimization.dll
@@ -281,7 +280,6 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\WebGrease.dll
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\DataAcsess.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\DataAcsess.dll.config
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\StudentSystem.Servise.pdb
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\EntityFramework.SqlServer.xml
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20162\StudentSystem_ASP_2016-master\StudentSystem2016\bin\Microsoft.AI.DependencyCollector.xml

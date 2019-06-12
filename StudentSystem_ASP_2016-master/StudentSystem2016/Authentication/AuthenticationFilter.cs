@@ -1,7 +1,4 @@
-﻿using StudentSystem.Servise.ProjectServise;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using StudentSystem2016.Servises.ProjectServise;
 using System.Web;
 using System.Web.Mvc;
 

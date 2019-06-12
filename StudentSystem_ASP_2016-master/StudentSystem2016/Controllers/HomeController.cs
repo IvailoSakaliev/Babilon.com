@@ -1,9 +1,5 @@
-﻿using DataAcsess.Models;
-using StudentSystem.Servise.EntityServise;
-using StudentSystem.Servise.ProjectServise;
-using StudentSystem2016.VModels.Models.Contacts;
+﻿using StudentSystem2016.VModels.Models.Contacts;
 using StudentSystem2016.VModels.Models.Products;
-using System;
 using System.Web;
 using System.Web.Mvc;
 

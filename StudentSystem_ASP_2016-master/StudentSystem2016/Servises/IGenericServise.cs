@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using DataAcsess.Models;
 using DataAcsess.Repository;
 
-namespace StudentSystem.Servise
+namespace StudentSystem2016.Servises
 {
     public interface IGenericServise<TEntity> where TEntity : BaseModel, new()
     {

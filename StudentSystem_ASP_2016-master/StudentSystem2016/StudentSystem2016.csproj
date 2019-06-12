@@ -186,6 +186,20 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servises\EntityServise\baseTypeServise.cs" />
+    <Compile Include="Servises\EntityServise\ContactServise.cs" />
+    <Compile Include="Servises\EntityServise\HashServise.cs" />
+    <Compile Include="Servises\EntityServise\LoginServise.cs" />
+    <Compile Include="Servises\EntityServise\OrderServise.cs" />
+    <Compile Include="Servises\EntityServise\ProductServise.cs" />
+    <Compile Include="Servises\EntityServise\typeServise.cs" />
+    <Compile Include="Servises\EntityServise\UserServise.cs" />
+    <Compile Include="Servises\GenericServise.cs" />
+    <Compile Include="Servises\IGenericServise.cs" />
+    <Compile Include="Servises\ProjectServise\AuthenticationServises.cs" />
+    <Compile Include="Servises\ProjectServise\EmailServises.cs" />
+    <Compile Include="Servises\ProjectServise\EncriptServises.cs" />
+    <Compile Include="Servises\ProjectServise\IEncriptServises.cs" />
     <Compile Include="VModels\GenericList.cs" />
     <Compile Include="VModels\IGenericList.cs" />
     <Compile Include="VModels\Models\BaseTypes\BaseTypeEditVm.cs" />
@@ -332,10 +346,6 @@
     <ProjectReference Include="..\DataAcsess\DataAcsess.csproj">
       <Project>{082B7CFC-3575-4E27-975A-C244CC59C804}</Project>
       <Name>DataAcsess</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StudentSystem.Servise\StudentSystem.Servise.csproj">
-      <Project>{9954CFD9-45CC-4405-9382-48DE07A4CB71}</Project>
-      <Name>StudentSystem.Servise</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
