@@ -11,7 +11,7 @@ namespace DataAcsess
     public class StudentDBContext : DbContext, IStudentDBContext
     {
         public StudentDBContext()
-            :base("StudentSystem-DB")
+            :base("vavilonci_")
         {
         }
         

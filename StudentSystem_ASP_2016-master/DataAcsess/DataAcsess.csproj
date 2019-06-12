@@ -57,6 +57,10 @@
     <Compile Include="Migrations\201906091554401_init.Designer.cs">
       <DependentUpon>201906091554401_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906121124336_init_db.cs" />
+    <Compile Include="Migrations\201906121124336_init_db.Designer.cs">
+      <DependentUpon>201906121124336_init_db.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\BaseType.cs" />
@@ -80,6 +84,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201906091554401_init.resx">
       <DependentUpon>201906091554401_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121124336_init_db.resx">
+      <DependentUpon>201906121124336_init_db.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
