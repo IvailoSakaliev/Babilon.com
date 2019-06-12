@@ -23,20 +23,20 @@ namespace StudentSystem2016.Controllers
         public ActionResult Index()
         {
             LoginVM login = new LoginVM();
-            try
-            {
+            //try
+            //{
 
-                if (Request.Cookies["UserInformation"] != null)
-                {
-                    //login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
-                    //login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
-                }
-            }
-            catch (ArgumentNullException ex)
-            {
+            //    if (Request.Cookies["UserInformation"] != null)
+            //    {
+            //        //login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
+            //        //login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
+            //    }
+            //}
+            //catch (ArgumentNullException ex)
+            //{
 
-                return View(login);
-            }
+            //    return View(login);
+            //}
 
             return View(login);
         }
