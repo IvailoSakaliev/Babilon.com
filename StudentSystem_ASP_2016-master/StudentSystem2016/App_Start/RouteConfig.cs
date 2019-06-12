@@ -24,7 +24,11 @@ namespace StudentSystem2016
               url: "Home/Index",
               defaults: new { controller = "Home", action = "Index" }
               );
-
+            routes.MapRoute(
+              name: "Contact",
+              url: "Home/Conatct",
+              defaults: new { controller = "Home", action = "Index" }
+              );
             routes.MapRoute(
                name: "Default",
                url: "",
