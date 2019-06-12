@@ -9,22 +9,21 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
 
         //private IEncriptServises _encript = new EncriptServises();
         //private ContactServise _contact = new ContactServise();
         //private ProductServise _product = new ProductServise();
-       
-        [Route("Index")]
+
+        [HttpGet]
         public ActionResult Index()
         {
             if (Request.Cookies["CookieUsing"] == null)
             {
 
                 HttpCookie cookie = new HttpCookie("CookieUsing");
-                cookie.Values["cookieUsing"] =null ;
+                cookie.Values["cookieUsing"] = null;
                 HttpContext.Response.Cookies.Add(cookie);
             }
 
@@ -53,7 +52,6 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
-        [Route("Contact")]
         public ActionResult Contact()
         {
             return View();
@@ -76,8 +74,8 @@ namespace StudentSystem2016.Controllers
             return View();
         }
 
-       
-       
+
+
         [HttpPost]
         public JsonResult CookieAcsept(int id)
         {

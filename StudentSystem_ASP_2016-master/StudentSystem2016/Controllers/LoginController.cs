@@ -12,7 +12,6 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    [RoutePrefix("Login")]
         public class LoginController : Controller
         {
             private AuthenticationServises _aut = new AuthenticationServises();
@@ -21,7 +20,6 @@ namespace StudentSystem2016.Controllers
             private static int userID;
 
             [HttpGet]
-            [Route("Index")]
             public ActionResult Index()
             {
                 LoginVM login = new LoginVM();

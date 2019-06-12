@@ -13,12 +13,6 @@ namespace StudentSystem2016
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute(
-               name: "Login",
-               url: "Login/Index",
-               defaults: new { controller = "Login", action = "Index" }
-               );
-
            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
