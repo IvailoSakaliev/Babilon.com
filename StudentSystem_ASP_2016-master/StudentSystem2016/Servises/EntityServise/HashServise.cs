@@ -1,4 +1,5 @@
 ﻿using DataAcsess.Models;
+using DataAcsess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace StudentSystem2016.Servises.EntityServise
 {
     public class HashServise
-       : GenericServise<Hash>
+       : HashRepository
     {
         public HashServise()
             : base()
