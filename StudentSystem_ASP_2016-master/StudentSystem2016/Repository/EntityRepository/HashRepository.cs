@@ -28,12 +28,7 @@ namespace StudentSystem2016.Repository.EntityRepository
         protected override OleDbCommand GetSelectCommand(Hash item)
         {
             OleDbCommand cmd = new OleDbCommand();
-            cmd.CommandText = @"
-SELECT
- *
-FROM
- Hashes
-";
+            cmd.CommandText = @"SELECT * FROM Hashes";
 
             return cmd;
         }
