@@ -14,29 +14,23 @@ namespace StudentSystem2016.Controllers
 {
     public class LoginController : Controller
     {
-        //private AuthenticationService _aut = new AuthenticationService();
-        //private IEncriptServises _encript = new EncriptServises();
-        //private LoginServise _servise = new LoginServise();
-        //private static int userid;
-
         [HttpGet]
         public ActionResult Index()
         {
             LoginVM login = new LoginVM();
-            //try
-            //{
+            try
+            {
 
-            //    if (Request.Cookies["UserInformation"] != null)
-            //    {
-            //        //login.Email = _encript.DencryptData(Request.Cookies["UserInformation"].Values["user"].ToString());
-            //        //login.Password = _encript.DencryptData(Request.Cookies["UserInformation"].Values["pass"].ToString());
-            //    }
-            //}
-            //catch (ArgumentNullException ex)
-            //{
+                if (Request.Cookies["UserInformation"] != null)
+                {
+                   
+                }
+            }
+            catch (ArgumentNullException ex)
+            {
 
-            //    return View(login);
-            //}
+                return View(login);
+            }
 
             return View(login);
         }
@@ -74,12 +68,12 @@ namespace StudentSystem2016.Controllers
         //    return View();
         //}
 
-        //[HttpGet]
-        //public ActionResult ForgotPassword()
-        //{
-        //    ForgotPassM model = new ForgotPassM();
-        //    return View(model);
-        //}
+        [HttpGet]
+        public ActionResult ForgotPassword()
+        {
+            ForgotPassM model = new ForgotPassM();
+            return View(model);
+        }
 
         //[HttpPost]
         //public ActionResult ForgotPassword(ForgotPassM model)
@@ -118,7 +112,7 @@ namespace StudentSystem2016.Controllers
         //[HttpGet]
         //public ActionResult Registration()
         //{
-        //    RegistrationVM model = new RegistrationVM();
+        //RegistrationVM model = new RegistrationVM();
         //    return View(model);
         //}
 
@@ -322,3 +316,6 @@ namespace StudentSystem2016.Controllers
     }
 
 }
+
+
+ 
