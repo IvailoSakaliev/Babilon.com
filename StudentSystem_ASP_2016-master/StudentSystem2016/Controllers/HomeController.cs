@@ -17,7 +17,7 @@ namespace StudentSystem2016.Controllers
         //private ContactServise _contact = new ContactServise();
         //private ProductServise _product = new ProductServise();
        
-        [Route]
+        [Route("Index")]
         public ActionResult Index()
         {
             if (Request.Cookies["CookieUsing"] == null)
@@ -53,6 +53,7 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
+        [Route("Contact")]
         public ActionResult Contact()
         {
             return View();

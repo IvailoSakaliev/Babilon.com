@@ -21,7 +21,7 @@ namespace StudentSystem2016.Controllers
             private static int userID;
 
             [HttpGet]
-            [Route("Login")]
+            [Route("Index")]
             public ActionResult Index()
             {
                 LoginVM login = new LoginVM();
