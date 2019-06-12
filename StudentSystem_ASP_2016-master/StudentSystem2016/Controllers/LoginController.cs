@@ -74,12 +74,12 @@ namespace StudentSystem2016.Controllers
         //    return View();
         //}
 
-        [HttpGet]
-        public ActionResult ForgotPassword()
-        {
-            ForgotPassM model = new ForgotPassM();
-            return View(model);
-        }
+        //[HttpGet]
+        //public ActionResult ForgotPassword()
+        //{
+        //    ForgotPassM model = new ForgotPassM();
+        //    return View(model);
+        //}
 
         //[HttpPost]
         //public ActionResult ForgotPassword(ForgotPassM model)
@@ -115,12 +115,12 @@ namespace StudentSystem2016.Controllers
         //    return View();
         //}
 
-        [HttpGet]
-        public ActionResult Registration()
-        {
-            RegistrationVM model = new RegistrationVM();
-            return View(model);
-        }
+        //[HttpGet]
+        //public ActionResult Registration()
+        //{
+        //    RegistrationVM model = new RegistrationVM();
+        //    return View(model);
+        //}
 
         //[HttpPost]
         //public ActionResult Registration(RegistrationVM reg)
