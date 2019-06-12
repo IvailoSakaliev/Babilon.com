@@ -86,7 +86,8 @@
         </div>
 
         <div class="col-md-10 products">
-            @if (Context.Request.Cookies["ViewProducr"] == "1")
+
+            @if (Context.Request.Cookies["ViewProduct"].Values["view"] == "1")
             {
                 @Html.Partial("ListProduct");
             }

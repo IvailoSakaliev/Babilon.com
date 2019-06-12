@@ -30,11 +30,12 @@ namespace StudentSystem2016.Controllers
             itemVM = new ProducLIst();
             itemVM.Filter = new PruductFilter();
             itemVM = GetElement(itemVM, Curentpage);
-            HttpCookie cookie = HttpContext.Request.Cookies["ViewProduct"];
-            if (cookie["ViewProduct"] == null
-                || cookie["ViewProduct"] == "")
+           
+            if (Request.Cookies["ViewProduct"] == null)
             {
-                cookie["ViewProduct"] =  "2";
+                HttpCookie cookie = new HttpCookie("ViewProduct");
+                cookie.Values["view"] = "2";
+                HttpContext.Response.Cookies.Add(cookie);
             }
             return View(itemVM);
         }
@@ -62,7 +63,7 @@ namespace StudentSystem2016.Controllers
                 {
                     itemVM = Check(keys, list, 1, itemVM);
                 }
-
+            
                 return View(itemVM);
             }
 
@@ -116,71 +117,71 @@ namespace StudentSystem2016.Controllers
 
         private ProducLIst GetElement(ProducLIst itemVM, int curentPage)
         {
-            string controllerName = GetControlerName();
-            string actionname = GetActionName();
+            //string controllerName = GetControlerName();
+            //string actionname = GetActionName();
 
-            itemVM.ControllerName = controllerName;
-            itemVM.ActionName = actionname;
-            List<Product> list = new List<Product>();
-            list = FilterProducts();
-
-
-            if (_sort == 1)
-            {
-                if (list == null)
-                {
-                    itemVM.AllItems = _productServise.GetAll().OrderBy(x => x.Price).ToList();
-                }
-                else
-                {
-                    itemVM.AllItems = list.OrderBy(x => x.Price).ToList();
-                }
-            }
-            else if (_sort == 2)
-            {
-                if (list == null)
-                {
-                    itemVM.AllItems = _productServise.GetAll().OrderByDescending(x => x.Price).ToList();
-                }
-                else
-                {
-                    itemVM.AllItems = list.OrderByDescending(x => x.Price).ToList();
-                }
-            }
-            else
-            {
-                if (list == null)
-                {
-                    itemVM.AllItems = _productServise.GetAll().OrderBy(x => x.Date).ToList();
-                }
-                else
-                {
-                    itemVM.AllItems = list.OrderBy(x => x.Date).ToList();
-                }
-            }
+            //itemVM.ControllerName = controllerName;
+            //itemVM.ActionName = actionname;
+            //List<Product> list = new List<Product>();
+            //list = FilterProducts();
 
 
+            //if (_sort == 1)
+            //{
+            //    if (list == null)
+            //    {
+            //        itemVM.AllItems = _productServise.GetAll().OrderBy(x => x.Price).ToList();
+            //    }
+            //    else
+            //    {
+            //        itemVM.AllItems = list.OrderBy(x => x.Price).ToList();
+            //    }
+            //}
+            //else if (_sort == 2)
+            //{
+            //    if (list == null)
+            //    {
+            //        itemVM.AllItems = _productServise.GetAll().OrderByDescending(x => x.Price).ToList();
+            //    }
+            //    else
+            //    {
+            //        itemVM.AllItems = list.OrderByDescending(x => x.Price).ToList();
+            //    }
+            //}
+            //else
+            //{
+            //    if (list == null)
+            //    {
+            //        itemVM.AllItems = _productServise.GetAll().OrderBy(x => x.Date).ToList();
+            //    }
+            //    else
+            //    {
+            //        itemVM.AllItems = list.OrderBy(x => x.Date).ToList();
+            //    }
+            //}
 
 
 
-            itemVM.Pages = itemVM.AllItems.Count / 12;
-            double doublePages = itemVM.AllItems.Count / 12.0;
-            if (doublePages > itemVM.Pages)
-            {
-                itemVM.Pages++;
-            }
-            itemVM.StartItem = 12 * curentPage;
-            try
-            {
-                for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
-                {
-                    itemVM.Items.Add(itemVM.AllItems[i]);
-                }
-            }
-            catch (ArgumentOutOfRangeException ex)
-            {
 
-            }
+
+            //itemVM.Pages = itemVM.AllItems.Count / 12;
+            //double doublePages = itemVM.AllItems.Count / 12.0;
+            //if (doublePages > itemVM.Pages)
+            //{
+            //    itemVM.Pages++;
+            //}
+            //itemVM.StartItem = 12 * curentPage;
+            //try
+            //{
+            //    for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
+            //    {
+            //        itemVM.Items.Add(itemVM.AllItems[i]);
+            //    }
+            //}
+            //catch (ArgumentOutOfRangeException ex)
+            //{
+
+            //}
 
 
 
