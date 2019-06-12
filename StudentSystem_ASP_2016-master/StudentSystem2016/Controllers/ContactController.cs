@@ -1,4 +1,4 @@
-﻿using DataAcsess.Models;
+﻿using StudentSystem2016.Models;
 using StudentSystem2016.Authentication;
 using StudentSystem2016.Filters.EntityFilter;
 using StudentSystem2016.Servises.EntityServise;
@@ -9,10 +9,9 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
-    public class ContactController : Controller
-    {
+    
         [AuthenticationFilter]
-        public class ContactControll
+        public class ContactController
          : GenericController<Contact, ContactVm, ContactLIst, ContactFilter, ContactServise>
 
         {
@@ -117,5 +116,5 @@ namespace StudentSystem2016.Controllers
                 _contact.DeleteById(_emailID);
             }
         }
-    }
+    
 }

@@ -1,5 +1,5 @@
-﻿using DataAcsess.Enum;
-using DataAcsess.Models;
+﻿using StudentSystem2016.Enum;
+using StudentSystem2016.Models;
 using StudentSystem2016.Servises.EntityServise;
 using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Login;

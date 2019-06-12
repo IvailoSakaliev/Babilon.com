@@ -1,4 +1,4 @@
-﻿using DataAcsess.Models;
+﻿using StudentSystem2016.Models;
 using StudentSystem2016.Servises.EntityServise;
 using System;
 using System.Collections.Generic;

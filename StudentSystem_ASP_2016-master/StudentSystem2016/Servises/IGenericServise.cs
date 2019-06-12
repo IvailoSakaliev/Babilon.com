@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
-using DataAcsess.Models;
-using DataAcsess.Repository;
+using StudentSystem2016.Models;
+using StudentSystem2016.Repository;
 
 namespace StudentSystem2016.Servises
 {
