@@ -14,10 +14,10 @@ namespace StudentSystem2016.Controllers
 {
     public class LoginController : Controller
     {
-        private AuthenticationService _aut = new AuthenticationService();
-        private IEncriptServises _encript = new EncriptServises();
-        private LoginServise _servise = new LoginServise();
-        private static int userid;
+        //private AuthenticationService _aut = new AuthenticationService();
+        //private IEncriptServises _encript = new EncriptServises();
+        //private LoginServise _servise = new LoginServise();
+        //private static int userid;
 
         [HttpGet]
         public ActionResult Index()
