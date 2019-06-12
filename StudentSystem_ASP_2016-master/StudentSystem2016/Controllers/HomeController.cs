@@ -54,7 +54,8 @@ namespace StudentSystem2016.Controllers
         [HttpGet]
         public ActionResult Contact()
         {
-            return View();
+            ContactVm model = new ContactVm();
+            return View(model);
         }
 
         //[HttpPost]
