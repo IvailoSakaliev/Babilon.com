@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
+    [RoutePrefix("Home")]
     public class HomeController : Controller
     {
 
@@ -16,7 +17,7 @@ namespace StudentSystem2016.Controllers
         //private ContactServise _contact = new ContactServise();
         //private ProductServise _product = new ProductServise();
        
-
+        [Route]
         public ActionResult Index()
         {
             if (Request.Cookies["CookieUsing"] == null)
