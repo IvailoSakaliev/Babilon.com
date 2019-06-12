@@ -7,13 +7,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.ApplicationServices;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
 {
     public class LoginController : Controller
     {
+        LoginServise _servise = new LoginServise();
+        IEncriptServises _encript = new EncriptServises();
+        AuthenticationServises _aut = new AuthenticationServises();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -116,97 +119,97 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Registration(RegistrationVM reg)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        if (CheckForExitedUserInDB(reg))
-        //        {
-        //            ModelState.AddModelError(string.Empty, "Email already exist in site. Please enter anoither emeil");
-        //            return View(reg);
-        //        }
-        //        else
-        //        {
+        [HttpPost]
+        public ActionResult Registration(RegistrationVM reg)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CheckForExitedUserInDB(reg))
+                {
+                    ModelState.AddModelError(string.Empty, "Email already exist in site. Please enter anoither emeil");
+                    return View(reg);
+                }
+                else
+                {
 
-        //            string error = EnterLoginInformation(reg);
-        //            if (error != "OK")
-        //            {
-        //                ModelState.AddModelError(string.Empty, error);
-        //                return View(reg);
-        //            }
-        //            else
-        //            {
-        //                AddUSerINformation(reg);
+                    string error = EnterLoginInformation(reg);
+                    if (error != "OK")
+                    {
+                        ModelState.AddModelError(string.Empty, error);
+                        return View(reg);
+                    }
+                    else
+                    {
+                        AddUSerINformation(reg);
 
-        //            }
-        //        }
+                    }
+                }
 
-        //    }
-        //    return RedirectToAction("Confirm");
-        //}
+            }
+            return RedirectToAction("Confirm");
+        }
 
-        //private User AddUSerINformation(RegistrationVM reg)
-        //{
-        //    List<Login> list = new List<Login>();
-        //    list = _servise.GetAll(x => x.Email == _encript.EncryptData(reg.Email));
-        //    User user = new User();
-        //    user.LoginID = list[0].ID;
-        //    user.Name = _encript.EncryptData(reg.FirstName);
-        //    user.SecondName = _encript.EncryptData(reg.SecondName);
-        //    user.City = _encript.EncryptData(reg.City);
-        //    user.Adress = _encript.EncryptData(reg.Adress);
-        //    user.Telephone = _encript.EncryptData(reg.Telephone);
-        //    user.Image = "../images/userIcon.png";
-        //    UserServise _userServise = new UserServise();
-        //    _userServise.Save(user);
-        //    return user;
-        //}
+        private User AddUSerINformation(RegistrationVM reg)
+        {
+            List<Login> list = new List<Login>();
+            list = _servise.GetAll(x => x.Email == _encript.EncryptData(reg.Email));
+            User user = new User();
+            user.LoginID = list[0].ID;
+            user.Name = _encript.EncryptData(reg.FirstName);
+            user.SecondName = _encript.EncryptData(reg.SecondName);
+            user.City = _encript.EncryptData(reg.City);
+            user.Adress = _encript.EncryptData(reg.Adress);
+            user.Telephone = _encript.EncryptData(reg.Telephone);
+            user.Image = "../images/userIcon.png";
+            UserServise _userServise = new UserServise();
+            _userServise.Save(user);
+            return user;
+        }
 
-        //private string EnterLoginInformation(RegistrationVM reg)
-        //{
-        //    Login login = new Login();
-        //    LoginVM loginVm = new LoginVM();
-        //    login.Email = _encript.EncryptData(reg.Email);
-        //    if (reg.Password == reg.ConfirmPassword)
-        //    {
-        //        login.Password = _encript.EncryptData(reg.Password);
+        private string EnterLoginInformation(RegistrationVM reg)
+        {
+            Login login = new Login();
+            LoginVM loginVm = new LoginVM();
+            login.Email = _encript.EncryptData(reg.Email);
+            if (reg.Password == reg.ConfirmPassword)
+            {
+                login.Password = _encript.EncryptData(reg.Password);
 
-        //        if (!_servise.CheckForAdmin())
-        //        {
-        //            login.isRegisted = true;
-        //            login.Role = 1;
-        //            _servise.Save(login);
+                if (!_servise.CheckForAdmin())
+                {
+                    login.isRegisted = true;
+                    login.Role = 1;
+                    _servise.Save(login);
 
-        //            loginVm.Email = reg.Email;
-        //            loginVm.Password = reg.Password;
-        //            CreateCookie(loginVm);
-
-
-
-        //        }
-        //        else
-        //        {
-        //            login.isRegisted = false;
-        //            login.Role = 2;
-        //            _servise.Save(login);
-
-        //            login = new Login();
-        //            login = _servise.GetLastElement();
-        //            EmailServises _email = new EmailServises(login);
-        //            _email.SendEmail(1);
-        //        }
+                    loginVm.Email = reg.Email;
+                    loginVm.Password = reg.Password;
+                    CreateCookie(loginVm);
 
 
 
-        //    }
-        //    else
-        //    {
-        //        return "Password no match";
-        //    }
+                }
+                else
+                {
+                    login.isRegisted = false;
+                    login.Role = 2;
+                    _servise.Save(login);
 
-        //    return "OK";
-        //}
+                    login = new Login();
+                    login = _servise.GetLastElement();
+                    EmailServises _email = new EmailServises(login);
+                    _email.SendEmail(1);
+                }
+
+
+
+            }
+            else
+            {
+                return "Password no match";
+            }
+
+            return "OK";
+        }
 
         //[HttpGet]
         //public ActionResult EnableAccount(int id)
@@ -273,25 +276,25 @@ namespace StudentSystem2016.Controllers
 
         //}
 
-        //public bool CheckForExitedUserInDB(RegistrationVM model)
-        //{
-        //    if (_aut.AuthenticateUser(model.Email, model.Password, 2, 2) != 0)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+        public bool CheckForExitedUserInDB(RegistrationVM model)
+        {
+            if (_aut.AuthenticateUser(model.Email, model.Password, 2, 2) != 0)
+            {
+                return true;
+            }
+            return false;
+        }
 
-        //public void CreateCookie(LoginVM model)
-        //{
+        public void CreateCookie(LoginVM model)
+        {
 
-        //    HttpCookie cookie = new HttpCookie("UserInformation");
-        //    cookie.Values["UserEmail"] = _encript.EncryptData(model.Email);
-        //    cookie.Values["Userpassword"] = _encript.EncryptData(model.Password);
-        //    cookie.Expires = DateTime.Now.AddDays(30);
-        //    HttpContext.Response.Cookies.Add(cookie);
+            HttpCookie cookie = new HttpCookie("UserInformation");
+            cookie.Values["UserEmail"] = _encript.EncryptData(model.Email);
+            cookie.Values["Userpassword"] = _encript.EncryptData(model.Password);
+            cookie.Expires = DateTime.Now.AddDays(30);
+            HttpContext.Response.Cookies.Add(cookie);
 
-        //}
+        }
         //public LoginVM GetInformation()
         //{
         //    LoginVM login = new LoginVM();
