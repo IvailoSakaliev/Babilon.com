@@ -282,7 +282,7 @@ namespace StudentSystem2016.Controllers
                     entity.OrderNumber = Session["OrderNumber"].ToString();
                     entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
                     entity.Status = Status.Supplier;
-                    user = _user.GetLastElement();
+                    //user = _user.GetLastElement();
                     entity.UserID = user.ID;
 
                     Product element = _product.GetByID(entity.SubjectID);
@@ -376,9 +376,9 @@ namespace StudentSystem2016.Controllers
             }
             else
             {
-                itemVM.AllItems = _order.GetAll(x => x.Status == Status.InProces || x.Status == Status.Supplier);
+                itemVM.AllItems = _order.GetAll().FindAll(x => x.Status == Status.InProces || x.Status == Status.Supplier);
                 _listOrders = new List<Order>();
-                _listOrders = _order.GetAll(x => x.Status == Status.InProces || x.Status == Status.Supplier);
+                _listOrders = _order.GetAll().FindAll(x => x.Status == Status.InProces || x.Status == Status.Supplier);
             }
 
             itemVM.Pages = itemVM.AllItems.Count / 12;
@@ -492,7 +492,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public JsonResult ChangeStatus(string id)
         {
-            List<Order> entity = _order.GetAll(x => x.OrderNumber == id);
+            List<Order> entity = _order.GetAll().FindAll(x => x.OrderNumber == id);
             foreach (var item in entity)
             {
                 item.Status = Status.InProces;
@@ -503,7 +503,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public JsonResult CloseOrder(string id)
         {
-            List<Order> entity = _order.GetAll(x => x.OrderNumber == id);
+            List<Order> entity = _order.GetAll().FindAll(x => x.OrderNumber == id);
             foreach (var item in entity)
             {
                 item.Status = Status.Close;

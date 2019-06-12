@@ -5,7 +5,7 @@ using System.Net.Mail;
 
 namespace StudentSystem2016.Servises.ProjectServise
 {
-    public class EmailServises : GenericServise<Login>
+    public class EmailServises :LoginServise
     {
         public Login _admin;
         private LoginServise singIn = new LoginServise();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace StudentSystem2016.Servises.ProjectServise
 {
     public class AuthenticationServises
-        : GenericServise<Login>
+        : LoginServise
     {
         public Login _LoggedUser { get; set; }
         private List<Login> list { get; set; }

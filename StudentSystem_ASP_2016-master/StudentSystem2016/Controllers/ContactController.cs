@@ -12,7 +12,7 @@ namespace StudentSystem2016.Controllers
     
         [AuthenticationFilter]
         public class ContactController
-         : GenericController<Contact, ContactVm, ContactLIst, ContactFilter, ContactServise>
+         : Controller
 
         {
             private IEncriptServises _encript = new EncriptServises();
@@ -21,38 +21,7 @@ namespace StudentSystem2016.Controllers
             private static string _emailSubjec;
             private static int _emailID;
 
-            public override Contact PopulateEditItemToModel(ContactVm model, Contact entity, int id)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override Contact PopulateItemToModel(ContactVm model, Contact entity)
-            {
-                throw new NotImplementedException();
-            }
-
-            public override ContactVm PopulateModelToItem(Contact entity, ContactVm model)
-            {
-                model.Email = entity.Email;
-                model.Subject = entity.Name;
-                model.Message = entity.Message;
-                return model;
-            }
-
-            internal override string PopulateINdexType(ContactLIst itemVM, int id)
-            {
-                throw new NotImplementedException();
-            }
-            public override Contact PopulateIndexContactInfo(Contact model)
-            {
-                Contact entity = new Contact();
-                entity.ID = model.ID;
-                entity.Email = _encript.DencryptData(model.Email);
-                entity.Name = _encript.DencryptData(model.Name);
-                entity.Message = _encript.DencryptData(model.Message);
-                entity.Date = model.Date;
-                return entity;
-            }
+           
 
             [HttpPost]
             public JsonResult ChangeEmailInformation(int id)
@@ -66,12 +35,17 @@ namespace StudentSystem2016.Controllers
                 return Json(contact);
             }
 
-            [HttpPost]
-            public JsonResult DeleteEmail(int id)
-            {
-                _contact.DeleteById(id);
-                return Json("ok");
-            }
+            //[HttpPost]
+            //public JsonResult DeleteEmail(int id)
+            //{
+            //    _contact.DeleteById(id);
+            //    return Json("ok");
+            //}            //[HttpPost]
+            //public JsonResult DeleteEmail(int id)
+            //{
+            //    _contact.DeleteById(id);
+            //    return Json("ok");
+            //}
 
             [HttpGet]
             public ActionResult SendEmailTOUser(int id)
@@ -99,7 +73,7 @@ namespace StudentSystem2016.Controllers
                 {
                     EmailServises _email = new EmailServises(login);
                     _email.SendEmailFromAdmin(3, entity);
-                    DeleteEmail();
+                    //DeleteEmail();
                 }
                 catch (Exception)
                 {
@@ -111,10 +85,10 @@ namespace StudentSystem2016.Controllers
                 return Redirect("../Index?Curentpage=1");
             }
 
-            private void DeleteEmail()
-            {
-                _contact.DeleteById(_emailID);
-            }
+            //private void DeleteEmail()
+            //{
+            //    _contact.DeleteById(_emailID);
+            //}
         }
     
 }

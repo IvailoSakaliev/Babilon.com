@@ -152,7 +152,7 @@ namespace StudentSystem2016.Controllers
         private User AddUSerINformation(RegistrationVM reg)
         {
             List<Login> list = new List<Login>();
-            list = _servise.GetAll(x => x.Email == _encript.EncryptData(reg.Email));
+            list = _servise.GetAll().FindAll(x => x.Email == _encript.EncryptData(reg.Email));
             User user = new User();
             user.LoginID = list[0].ID;
             user.Name = _encript.EncryptData(reg.FirstName);
@@ -195,7 +195,7 @@ namespace StudentSystem2016.Controllers
                     _servise.Save(login);
 
                     login = new Login();
-                    login = _servise.GetLastElement();
+                    //login = _servise.GetLastElement();
                     EmailServises _email = new EmailServises(login);
                     _email.SendEmail(1);
                 }

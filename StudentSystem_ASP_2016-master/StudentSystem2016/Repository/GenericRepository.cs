@@ -3,108 +3,172 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Data.OleDb;
 using System.Linq;
 using System.Linq.Expressions;
 
 namespace StudentSystem2016.Repository
 {
-    public class GenericRepository<Tentity>
-         : IGenericRepository1<Tentity> where Tentity
+    public abstract class GenericRepository<T> where T
          : BaseModel, new()
     {
-        private StudentDBContext _context { get; set; }
-        protected DbSet<Tentity> _set { get; set; }
+        private OleDbConnection Connection = null;
+        private bool IsInUofContext = false;
+        protected abstract OleDbCommand GetSelectCommand(T item);
+        protected abstract OleDbCommand GetUpdateCommand(T item);
+        protected abstract OleDbCommand GetInsertCommand(T item);
+        protected abstract OleDbCommand GetDeleteCommand(T item);
+        protected abstract OleDbCommand GetDeleteIDCommand(T item);
+
+
+        protected abstract void PopulateItem(T item, OleDbDataReader reader);
 
         public GenericRepository()
         {
-            _context = new StudentDBContext();
-            _set = _context.Set<Tentity>();
+            Connection = new OleDbConnection();
+            Connection.ConnectionString = @"
+Provider=SQLNCLI11; Server=localhost\SQLEXPRESS; Database=PhoneBookDB; Trusted_Connection=yes";
         }
 
-
-
-        public List<Tentity> GetAll()
+        public GenericRepository(UnitOfWork uof)
         {
-            return _set.ToList();
+            Connection = uof.Connection;
         }
 
-        public List<Tentity> GetAll(Expression<Func<Tentity, bool>> filter)
+        public List<T> GetAll()
         {
-            if (filter != null)
+            List<T> result = new List<T>();
+
+            OleDbCommand cmd = GetSelectCommand(null);
+            cmd.Connection = Connection;
+
+            OleDbDataReader reader = null;
+            try
             {
-                return _set.Where(filter).ToList();
+                if (Connection.State != ConnectionState.Open)
+                    Connection.Open();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    T item = new T();
+
+                    PopulateItem(item, reader);
+
+                    result.Add(item);
+                }
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (!IsInUofContext)
+                    Connection.Close();
+            }
+
+            return result;
+        }
+
+        public T GetByID(int Id)
+        {
+            T result = null;
+
+            OleDbCommand cmd = GetSelectCommand(null);
+            cmd.Connection = Connection;
+
+            OleDbDataReader reader = null;
+            try
+            {
+                if (Connection.State != ConnectionState.Open)
+                    Connection.Open();
+
+                reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    result = new T();
+
+                    PopulateItem(result, reader);
+                }
+            }
+            finally
+            {
+                if (reader != null)
+                    reader.Close();
+
+                if (!IsInUofContext)
+                    Connection.Close();
+            }
+
+            return result;
+        }
+
+        public void Insert(T item)
+        {
+            OleDbCommand cmd = GetInsertCommand(item);
+            cmd.Connection = Connection;
+
+            try
+            {
+                if (Connection.State != ConnectionState.Open)
+                    Connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (!IsInUofContext)
+                    Connection.Close();
+            }
+        }
+
+        public void Update(T item)
+        {
+            OleDbCommand cmd = GetUpdateCommand(item);
+            cmd.Connection = Connection;
+
+            try
+            {
+                if (Connection.State != ConnectionState.Open)
+                    Connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (!IsInUofContext)
+                    Connection.Close();
+            }
+        }
+
+        public void Delete(T item)
+        {
+            OleDbCommand cmd = GetDeleteCommand(item);
+            cmd.Connection = Connection;
+
+            try
+            {
+                if (Connection.State != ConnectionState.Open)
+                    Connection.Open();
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                if (!IsInUofContext)
+                    Connection.Close();
+            }
+        }
+        public void Save(T item)
+        {
+            if (item.ID != null)
+            {
+                Insert(item);
             }
             else
             {
-                return _set.ToList();
+                Update(item);
             }
         }
-
-        public Tentity GetByID(int? id)
-        {
-            return _set.Find(id);
-        }
-
-        public Tentity GetLastElement()
-        {
-            return _set.LastOrDefault();
-        }
-
-        public void Delete(Tentity entity)
-        {
-            _set.Remove(entity);
-            Updatestation(entity, EntityState.Deleted);
-        }
-
-        private void Add(Tentity entity)
-        {
-            _set.Add(entity);
-            Updatestation(entity, EntityState.Added);
-        }
-
-        private void Update(Tentity entity)
-        {
-            Updatestation(entity, EntityState.Modified);
-        }
-
-        public void Save(Tentity entity)
-        {
-            if (entity.ID == 0)
-            {
-                Add(entity);
-            }
-            else
-            {
-                Update(entity);
-            }
-
-        }
-
-        private void Updatestation(Tentity entity, EntityState state)
-        {
-            var dbentry = _context.Entry(entity);
-            dbentry.State = state;
-            _context.SaveChanges();
-        }
-
-        public void DeleteById(int id)
-        {
-            Tentity entity = new Tentity();
-            entity = GetByID(id);
-            Delete(entity);
-            _context.SaveChanges();
-        }
-
-        public void Delete(Expression<Func<Tentity, bool>> filter)
-        {
-            List<Tentity> list = _set.Where(filter).ToList();
-            foreach (var item in list)
-            {
-                _set.Remove(item);
-                Updatestation(item, EntityState.Deleted);
-            }
-        }
-
-
     }
 }

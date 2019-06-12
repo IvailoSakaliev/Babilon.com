@@ -30,7 +30,7 @@ namespace StudentSystem2016.Controllers
                 id = int.Parse(Session["User_ID"].ToString());
                 OrderList itemVM = new OrderList();
                 User user = _servise.GetByID(id);
-                List<Order> orders = _order.GetAll(x => x.UserID == id);
+                List<Order> orders = _order.GetAll().FindAll(x => x.UserID == id);
                 itemVM = PopulateOrdersInformation(itemVM, orders);
                 itemVM.CurrentUser = PopulateUserInformation(itemVM.CurrentUser, user);
                 itemVM.Product = PopulateProductINformation(itemVM.Product, orders);
