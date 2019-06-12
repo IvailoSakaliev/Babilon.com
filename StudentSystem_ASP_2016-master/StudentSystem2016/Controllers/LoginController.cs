@@ -14,7 +14,7 @@ namespace StudentSystem2016.Controllers
     public class LoginController : Controller
     {
         LoginServise _servise = new LoginServise();
-        IEncriptServises _encript = new EncriptServises();
+        EncriptServises _encript = new EncriptServises();
         AuthenticationServises _aut = new AuthenticationServises();
 
         [HttpGet]
