@@ -1,4 +1,6 @@
-﻿using StudentSystem2016.VModels.Models.Contacts;
+﻿using StudentSystem2016.Servises.EntityServise;
+using StudentSystem2016.Servises.ProjectServise;
+using StudentSystem2016.VModels.Models.Contacts;
 using StudentSystem2016.VModels.Models.Products;
 using System.Web;
 using System.Web.Mvc;
@@ -8,9 +10,9 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-        //private IEncriptServises _encript = new EncriptServises();
-        //private ContactServise _contact = new ContactServise();
-        //private ProductServise _product = new ProductServise();
+        private IEncriptServises _encript = new EncriptServises();
+        private ContactServise _contact = new ContactServise();
+        private ProductServise _product = new ProductServise();
 
         [HttpGet]
         public ActionResult Index()
@@ -23,11 +25,11 @@ namespace StudentSystem2016.Controllers
                 HttpContext.Response.Cookies.Add(cookie);
             }
 
-            //LoginServise _login = new LoginServise();
-            //if (!_login.CheckForAdmin())
-            //{
-            //    return Redirect("Login/Registration");
-            //}
+            LoginServise _login = new LoginServise();
+            if (!_login.CheckForAdmin())
+            {
+                return Redirect("Login/Registration");
+            }
 
             ProducLIst itemVM = new ProducLIst();
             itemVM = PopulateIndex(itemVM);
