@@ -109,12 +109,12 @@ namespace StudentSystem2016.Controllers
         //    return View();
         //}
 
-        //[HttpGet]
-        //public ActionResult Registration()
-        //{
-        //RegistrationVM model = new RegistrationVM();
-        //    return View(model);
-        //}
+        [HttpGet]
+        public ActionResult Registration()
+        {
+            RegistrationVM model = new RegistrationVM();
+            return View(model);
+        }
 
         //[HttpPost]
         //public ActionResult Registration(RegistrationVM reg)
