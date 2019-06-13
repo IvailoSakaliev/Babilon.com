@@ -31,8 +31,8 @@
 
         </li>
         @{
-            if (HttpContext.Current.Session["User_ID"] == ""
-                || HttpContext.Current.Session["User_ID"] == null)
+            if (Session["User_ID"] == ""
+                || Session["User_ID"] == null)
             {
                 <li>@Html.ActionLink("Registration", "Registration", "Login")</li>
                 <li>@Html.ActionLink("Login", "Index", "Login")</li>
