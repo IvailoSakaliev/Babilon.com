@@ -60,7 +60,7 @@ namespace StudentSystem2016.Controllers
                         {
                             CreateCookie(login);
                         }
-                        return Redirect("https://vavilonci.com/");
+                        return Redirect("https://vavilonci.com/"); 
                     }
                 }
                 else
