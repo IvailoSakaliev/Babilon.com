@@ -164,7 +164,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Add(TeidtVM model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 TEntity entity = new TEntity();
                 entity = PopulateItemToModel(model, entity);

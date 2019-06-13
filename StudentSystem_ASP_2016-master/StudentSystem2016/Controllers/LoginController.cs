@@ -1,4 +1,5 @@
-﻿using StudentSystem2016.Models;
+﻿using StudentSystem2016.Authentication;
+using StudentSystem2016.Models;
 using StudentSystem2016.Servises.EntityServise;
 using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Login;
@@ -16,6 +17,7 @@ namespace StudentSystem2016.Controllers
         LoginServise _servise = new LoginServise();
         EncriptServises _encript = new EncriptServises();
         AuthenticationServises _aut = new AuthenticationServises();
+        private static int userID;
 
         [HttpGet]
         public ActionResult Index()
@@ -23,53 +25,53 @@ namespace StudentSystem2016.Controllers
             LoginVM login = new LoginVM();
             try
             {
-
                 if (Request.Cookies["UserInformation"] != null)
                 {
-
+                    string loginName =_encript.DencryptData(Request.Cookies["UserInformation"].Values["UserEmail"]);
+                    string loginPass = _encript.DencryptData(Request.Cookies["UserInformation"].Values["Userpassword"]);
+                    login.Email =loginName;
+                    login.Password = loginPass;
                 }
             }
             catch (ArgumentNullException ex)
             {
-
                 return View(login);
             }
-
             return View(login);
         }
 
-        //[HttpPost]
-        //public ActionResult Index(LoginVM login)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //int id = _aut.AuthenticateUser(login.Email, login.Password, 1, 1);
-        //        if (id != 0)
-        //        {
-        //            if (id == -1)
-        //            {
-        //                ModelState.AddModelError(string.Empty, "Please go to your email to active yout account!");
-        //                return View();
-        //            }
-        //            else
-        //            {
-        //                GoToSession();
-        //                if (login.RememberME)
-        //                {
-        //                    CreateCookie(login);
-        //                }
-        //                return Redirect("../");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError(string.Empty, "This user is't exist in this site. Please go ot Create account to registed");
+        [HttpPost]
+        public ActionResult Index(LoginVM login)
+        {
+            if (ModelState.IsValid)
+            {
+                int id = _aut.AuthenticateUser(login.Email, login.Password, 1, 1);
+                if (id != 0)
+                {
+                    if (id == -1)
+                    {
+                        ModelState.AddModelError(string.Empty, "Please go to your email to active yout account!");
+                        return View();
+                    }
+                    else
+                    {
+                        GoToSession();
+                        if (login.RememberME)
+                        {
+                            CreateCookie(login);
+                        }
+                        return Redirect("http://localhost:51663/Home/Index");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "This user is't exist in this site. Please go ot Create account to registed");
 
-        //        }
-        //        return View();
-        //    }
-        //    return View();
-        //}
+                }
+                return View();
+            }
+            return View();
+        }
 
         [HttpGet]
         public ActionResult ForgotPassword()
@@ -78,39 +80,39 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult ForgotPassword(ForgotPassM model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        Login login = new Login();
-        //        //List<Login> list = _servise.GetAll(x => x.Email == _encript.EncryptData(model.Email));
-        //        if (list.Count != 0)
-        //        {
-        //            EmailServises _email = new EmailServises(list[0]);
-        //            _email.SendEmail(2);
-        //        }
-        //        else
-        //        {
-        //            ModelState.AddModelError(string.Empty, "Тhis email is not in our system.");
-        //            return View();
+        [HttpPost]
+        public ActionResult ForgotPassword(ForgotPassM model)
+        {
+            if (ModelState.IsValid)
+            {
+                Login login = new Login();
+                List<Login> list = _servise.GetAll(x => x.Email == _encript.EncryptData(model.Email));
+                if (list.Count != 0)
+                {
+                    EmailServises _email = new EmailServises(list[0]);
+                    _email.SendEmail(2);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Тhis email is not in our system.");
+                    return View();
 
-        //        }
-        //    }
-        //    return RedirectToAction("GoToEmail");
-        //}
-        //[HttpGet]
-        //public ActionResult GoToEmail()
-        //{
+                }
+            }
+            return RedirectToAction("GoToEmail");
+        }
+        [HttpGet]
+        public ActionResult GoToEmail()
+        {
 
-        //    return View();
-        //}
-        //[HttpGet]
-        //public ActionResult Confirm()
-        //{
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Confirm()
+        {
 
-        //    return View();
-        //}
+            return View();
+        }
 
         [HttpGet]
         public ActionResult Registration()
@@ -152,7 +154,8 @@ namespace StudentSystem2016.Controllers
         private User AddUSerINformation(RegistrationVM reg)
         {
             List<Login> list = new List<Login>();
-            list = _servise.GetAll(x => x.Email == _encript.EncryptData(reg.Email));
+            string email = _encript.EncryptData(reg.Email);
+            list = _servise.GetAll(x => x.Email == email);
             User user = new User();
             user.LoginID = list[0].ID;
             user.Name = _encript.EncryptData(reg.FirstName);
@@ -211,70 +214,70 @@ namespace StudentSystem2016.Controllers
             return "OK";
         }
 
-        //[HttpGet]
-        //public ActionResult EnableAccount(int id)
-        //{
-        //    Login entity = new Login();
-        //    entity = _servise.GetByID(id);
-        //    entity.isRegisted = true;
-        //    _servise.Save(entity);
-        //    return View();
-        //}
+        [HttpGet]
+        public ActionResult EnableAccount(int id)
+        {
+            Login entity = new Login();
+            entity = _servise.GetByID(id);
+            entity.isRegisted = true;
+            _servise.Save(entity);
+            return View();
+        }
 
-        //[HttpGet]
-        //public ActionResult RestorePassword(string id)
-        //{
-        //    userID = int.Parse(_encript.DencryptData(id));
-        //    RegistrationVM model = new RegistrationVM();
-        //    return View(model);
-        //}
-        //[HttpPost]
-        //public ActionResult RestorePassword(RegistrationVM model)
-        //{
-        //    if (model.Password == model.ConfirmPassword)
-        //    {
-        //        Login entity = _servise.GetByID(userID);
-        //        entity.Password = _encript.EncryptData(model.Password);
-        //        _servise.Save(entity);
-        //        return RedirectToAction("SuccessChangePassword");
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Паролите не съвпадат !");
-        //        return View(model);
-        //    }
+        [HttpGet]
+        public ActionResult RestorePassword(string id)
+        {
+            userID = int.Parse(_encript.DencryptData(id));
+            RegistrationVM model = new RegistrationVM();
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult RestorePassword(RegistrationVM model)
+        {
+            if (model.Password == model.ConfirmPassword)
+            {
+                Login entity = _servise.GetByID(userID);
+                entity.Password = _encript.EncryptData(model.Password);
+                _servise.Save(entity);
+                return RedirectToAction("SuccessChangePassword");
+            }
+            else
+            {
+                ModelState.AddModelError(string.Empty, "Паролите не съвпадат !");
+                return View(model);
+            }
 
 
-        //}
+        }
 
-        //[HttpGet]
-        //public ActionResult SuccessChangePassword()
-        //{
-        //    return View();
-        //}
-        //private void GoToSession()
-        //{
-        //    Session["LoggedUser"] = _encript.EncryptData(_aut._LoggedUser.Role.ToString());
+        [HttpGet]
+        public ActionResult SuccessChangePassword()
+        {
+            return View();
+        }
+        private void GoToSession()
+        {
+            Session["LoggedUser"] = _encript.EncryptData(_aut._LoggedUser.Role.ToString());
 
-        //    Session["UserFirstName"] =  _encript.EncryptData(_aut._LoggedUser.Email);
+            Session["UserFirstName"] = _encript.EncryptData(_aut._LoggedUser.Email);
 
-        //    Session["User_ID"] = _aut._LoggedUser.ID.ToString();
-        //}
+            Session["User_ID"] = _aut._LoggedUser.ID.ToString();
+        }
 
-        //[HttpGet]
-        //public ActionResult LoggOut()
-        //{
+        [HttpGet]
+        public ActionResult LoggOut()
+        {
 
-        //    _aut._LoggedUser = null;
-        //    HttpContext.Session.Remove("LoggedUser");
+            _aut._LoggedUser = null;
+            HttpContext.Session.Remove("LoggedUser");
 
-        //    HttpContext.Session.Remove("UserFirstName");
+            HttpContext.Session.Remove("UserFirstName");
 
-        //    HttpContext.Session.Remove("User_ID");
+            HttpContext.Session.Remove("User_ID");
 
-        //    return RedirectToAction("Index");
+            return RedirectToAction("Index");
 
-        //}
+        }
 
         public bool CheckForExitedUserInDB(RegistrationVM model)
         {
@@ -295,25 +298,25 @@ namespace StudentSystem2016.Controllers
             HttpContext.Response.Cookies.Add(cookie);
 
         }
-        //public LoginVM GetInformation()
-        //{
-        //    LoginVM login = new LoginVM();
-        //    HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
-        //    login.Email = cookie["UserEmail"];
-        //    login.Password = cookie["Userpassword"];
-        //    return login;
-        //}
+        public LoginVM GetInformation()
+        {
+            LoginVM login = new LoginVM();
+            HttpCookie cookie = HttpContext.Request.Cookies["UserInformation"];
+            login.Email = cookie["UserEmail"];
+            login.Password = cookie["Userpassword"];
+            return login;
+        }
 
-        //[HttpGet]
-        //[UserFilter]
-        //public ActionResult Details(int id)
-        //{
-        //    //TEntity entity = new TEntity();
-        //    //TeidtVM model = new TeidtVM();
-        //    //entity = _Servise.GetByID(id);
-        //    //model = PopulateModelToItem(entity, model);
-        //    return View();
-        //}
+        [HttpGet]
+        [UserFilter]
+        public ActionResult Details(int id)
+        {
+            //TEntity entity = new TEntity();
+            //TeidtVM model = new TeidtVM();
+            //entity = _Servise.GetByID(id);
+            //model = PopulateModelToItem(entity, model);
+            return View();
+        }
 
 
     }

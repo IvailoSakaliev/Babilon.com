@@ -75,7 +75,7 @@ namespace StudentSystem2016.Servises.ProjectServise
         private void SendRestorPasswordEmail()
         {
             _message.Subject = "Restor Password";
-            _message.Body = "Please enter link to restor your password in StudentSystem http://wwww.vavilonci.com/Login/RestorePassword?id=" + _encript.EncryptData(_userID.ToString());
+            _message.Body = "Please enter link to restor your password in StudentSystem http://www.vavilonci.com/Login/RestorePassword?id=" + _encript.EncryptData(_userID.ToString());
             _message.To.Add(_userEmail);
             _smtpClient.Send(_message);
         }
@@ -83,7 +83,7 @@ namespace StudentSystem2016.Servises.ProjectServise
         private void SendConfirmEmail()
         {
             _message.Subject = "Confirm registration";
-            _message.Body = "Please to confirm your registration in Vavilonci http://wwww.vavilonci.com/Login/EnableAccount?id=" + _userID;
+            _message.Body = "Please to confirm your registration in Vavilonci http://www.vavilonci.com/Login/EnableAccount?id=" + _userID;
             _message.To.Add(_userEmail);
             _smtpClient.Send(_message);
         }
@@ -97,7 +97,7 @@ namespace StudentSystem2016.Servises.ProjectServise
 
         private Login GetDecriptedInformationForAdmin()
         {
-            var admin = GetByID(1);
+            var admin = GetByID(3);
             Login result = new Login();
             result.Email = _encript.DencryptData(admin.Email.ToString());
             result.Password = _encript.DencryptData(admin.Password.ToString());

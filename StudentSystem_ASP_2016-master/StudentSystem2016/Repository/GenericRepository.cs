@@ -47,7 +47,8 @@ namespace StudentSystem2016.Repository
 
         public Tentity GetLastElement()
         {
-            return _set.LastOrDefault();
+            var item = GetAll();
+            return item.LastOrDefault();
         }
 
         public void Delete(Tentity entity)

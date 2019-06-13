@@ -21,7 +21,7 @@ namespace StudentSystem2016.Authentication
                 string id = _encript.DencryptData(HttpContext.Current.Session["LoggedUser"].ToString());
                 if (id != "1")
                 {
-                    context.HttpContext.Response.Redirect("../Home/Index");
+                    context.HttpContext.Response.Redirect("https://vavilonci.com/");
                 }
             }
             base.OnActionExecuting(context);

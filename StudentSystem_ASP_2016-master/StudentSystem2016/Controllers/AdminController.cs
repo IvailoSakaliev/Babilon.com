@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 
 namespace StudentSystem2016.Controllers
 {
@@ -51,47 +52,60 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Product(ProductVM model, IFormFile[] photo)
-        //{
-        //    Product entity = new Product();
-        //    entity.Code = model.Code;
-        //    entity.Title = model.Title;
-        //    entity.Description = model.Description;
-        //    entity.Price = model.Price;
-        //    entity.Quantity = model.Quantity;
-        //    entity.Type = int.Parse(Request.Form["type"]);
-        //    entity.Basetype = int.Parse(Request.Form["basetype"]);
+        [HttpPost]
+        public ActionResult Product(ProductVM model, HttpPostedFileBase[] photo)
+        {
+            Product entity = new Product();
+            entity.Code = model.Code;
+            entity.Title = model.Title;
+            entity.Description = model.Description;
+            entity.Price = model.Price;
+            entity.Quantity = model.Quantity;
+            entity.Type = int.Parse(Request.Form["type"]);
+            entity.Basetype = int.Parse(Request.Form["basetype"]);
 
-        //    if (entity.Type == -1 || entity.Basetype == -1)
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Please select type or basetype!");
-        //        return View(model);
-        //    }
-        //    entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
-        //    entity.Image = GetImagePath(photo);
+            if (entity.Type == -1 || entity.Basetype == -1)
+            {
+                ModelState.AddModelError(string.Empty, "Please select type or basetype!");
+                return View(model);
+            }
+            entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
+            entity.Image = GetImagePath(photo);
 
-        //    _product.Save(entity);
-        //    Product item = _product.GetLastElement();
+            _product.Save(entity);
+            Product item = _product.GetLastElement();
 
-        //    Addimage(photo, item.ID);
+            Addimage(photo, item.ID);
 
 
-        //    return Redirect("Product");
-        //}
+            return Redirect("Product");
+        }
 
-        //private string GetImagePath(IFormFile[] photo)
-        //{
-        //    return "../images/Galery/" + photo[0].FileName;
-        //}
+        private string GetImagePath(HttpPostedFileBase[] photo)
+        {
+            return "../images/Galery/" + photo[0].FileName;
+        }
 
-        //private void Addimage(IFormFile[] photo, int id)
-        //{
-        //    ImageServise _img = new ImageServise();
-        //    string isUploadet = _img.UploadImages(photo, id);
-        //    ModelState.AddModelError(string.Empty, isUploadet);
+        private void Addimage(HttpPostedFileBase[] photo, int id)
+        {
+            ImageServise _image = new ImageServise();
+                foreach (HttpPostedFileBase item in photo)
+                {
+                string pic = System.IO.Path.GetFileName(item.FileName);
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/Images/Galery"), pic);
+                // file is uploaded
+                item.SaveAs(path);
 
-        //}
+                Images img = new Images();
+                    img.Path = "../images/Galery/" + item.FileName;
+                    img.Subject_id = id;
+                _image.Save(img);
+
+                }
+            
+
+        }
 
         [HttpPost]
         public JsonResult DeleteImage(int id)

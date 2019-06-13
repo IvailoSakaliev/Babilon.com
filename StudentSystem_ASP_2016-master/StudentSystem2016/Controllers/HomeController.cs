@@ -1,7 +1,9 @@
-﻿using StudentSystem2016.Servises.EntityServise;
+﻿using StudentSystem2016.Models;
+using StudentSystem2016.Servises.EntityServise;
 using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Contacts;
 using StudentSystem2016.VModels.Models.Products;
+using System;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,14 +12,16 @@ namespace StudentSystem2016.Controllers
     public class HomeController : Controller
     {
 
-
+        private IEncriptServises _encript = new EncriptServises();
         private ContactServise _contact = new ContactServise();
         private ProductServise _product = new ProductServise();
 
         [HttpGet]
         public ActionResult Index()
         {
-
+            Session["OrderProduct"] = "";
+            Session["ProductQuantity"] = "";
+            Session["User_ID"] = "";
             if (Request.Cookies["CookieUsing"] == null)
             {
 
@@ -57,17 +61,17 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult Contact(ContactVm model)
-        //{
-        //    Contact entity = new Contact();
-        //    entity.Email = _encript.EncryptData(model.Email);
-        //    entity.Name = _encript.EncryptData(model.Subject);
-        //    entity.Message = _encript.EncryptData(model.Message);
-        //    entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
-        //    _contact.Save(entity);
-        //    return Redirect("SuccessSendEmail");
-        //}
+        [HttpPost]
+        public ActionResult Contact(ContactVm model)
+        {
+            Contact entity = new Contact();
+            entity.Email = _encript.EncryptData(model.Email);
+            entity.Name = _encript.EncryptData(model.Subject);
+            entity.Message = _encript.EncryptData(model.Message);
+            entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
+            _contact.Save(entity);
+            return Redirect("SuccessSendEmail");
+        }
 
         public ActionResult SuccessSendEmail()
         {

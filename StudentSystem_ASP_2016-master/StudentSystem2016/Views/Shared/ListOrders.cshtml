@@ -8,7 +8,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/Style.css")
     @Scripts.Render("~/Scripts/site.js")
+    @Scripts.Render("~/Scripts/jquery-1.10.2.js")
 
 </head>
 <body>
@@ -104,7 +108,7 @@
                         <div class="row" style="padding:30px;">
                             <h4>Product</h4>
                             @{
-                                @for (int j = 0; j < Model.ProductCount[i]; j++)
+                                for (int j = 0; j < Model.ProductCount[i]; j++)
                                 {
                                     count++;
                                     <div class="col-md-2 product">
@@ -159,7 +163,7 @@
                         <div class="row" style="padding:30px;">
                             <h4>Product</h4>
                             @{
-                                @for (int j = 0; j < Model.ProductCount[i]; j++)
+                                for (int j = 0; j < Model.ProductCount[i]; j++)
                                 {
                                     count++;
                                     <div class="col-md-2 product">

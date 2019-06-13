@@ -10,19 +10,19 @@
             <h3>Contact US</h3>
             <form style="padding:10px;" action="Contact" method="post">
                 <div class="form-group">
-                    <label asp-for="Email"></label>
-                    <input asp-for="Email" class="form-control" />
-                    <span asp-validation-for="Email"></span>
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="Subject"></label>
-                    <input asp-for="Subject" class="form-control" />
-                    <span asp-validation-for="Subject"></span>
+                    @Html.LabelFor(model => model.Subject, htmlAttributes: new { @class = "control-label " })
+                    @Html.EditorFor(model => model.Subject, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Subject, "", new { @class = "text-danger" })
                 </div>
                 <div class="form-group">
-                    <label asp-for="Subject"></label>
-                    <textarea rows="10" asp-for="Message" class="form-control"></textarea>
-                    <span asp-validation-for="Message"></span>
+                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label " })</br>
+                    <textarea name="message" cols="30" rows="6" class="form-control"></textarea>
+                    @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger " })
                 </div>
                 <input class="btn btn-warning" type="submit" name="message" value="Send" />
             </form>

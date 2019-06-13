@@ -29,10 +29,10 @@ namespace StudentSystem2016.Controllers
         {
             id = int.Parse(Session["User_ID"].ToString());
             OrderList itemVM = new OrderList();
-            User user = _servise.GetByID(id);
+            List<User> user = _servise.GetAll(x=> x.LoginID == id);
             List<Order> orders = _order.GetAll(x => x.UserID == id);
             itemVM = PopulateOrdersInformation(itemVM, orders);
-            itemVM.CurrentUser = PopulateUserInformation(itemVM.CurrentUser, user);
+            itemVM.CurrentUser = PopulateUserInformation(itemVM.CurrentUser, user[0]);
             itemVM.Product = PopulateProductINformation(itemVM.Product, orders);
             itemVM.QuantityOrderList = Populatequntity(itemVM.QuantityOrderList, orders);
 
@@ -132,16 +132,15 @@ namespace StudentSystem2016.Controllers
         public ActionResult ChangeDetails()
         {
             UserEditVm model = new UserEditVm();
-            User entity = new User();
-            entity = _servise.GetByID(id);
-            model.FirstName = _encript.DencryptData(entity.Name);
-            model.SecondName = _encript.DencryptData(entity.SecondName);
-            model.City = _encript.DencryptData(entity.City);
-            model.Adress = _encript.DencryptData(entity.Adress);
-            model.Telephone = _encript.DencryptData(entity.Telephone);
-            UserID = entity.ID;
-            model.Image = entity.Image;
-            loginID = entity.LoginID;
+            List<User> entity = _servise.GetAll(x=> x.LoginID ==id);
+            model.FirstName = _encript.DencryptData(entity[0].Name);
+            model.SecondName = _encript.DencryptData(entity[0].SecondName);
+            model.City = _encript.DencryptData(entity[0].City);
+            model.Adress = _encript.DencryptData(entity[0].Adress);
+            model.Telephone = _encript.DencryptData(entity[0].Telephone);
+            UserID = entity[0].ID;
+            model.Image = entity[0].Image;
+            loginID = entity[0].LoginID;
 
             return View(model);
         }

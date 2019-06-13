@@ -213,6 +213,7 @@
     <Compile Include="Servises\EntityServise\baseTypeServise.cs" />
     <Compile Include="Servises\EntityServise\ContactServise.cs" />
     <Compile Include="Servises\EntityServise\HashServise.cs" />
+    <Compile Include="Servises\EntityServise\ImageServise.cs" />
     <Compile Include="Servises\EntityServise\LoginServise.cs" />
     <Compile Include="Servises\EntityServise\OrderServise.cs" />
     <Compile Include="Servises\EntityServise\ProductServise.cs" />
@@ -308,7 +309,9 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Shared\_PagerView.cshtml" />
     <Content Include="Views\Shared\_fixedMenu.cshtml" />
     <Content Include="Views\Shared\_adminPageVm.cshtml" />
@@ -336,7 +339,7 @@
     <Content Include="Views\Order\AdminIndex.cshtml" />
     <Content Include="Views\Order\CungratOrder.cshtml" />
     <Content Include="Views\Order\Details.cshtml" />
-    <Content Include="Views\Order\ListOrders.cshtml" />
+    <Content Include="Views\Shared\ListOrders.cshtml" />
     <Content Include="Views\Order\MakeOrder.cshtml" />
     <Content Include="Views\Order\Orders.cshtml" />
     <Content Include="Views\Product\index.cshtml" />
@@ -349,6 +352,7 @@
     <Content Include="Views\User\ChangeEmail.cshtml" />
     <Content Include="Views\User\ChangePassword.cshtml" />
     <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\Home\SuccessSendEmail.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

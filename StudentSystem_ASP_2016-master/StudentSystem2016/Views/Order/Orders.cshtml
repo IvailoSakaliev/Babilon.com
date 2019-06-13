@@ -19,7 +19,7 @@
                 {
                     foreach (var item in Model.Items)
                     {
-
+                    <div class="row">
                         <div class="col-md-3 imageBorder">
                             <img width="150px" src="../@item.Image" alt="Alternate Text" />
                         </div>
@@ -56,37 +56,39 @@
                                 Общо: @(item.Price * item.Quantity)
                             </div>
                         </div>
+                    </div>
+                            }
+                            }
+                       
+
                     }
-                }
 
-            }
+                </div>
+                <div class="col-md-3">
+                    @{
+                        double totalPrice = 0;
+                        foreach (var item in Model.Items)
+                        {
+                            totalPrice += (item.Price * item.Quantity);
+                        }
+                        <h3 class="totalOrder">Total:@totalPrice</h3>
+                    }
+
+                    @{
+                        if (Session["OrderProduct"] == "" ||
+                            Session["OrderProduct"] == null)
+                        {
+                            <a class="btn btn-primary makeOrder" href="#" style="pointer-events:none">Направи поръчка</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-primary makeOrder" href="MakeOrder">Направи поръчка</a>
+                        }
+                    }
+                </div>
+                <div style="visibility:hidden" class="session">
+                    @Session["OrderProduct"]
+                </div>
+            </div>
 
         </div>
-        <div class="col-md-3">
-            @{
-                double totalPrice = 0;
-                foreach (var item in Model.Items)
-                {
-                    totalPrice += (item.Price * item.Quantity);
-                }
-                <h3 class="totalOrder">Total:@totalPrice</h3>
-            }
-
-            @{
-                if (Session["OrderProduct"] == "" ||
-                    Session["OrderProduct"] == null)
-                {
-                    <a class="btn btn-primary makeOrder" href="#" style="pointer-events:none">Направи поръчка</a>
-                }
-                else
-                {
-                    <a class="btn btn-primary makeOrder" asp-controller="Order" asp-action="MakeOrder">Направи поръчка</a>
-                }
-            }
-        </div>
-        <div style="visibility:hidden" class="session">
-            @Session["OrderProduct"]
-        </div>
-    </div>
-
-</div>

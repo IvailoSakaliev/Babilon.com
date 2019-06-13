@@ -17,7 +17,7 @@ namespace StudentSystem2016.Controllers
         : Controller
     {
         private ProductServise _product = new ProductServise();
-        //private ImageServise _image = new ImageServise();
+        private ImageServise _image = new ImageServise();
         private OrderServise _order = new OrderServise();
         private int _orderNumber;
         private static string _FilterOrder = "";
@@ -27,7 +27,7 @@ namespace StudentSystem2016.Controllers
 
         public ActionResult Index()
         {
-
+            
             return View();
         }
 
@@ -35,23 +35,23 @@ namespace StudentSystem2016.Controllers
         public ActionResult Details(int id)
         {
             OrderVM model = new OrderVM();
-            //Product entity = _product.GetByID(id);
-            //model.Code = entity.Code;
-            //model.Description = entity.Description;
-            //model.Price = entity.Price;
-            //model.Title = entity.Title;
-            //model.FromtImage = entity.Image;
+            Product entity = _product.GetByID(id);
+            model.Code = entity.Code;
+            model.Description = entity.Description;
+            model.Price = entity.Price;
+            model.Title = entity.Title;
+            model.FromtImage = entity.Image;
 
-            //int quantity = entity.Quantity;
-            //GenericSelectedList<Order> listUser = new GenericSelectedList<Order>();
+            int quantity = entity.Quantity;
+            GenericSelectedList<Order> listUser = new GenericSelectedList<Order>();
 
-            //model.Quantity = listUser.GetSelectedListIthemQuantity(quantity);
-            ////List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
+            model.Quantity = listUser.GetSelectedListIthemQuantity(quantity);
+            List<Images> listImg = _image.GetAll(x => x.Subject_id == id);
 
-            ////foreach (var item in listImg)
-            ////{
-            ////    model.Image.Add(item.Path);
-            ////}
+            foreach (var item in listImg)
+            {
+                model.Image.Add(item.Path);
+            }
 
 
             return View(model);
@@ -60,8 +60,8 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public JsonResult SaveOrderInSession(string page, string quantity)
         {
-            string orderSession = Session["OrderProduct"].ToString();
-            string quantityPro = Session["ProductQuantity"].ToString();
+            var orderSession = Session["OrderProduct"].ToString();
+            var quantityPro = Session["ProductQuantity"].ToString();
             if (orderSession == null || orderSession == ""
                  && quantity == null || quantity == "")
             {
@@ -208,7 +208,7 @@ namespace StudentSystem2016.Controllers
             RegistrationVM model = new RegistrationVM();
 
             string userID = null;
-            if (Session["User_ID"] != null)
+            if (Session["User_ID"] != "")
             {
                 userID = Session["UserID"].ToString();
             }
@@ -246,7 +246,7 @@ namespace StudentSystem2016.Controllers
             User user = new User();
             UserServise _user = new UserServise();
 
-            if (userID != null)
+            if (userID != null && userID != "")
             {
                 EncriptServises _encript = new EncriptServises();
                 for (int i = 0; i < keyProduct.Length - 1; i++)
