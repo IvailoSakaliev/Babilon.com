@@ -21,7 +21,6 @@ namespace StudentSystem2016.Controllers
         {
             Session["OrderProduct"] = "";
             Session["ProductQuantity"] = "";
-            Session["User_ID"] = "";
             if (Request.Cookies["CookieUsing"] == null)
             {
 
