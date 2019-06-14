@@ -43,8 +43,7 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Index(LoginVM login)
         {
-            if (ModelState.IsValid)
-            {
+            
                 int id = _aut.AuthenticateUser(login.Email, login.Password, 1, 1);
                 if (id != 0)
                 {
@@ -69,11 +68,7 @@ namespace StudentSystem2016.Controllers
                      return View();
                 }
                
-            }
-            else
-            {
-                return View();
-            }
+           
         }
 
         [HttpGet]
