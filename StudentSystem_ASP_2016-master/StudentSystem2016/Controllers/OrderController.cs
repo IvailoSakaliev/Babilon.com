@@ -62,8 +62,8 @@ namespace StudentSystem2016.Controllers
         {
             var orderSession = Session["OrderProduct"].ToString();
             var quantityPro = Session["ProductQuantity"].ToString();
-            if (orderSession == null || orderSession == ""
-                 && quantity == null || quantity == "")
+            if ((orderSession == null || orderSession == "")
+                 && (quantity == null || quantity == ""))
             {
                 orderSession = page + ",";
                 quantityPro = quantity + ",";
@@ -210,7 +210,7 @@ namespace StudentSystem2016.Controllers
             string userID = null;
             if (Session["User_ID"] != "")
             {
-                userID = Session["UserID"].ToString();
+                userID = Session["User_ID"].ToString();
             }
             if (userID != null)
             {
