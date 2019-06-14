@@ -140,9 +140,16 @@ namespace StudentSystem2016.Controllers
                 {
                     return Redirect("../Index?Curentpage=1");
                 }
-                return Redirect("Index?Curentpage=1");
+                else
+                {
+                    return Redirect("Index?Curentpage=1");
+                }
             }
-            return View(model);
+            else
+            {
+                return View(model);
+            }
+           
         }
 
         [HttpGet]

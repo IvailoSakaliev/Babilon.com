@@ -216,13 +216,14 @@ namespace StudentSystem2016.Controllers
             {
                 UserServise _login = new UserServise();
                 EncriptServises _encript = new EncriptServises();
-                User user = new User();
-                user = _login.GetByID(int.Parse(userID));
-                model.FirstName = _encript.DencryptData(user.Name);
-                model.SecondName = _encript.DencryptData(user.SecondName);
-                model.City = _encript.DencryptData(user.City);
-                model.Adress = _encript.DencryptData(user.Adress);
-                model.Telephone = _encript.DencryptData(user.Telephone);
+                
+                int userISINt = int.Parse(userID);
+                List<User> user = _login.GetAll(x=> x.LoginID == userISINt);
+                model.FirstName = _encript.DencryptData(user[0].Name);
+                model.SecondName = _encript.DencryptData(user[0].SecondName);
+                model.City = _encript.DencryptData(user[0].City);
+                model.Adress = _encript.DencryptData(user[0].Adress);
+                model.Telephone = _encript.DencryptData(user[0].Telephone);
                 ViewData["Information"] = "Вие имате регистрация в нашия  сайт! Моля натиснете бътона 'Поръчай', за да направите поръчката си!";
 
             }

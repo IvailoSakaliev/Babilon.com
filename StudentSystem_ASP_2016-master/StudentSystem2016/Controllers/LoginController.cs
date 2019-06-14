@@ -70,7 +70,10 @@ namespace StudentSystem2016.Controllers
                 }
                
             }
-            return View();
+            else
+            {
+                return View();
+            }
         }
 
         [HttpGet]
