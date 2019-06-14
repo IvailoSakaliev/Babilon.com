@@ -66,9 +66,9 @@ namespace StudentSystem2016.Controllers
                 else
                 {
                     ModelState.AddModelError(string.Empty, "This user is't exist in this site. Please go ot Create account to registed");
-
+                     return View();
                 }
-                return View();
+               
             }
             return View();
         }
