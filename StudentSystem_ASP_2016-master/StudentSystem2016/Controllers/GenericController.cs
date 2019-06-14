@@ -164,19 +164,15 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Add(TeidtVM model)
         {
-            if (!ModelState.IsValid)
+            TEntity entity = new TEntity();
+            entity = PopulateItemToModel(model, entity);
+            if (entity == null)
             {
-                TEntity entity = new TEntity();
-                entity = PopulateItemToModel(model, entity);
-                if (entity == null)
-                {
-                    return View(model);
-                }
-                else
-                {
-                    _Servise.Save(entity);
-                }
-
+                return View(model);
+            }
+            else
+            {
+                _Servise.Save(entity);
             }
             return Redirect("Index?CurentPage=1");
         }

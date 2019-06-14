@@ -19,8 +19,16 @@ namespace StudentSystem2016.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            Session["OrderProduct"] = "";
-            Session["ProductQuantity"] = "";
+            if (Session["User_ID"] == null)
+            {
+                Session["User_ID"]= "";
+            }
+            if (Session["OrderProduct"] == null )
+            {
+                Session["OrderProduct"] = "";
+                Session["ProductQuantity"] = "";
+
+            }
             if (Request.Cookies["CookieUsing"] == null)
             {
 
