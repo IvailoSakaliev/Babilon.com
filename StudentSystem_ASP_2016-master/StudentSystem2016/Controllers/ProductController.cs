@@ -270,9 +270,10 @@ namespace StudentSystem2016.Controllers
             }
             else
             {
-                _priceTo = _productServise.GetAll(x => x.Price < int.Parse(element));
+                int priceElement = int.Parse(element);
+                _priceTo = _productServise.GetAll(x => x.Price < priceElement);
             }
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
 
 
@@ -287,12 +288,12 @@ namespace StudentSystem2016.Controllers
             {
                 _priceFrom = _productServise.GetAll(x => x.Price > int.Parse(element));
             }
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
         [HttpPost]
         public JsonResult ChangeFiltredResult(int id)
         {
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
         [HttpPost]
         public JsonResult RestorePage(int id)
@@ -314,7 +315,7 @@ namespace StudentSystem2016.Controllers
         public JsonResult ChangBaseTypeValue(int id)
         {
             _baseType = _productServise.GetAll(x => x.Basetype == id);
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
 
         [HttpPost]
@@ -329,14 +330,14 @@ namespace StudentSystem2016.Controllers
         public JsonResult ChangeSortOfProduct(int id)
         {
             _sort = id;
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
 
         [HttpPost]
         public JsonResult RestoreFilter()
         {
             Restore();
-            return Json(Request.Cookies["ViewProducr"]);
+            return Json(Request.Cookies["ViewProduct"].Values["ViewProduct"]);
         }
 
 
