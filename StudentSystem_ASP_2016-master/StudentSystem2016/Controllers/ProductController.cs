@@ -49,8 +49,8 @@ namespace StudentSystem2016.Controllers
                 _search = search;
                 string[] keys = search.Split(' ');
                 List<Product> list = new List<Product>();
-
-                list = _productServise.GetAll(x => x.Title.ToLower().Contains(keys[0].ToLower()));
+                string firstKey = keys[0].ToLower();
+                list = _productServise.GetAll(x => x.Title.ToLower().Contains(firstKey));
                 itemVM.Filter = new PruductFilter();
                 if (keys.Length == 1)
                 {
@@ -75,7 +75,8 @@ namespace StudentSystem2016.Controllers
             try
             {
                 List<Product> newResult = new List<Product>();
-                newResult = list.Where(x => x.Title.ToLower().Contains(keys[i].ToLower())).ToList();
+                string keyString = keys[i].ToLower();
+                newResult = list.Where(x => x.Title.ToLower().Contains(keyString)).ToList();
                 if (i == keys.Length - 1)
                 {
                     foreach (var item in newResult)
