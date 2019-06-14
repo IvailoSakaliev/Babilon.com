@@ -60,7 +60,7 @@ namespace StudentSystem2016.Controllers
                         {
                             CreateCookie(login);
                         }
-                        return Redirect("../../"); 
+                        return Redirect("../../Home/Index"); 
                     }
                 }
                 else
