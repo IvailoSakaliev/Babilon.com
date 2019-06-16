@@ -129,7 +129,8 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Edit(TeidtVM model, int id)
         {
-            
+            if (ModelState.IsValid == true)
+            {
                 TEntity entity = new TEntity();
                 Tservise servise = new Tservise();
                 entity = PopulateEditItemToModel(model, entity, id);
@@ -137,13 +138,17 @@ namespace StudentSystem2016.Controllers
                 string controllername = GetControlerName();
                 if (controllername == "Type")
                 {
-                    return Redirect("../../Index?Curentpage=1");
+                    return Redirect("../Index?Curentpage=1");
                 }
                 else
                 {
-                    return Redirect("../../Index?Curentpage=1");
+                    return Redirect("../Index?Curentpage=1");
                 }
-            
+            }
+            else
+            {
+                return View(model);
+            }
            
         }
 

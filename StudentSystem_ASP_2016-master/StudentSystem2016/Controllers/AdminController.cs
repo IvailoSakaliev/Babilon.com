@@ -4,7 +4,7 @@ using StudentSystem2016.Servises.EntityServise;
 using StudentSystem2016.VModels.Models.Products;
 using System;
 using System.Collections.Generic;
-using System.Web;C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\StudentSystem2016\Controllers\AdminController.cs
+using System.Web;
 using System.Web.Mvc;
 using System.IO;
 
@@ -14,7 +14,7 @@ namespace StudentSystem2016.Controllers
     public class AdminController : Controller
     {
         private ProductServise _product { get; set; }
-        //private ImageServise _image { get; set; }
+        private ImageServise _image { get; set; }
         private TypeServise _type { get; set; }
         private BaseTypeServise _basetype { get; set; }
         private static int type;
