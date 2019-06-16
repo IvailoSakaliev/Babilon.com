@@ -340,7 +340,7 @@ namespace StudentSystem2016.Controllers
         public ActionResult AdminIndex(int CurentPage)
         {
             OrderList itemVM = new OrderList();
-            itemVM = PopulateIndex(itemVM, Curentpage);
+            itemVM = PopulateIndex(itemVM, CurentPage);
             itemVM.QuantityOrderList = Populatequntity(itemVM.QuantityOrderList, itemVM.AllItems);
             return View(itemVM);
         }
