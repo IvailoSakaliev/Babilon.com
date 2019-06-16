@@ -20,6 +20,7 @@ namespace StudentSystem2016.Controllers
         private static int id;
         private static int UserID;
         private static int loginID;
+        private static string fronyImage;
         public ActionResult Index()
         {
             return View();
@@ -141,6 +142,7 @@ namespace StudentSystem2016.Controllers
             model.Telephone = _encript.DencryptData(entity[0].Telephone);
             UserID = entity[0].ID;
             model.Image = entity[0].Image;
+            fronyImage = entity[0].Image;
             loginID = entity[0].LoginID;
 
             return View(model);
@@ -157,9 +159,18 @@ namespace StudentSystem2016.Controllers
             entity.City = _encript.EncryptData(model.City);
             entity.Adress = _encript.EncryptData(model.Adress);
             entity.Telephone = _encript.EncryptData(model.Telephone);
-            entity.Image = GetImagePath(photo);
+
+            if (photo.Length != 0)
+            {
+                entity.Image = GetImagePath(photo);
+                Addimage(photo);
+            }
+            else
+            {
+                entity.Image = fronyImage;
+            }
+           
             entity.LoginID = loginID;
-            Addimage(photo);
 
             _servise.Save(entity);
 
