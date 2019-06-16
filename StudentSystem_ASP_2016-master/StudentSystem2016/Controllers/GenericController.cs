@@ -136,7 +136,15 @@ namespace StudentSystem2016.Controllers
                 entity = PopulateEditItemToModel(model, entity, id);
                 servise.Save(entity);
                 string controllername = GetControlerName();
-                return Redirect("Index?Curentpage=1");
+                if (controllername == "Type")
+                {
+                    return Redirect("Type/Index?Curentpage=1");
+                }
+                else
+                {
+                    return Redirect("BaseType/Index?Curentpage=1");
+                }
+
             }
             else
             {
