@@ -14,7 +14,7 @@ namespace StudentSystem2016.Authentication
         {
             if (HttpContext.Current.Session["LoggedUser"] == null)
             {
-                context.HttpContext.Response.Redirect("../Error/Login");
+                context.HttpContext.Response.Redirect("../Home/Index");
             }
             else
             {
