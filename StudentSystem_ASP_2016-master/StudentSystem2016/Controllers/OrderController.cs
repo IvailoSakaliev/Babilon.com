@@ -337,7 +337,7 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
-        public ActionResult AdminIndex(int Curentpage)
+        public ActionResult AdminIndex(int CurentPage)
         {
             OrderList itemVM = new OrderList();
             itemVM = PopulateIndex(itemVM, Curentpage);
