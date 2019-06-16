@@ -160,7 +160,7 @@ namespace StudentSystem2016.Controllers
             entity.Adress = _encript.EncryptData(model.Adress);
             entity.Telephone = _encript.EncryptData(model.Telephone);
 
-            if (photo.Length != 0)
+            if (photo[0] != null)
             {
                 entity.Image = GetImagePath(photo);
                 Addimage(photo);

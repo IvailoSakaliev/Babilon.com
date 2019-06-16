@@ -28,9 +28,9 @@
     <div class="col-md-5">
 
         <div class="form-group">
-            <label asp-for="Email" class="control-label"></label>
-            <input asp-for="Email" class="form-control" id="email" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
         </div>
         <button onclick="AddNewEmail()" class="form-control btn btn-warning emailChange">Edit</button>
 

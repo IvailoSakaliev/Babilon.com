@@ -27,7 +27,7 @@ namespace StudentSystem2016.Controllers
         public AdminController()
         {
             _product = new ProductServise();
-            //_image = new ImageServise();
+            _image = new ImageServise();
             _type = new TypeServise();
             _basetype = new BaseTypeServise();
         }
@@ -251,7 +251,7 @@ namespace StudentSystem2016.Controllers
             model.BaseType = listBAseType.GetSelectedListIthem(baseType);
 
             List<Images> img = new List<Images>();
-            //img = _image.GetAll(x => x.Subject_id == id);
+            img = _image.GetAll(x => x.Subject_id == id);
             foreach (var item in img)
             {
                 model.ImageS.Add(item);
@@ -282,7 +282,7 @@ namespace StudentSystem2016.Controllers
 
 
             _product.Save(entity);
-            if (photo.Length != 0)
+            if (photo[0] != null)
             {
                 Addimage(photo, _idElement);
             }

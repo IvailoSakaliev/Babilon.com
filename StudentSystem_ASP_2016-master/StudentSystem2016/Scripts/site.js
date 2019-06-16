@@ -553,10 +553,10 @@ function GetDetailsForEmail(id) {
         dataType: 'json',
         data: { id: id },
         success: function (data) {
-            $("#from").text(data.email);
-            $("#subject").text(data.name);
-            $("#message").val(data.message);
-            $("#date").text(data.date);
+            $("#from").text(data.Email);
+            $("#subject").text(data.Name);
+            $("#message").val(data.Message);
+            $("#date").text(data.Date);
 
 
         },
