@@ -4,6 +4,7 @@ using StudentSystem2016.Servises.ProjectServise;
 using StudentSystem2016.VModels.Models.Orders;
 using StudentSystem2016.VModels.Models.User;
 using System.Collections.Generic;
+using System.Web;
 using System.Web.Mvc;
 
 namespace StudentSystem2016.Controllers
@@ -145,37 +146,44 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult ChangeDetails(UserEditVm model, IFormFile[] photo)
-        //{
+        [HttpPost]
+        public ActionResult ChangeDetails(UserEditVm model, HttpPostedFileBase[] photo)
+        {
 
-        //    User entity = new User();
-        //    entity.ID = UserID;
-        //    entity.Name = _encript.EncryptData(model.FirstName);
-        //    entity.SecondName = _encript.EncryptData(model.SecondName);
-        //    entity.City = _encript.EncryptData(model.City);
-        //    entity.Adress = _encript.EncryptData(model.Adress);
-        //    entity.Telephone = _encript.EncryptData(model.Telephone);
-        //    entity.Image = GetImagePath(photo);
-        //    entity.LoginID = loginID;
-        //    Addimage(photo);
+            User entity = new User();
+            entity.ID = UserID;
+            entity.Name = _encript.EncryptData(model.FirstName);
+            entity.SecondName = _encript.EncryptData(model.SecondName);
+            entity.City = _encript.EncryptData(model.City);
+            entity.Adress = _encript.EncryptData(model.Adress);
+            entity.Telephone = _encript.EncryptData(model.Telephone);
+            entity.Image = GetImagePath(photo);
+            entity.LoginID = loginID;
+            Addimage(photo);
 
-        //    _servise.Save(entity);
+            _servise.Save(entity);
 
-        //    return RedirectToAction("Details");
-        //}
-        //private string GetImagePath(IFormFile[] photo)
-        //{
-        //    return "../images/Galery/" + photo[0].FileName;
-        //}
+            return RedirectToAction("Details");
+        }
+        private string GetImagePath(HttpPostedFileBase[] photo)
+        {
+            return "../images/Galery/" + photo[0].FileName;
+        }
 
-        //private void Addimage(IFormFile[] photo)
-        //{
-        //    ImageServise _img = new ImageServise();
-        //    string isUploadet = _img.UploadImagesForUser(photo);
-        //    ModelState.AddModelError(string.Empty, isUploadet);
+        private void Addimage(HttpPostedFileBase[] photo)
+        {
+            ImageServise _image = new ImageServise();
+            foreach (HttpPostedFileBase item in photo)
+            {
+                string pic = System.IO.Path.GetFileName(item.FileName);
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/Images/Galery"), pic);
+                // file is uploaded
+                item.SaveAs(path);
+            }
 
-        //}
+
+        }
 
         [HttpGet]
         public ActionResult ChangePassword()

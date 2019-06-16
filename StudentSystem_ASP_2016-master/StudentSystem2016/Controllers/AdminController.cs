@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
 using System.IO;
+using System.Globalization;
 
 namespace StudentSystem2016.Controllers
 {
@@ -259,36 +260,36 @@ namespace StudentSystem2016.Controllers
             return View(model);
         }
 
-        //[HttpPost]
-        //public ActionResult EditProduct(ProductVM model, IFormFile[] photo)
-        //{
-        //    Product entity = new Product();
-        //    entity.Code = model.Code;
-        //    entity.Title = model.Title;
-        //    entity.Description = model.Description;
-        //    entity.Price = model.Price;
-        //    entity.Quantity = model.Quantity;
-        //    entity.Date = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-        //    entity.ID = _idElement;
-        //    if (int.Parse(Request.Form["basetype"]) == -1 || int.Parse(Request.Form["type"]) == -1)
-        //    {
-        //        ModelState.AddModelError(string.Empty, "Please select type or base type!!!");
-        //        return View(model);
-        //    }
-        //    entity.Type = int.Parse(Request.Form["type"]);
-        //    entity.Basetype = int.Parse(Request.Form["basetype"]);
-        //    entity.Image = frontImage;
+        [HttpPost]
+        public ActionResult EditProduct(ProductVM model, HttpPostedFileBase[] photo)
+        {
+            Product entity = new Product();
+            entity.Code = model.Code;
+            entity.Title = model.Title;
+            entity.Description = model.Description;
+            entity.Price = model.Price;
+            entity.Quantity = model.Quantity;
+            entity.Date = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            entity.ID = _idElement;
+            if (int.Parse(Request.Form["basetype"]) == -1 || int.Parse(Request.Form["type"]) == -1)
+            {
+                ModelState.AddModelError(string.Empty, "Please select type or base type!!!");
+                return View(model);
+            }
+            entity.Type = int.Parse(Request.Form["type"]);
+            entity.Basetype = int.Parse(Request.Form["basetype"]);
+            entity.Image = frontImage;
 
 
-        //    _product.Save(entity);
-        //    if (photo.Length != 0)
-        //    {
-        //        Addimage(photo, _idElement);
-        //    }
+            _product.Save(entity);
+            if (photo.Length != 0)
+            {
+                Addimage(photo, _idElement);
+            }
 
-        //    ViewBag.success = "Product is updated successfuly !";
-        //    return Redirect("../ProductIndex?Curentpage=1");
-        //}
+            ViewBag.success = "Product is updated successfuly !";
+            return Redirect("../ProductIndex?Curentpage=1");
+        }
 
         [HttpGet]
         public ActionResult DeleteProduct(int id)
