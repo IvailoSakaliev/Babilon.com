@@ -262,7 +262,9 @@ namespace StudentSystem2016.Controllers
                     Product element = _product.GetByID(entity.SubjectID);
                     entity.Total = (entity.Quantity * element.Price);
                     _order.Save(entity);
-                    entity.UserID = int.Parse(userID);
+                    int idLogin = int.Parse(userID);
+                    var middleUser = _user.GetAll(x => x.LoginID == idLogin);
+                    entity.UserID = middleUser[0].ID;
                     _order.Save(entity);
 
 
