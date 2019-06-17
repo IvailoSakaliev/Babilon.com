@@ -1,13 +1,13 @@
 ﻿<ul class="pagination pagination-lg">
     @if (Model.StartItem / 10 == 1)
     {
-        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item disabled"><a  class="page-link" href="#">Previous</a></li>
     }
     else
     {
         int page = (Model.StartItem / 10) - 1;
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + page;
-        <li class="page-item"><a class="page-link" href="@link">Previous</a></li>
+        <li class="page-item"><a class="page-link" onclick="ChangePageAdmin(@page-1)" href="@link">Previous</a></li>
     }
 
     @for (int i = 1; i <= Model.Pages; i++)
@@ -15,23 +15,23 @@
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + i;
         if (i == Model.StartItem / 10)
         {
-            <li class="page-item disabled"><a class="page-link" href="@link">@i</a></li>
+            <li class="page-item disabled"><a class="page-link" >@i</a></li>
         }
         else
         {
-            <li class="page-item"><a class="page-link" href="@link">@i</a></li>
+            <li class="page-item"><a class="page-link" onclick="ChangePageAdmin(@i)">@i</a></li>
         }
     }
 
 
     @if (Model.StartItem / 10 == Model.Pages)
     {
-        <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+        <li class="page-item disabled"><a class="page-link" >Next</a></li>
     }
     else
     {
         int page = (Model.StartItem / 10) + 1;
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + page;
-        <li class="page-item"><a class="page-link" href="@link">Next</a></li>
+        <li class="page-item"><a class="page-link" onclick="ChangePageAdmin(@page+1)">Next</a></li>
     }
 </ul>

@@ -6,7 +6,7 @@
 <script>
     document.getElementById('vid').play();
 </script>
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide homeCaruser" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -52,8 +52,7 @@
             {
 
                 <div class="col-md-3">
-                    <div class="row img">
-                        <a href="../../Order/Details/@item.ID"><img src="@item.Image" alt="Alternate Text" width="200px" height="150px;" /></a>
+                    <div class="row img" style="background-image:url('../@item.Image')">
                     </div>
                     <div class="row title">
                         <p>@item.Title</p>

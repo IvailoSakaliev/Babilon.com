@@ -142,7 +142,6 @@ namespace StudentSystem2016.Controllers
             ProducLIst itemVM = new ProducLIst();
             itemVM = PopulateIndex(itemVM, Curentpage);
             string controllerNAme = GetControlerName();
-
             HttpCookie cookie = HttpContext.Request.Cookies["ViewProduct"];
             string cookieValue = cookie["ViewProduct"];
             ViewBag.Cookie = cookieValue;
@@ -177,8 +176,8 @@ namespace StudentSystem2016.Controllers
                 for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
                 {
                     itemVM.Items.Add(itemVM.AllItems[i]);
-                    itemVM.BaseTypeName.Add(AddNameOftypes(itemVM, i, 1));
-                    itemVM.TypeName.Add(AddNameOftypes(itemVM, i, 2));
+                    itemVM.BaseTypeName.Add(AddNameOftypes(itemVM, i, 1,curentPage));
+                    itemVM.TypeName.Add(AddNameOftypes(itemVM, i, 2,curentPage));
                 }
             }
             catch (ArgumentOutOfRangeException ex)
@@ -189,12 +188,16 @@ namespace StudentSystem2016.Controllers
             return itemVM;
         }
 
-        private string AddNameOftypes(ProducLIst itemVM, int id, int v)
+        private string AddNameOftypes(ProducLIst itemVM, int id, int v,int _curentPage)
         {
             if (v == 2)
             {
                 TypeServise servise = new TypeServise();
                 string items = "";
+                if (id > 11)
+                {
+                    id -= (12 * (_curentPage - 1));
+                }
                 if (itemVM.Items[id].Type == 0)
                 {
                     items = "";
@@ -211,7 +214,10 @@ namespace StudentSystem2016.Controllers
             {
                 BaseTypeServise servise = new BaseTypeServise();
                 string items = "";
-
+                if (id > 11)
+                {
+                    id -= (12 * (_curentPage-1));
+                }
                 if (itemVM.Items[id].Basetype == 0)
                 {
                     items = "";

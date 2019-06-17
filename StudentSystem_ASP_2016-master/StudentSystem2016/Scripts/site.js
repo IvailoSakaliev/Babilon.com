@@ -761,3 +761,23 @@ function RestoreFilter() {
 function ViewFilterDeleter() {
     $(".delteFilter").slideDown(500);
 }
+
+function ChangePageAdmin(id) {
+    var fullURL = window.location.href;
+    var last = fullURL.lastIndexOf('=');
+    var differenceBetweenLastAndFullUrl = fullURL.length + 1 - last;
+    var page = fullURL.substr(last + 1, differenceBetweenLastAndFullUrl);
+    $.ajax({
+        url: '/Admin/ListProducts?Curentpage = '+page ,
+        type: 'GET',
+        dataType: 'json',
+        data: {},
+        success: function (data) { 
+                var url = "../Product/ListProduct?Curentpage=" + page;
+                $('.ProductListItem').load(url)
+            
+        },
+        error: function () {
+        }
+    });
+}

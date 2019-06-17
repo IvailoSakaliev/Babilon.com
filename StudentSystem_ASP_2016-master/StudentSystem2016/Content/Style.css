@@ -67,13 +67,25 @@ body {
     margin-top: 5px;
     margin-bottom: 0px;
     background-color: white;
+    padding-left: 10%;
     padding: 20px;
     height: 350px;
 }
 
     .HomeProducts .col-md-3 {
+       
         text-align: center;
     }
+    .HomeProducts .img
+    {
+        height: 200px !important;
+        width: 80%;
+        margin-left: 12%;
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
 
     .HomeProducts .title {
         word-wrap: break-word;
@@ -81,8 +93,21 @@ body {
 
 #myCarousel {
     padding: 0px;
-    margin-left: -50px;
-    width: 107%;
+    width: 100%;
+}
+#detailsCaruser
+{
+    width: 60% !important;
+}
+.leftDetails
+{
+    position: fixed;
+    z-index: 1 !important;
+}
+.rightDetails
+{
+    position: fixed;
+    z-index: 1 !important;
 }
 
 .herder {
@@ -98,6 +123,10 @@ body {
     padding-right: 20px;
     width: 250px;
     float: left
+}
+.closegaalery
+{
+    z-index: 999 !important;
 }
 
     .search .col-md-9 {
@@ -210,7 +239,7 @@ span {
 /*produc style*/
 .productGalery {
     margin-top: 20px;
-    border: 1px solid #cccccc;
+    border: 1px solid #eee;
     width: 24%;
     padding-left: 20px;
     padding-bottom: 5px;
@@ -220,9 +249,12 @@ span {
     background-color: white;
 }
 
-    .productGalery .img img {
-        width: 91%;
+    .productGalery .img {
+        width: 104%;
         height: 200px;
+        background-size: 80%;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     .productGalery .price h4 {
@@ -260,8 +292,6 @@ span {
     }
 
     .productList .col-md-7 {
-        height: 140px;
-        border-right: 1px solid #cccccc;
     }
 
 .menuLink:hover {
@@ -724,9 +754,13 @@ footer {
 
 
 /*home caruser*/
-.homeCaruser img {
+.homeCaruser
+{
+    width: 100% !important;
+}
+.homeCaruser .item img {
     margin: 0 auto;
-    width: 95%
+    width: 100% !important;
 }
 
 /*cookie style*/

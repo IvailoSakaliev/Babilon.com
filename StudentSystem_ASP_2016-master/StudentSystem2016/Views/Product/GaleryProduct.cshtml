@@ -17,8 +17,8 @@
             foreach (var item in Model.Items)
             {
                 <div class="productGalery">
-                    <div class="row img">
-                        <a href="../../Order/Details/@item.ID"><img src="@item.Image" alt="Alternate Text" /></a>
+                    <div class="row img" style="background-image:url('../@item.Image')">
+                        @*<a href="../../Order/Details/@item.ID"><img src="@item.Image" alt="Alternate Text" /></a>*@
                     </div>
                     <div class="row title">
                         <p>@item.Title</p>
@@ -50,7 +50,7 @@
     }
     <div class="row">
         <div class="pageVM">
-            @Html.Partial("_PagerView");
+            @Html.Partial("_PageView");
         </div>
     </div>
 </body>
