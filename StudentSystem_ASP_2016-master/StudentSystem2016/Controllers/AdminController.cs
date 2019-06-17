@@ -114,7 +114,7 @@ namespace StudentSystem2016.Controllers
             string result = "";
             try
             {
-                //_image.DeleteById(id);
+                _image.DeleteById(id);
                 result = "ok";
             }
             catch (Exception)
@@ -295,7 +295,7 @@ namespace StudentSystem2016.Controllers
         public ActionResult DeleteProduct(int id)
         {
             _product.DeleteById(id);
-            // _image.Delete(x => x.Subject_id == id);
+            _image.Delete(x => x.Subject_id == id);
             return Redirect("../ProductIndex?Curentpage=1");
         }
 

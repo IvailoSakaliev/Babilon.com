@@ -339,7 +339,7 @@ namespace StudentSystem2016.Controllers
         }
 
         [HttpGet]
-        public ActionResult AdminIndex(int CurentPage)
+        public ActionResult AdminIndex(int Curentpage)
         {
             OrderList itemVM = new OrderList();
             itemVM = PopulateIndex(itemVM, Curentpage);
@@ -358,7 +358,7 @@ namespace StudentSystem2016.Controllers
 
 
 
-        protected virtual OrderList PopulateIndex(OrderList itemVM, int curentPage)
+        protected virtual OrderList PopulateIndex(OrderList itemVM, int Curentpage)
         {
             string controllerName = GetControlerName();
             string actionname = GetActionName();
@@ -390,7 +390,7 @@ namespace StudentSystem2016.Controllers
             {
                 itemVM.Pages++;
             }
-            itemVM.StartItem = 12 * curentPage;
+            itemVM.StartItem = 12 * Curentpage;
             try
             {
                 string OrderNumber = "";
@@ -459,7 +459,7 @@ namespace StudentSystem2016.Controllers
             User entity = new User();
             UserServise _user = new UserServise();
             EncriptServises _encript = new EncriptServises();
-            var model = _user.GetAll(x => x.LoginID == order.UserID);
+            var model = _user.GetAll(x => x.ID == order.UserID);
             entity.Name = _encript.DencryptData(model[0].Name);
             entity.SecondName = _encript.DencryptData(model[0].SecondName);
             entity.City = _encript.DencryptData(model[0].City);
