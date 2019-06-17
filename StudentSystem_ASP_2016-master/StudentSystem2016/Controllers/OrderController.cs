@@ -261,7 +261,7 @@ namespace StudentSystem2016.Controllers
 
                     Product element = _product.GetByID(entity.SubjectID);
                     entity.Total = (entity.Quantity * element.Price);
-                    _order.Save(entity);
+
                     int idLogin = int.Parse(userID);
                     var middleUser = _user.GetAll(x => x.LoginID == idLogin);
                     entity.UserID = middleUser[0].ID;
@@ -459,12 +459,12 @@ namespace StudentSystem2016.Controllers
             User entity = new User();
             UserServise _user = new UserServise();
             EncriptServises _encript = new EncriptServises();
-            var model = _user.GetByID(order.UserID);
-            entity.Name = _encript.DencryptData(model.Name);
-            entity.SecondName = _encript.DencryptData(model.SecondName);
-            entity.City = _encript.DencryptData(model.City);
-            entity.Adress = _encript.DencryptData(model.Adress);
-            entity.Telephone = _encript.DencryptData(model.Telephone);
+            var model = _user.GetAll(x => x.LoginID == order.UserID);
+            entity.Name = _encript.DencryptData(model[0].Name);
+            entity.SecondName = _encript.DencryptData(model[0].SecondName);
+            entity.City = _encript.DencryptData(model[0].City);
+            entity.Adress = _encript.DencryptData(model[0].Adress);
+            entity.Telephone = _encript.DencryptData(model[0].Telephone);
 
             return entity;
         }
