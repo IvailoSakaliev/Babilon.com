@@ -71,12 +71,23 @@ namespace StudentSystem2016.Controllers
                 return View(model);
             }
             entity.Date = DateTime.Today.ToString("dd/MM/yyyy");
-            entity.Image = GetImagePath(photo);
 
+            if (photo[0] != null)
+            {
+                entity.Image = GetImagePath(photo);
+            }
+            else
+            {
+                entity.Image = "../Images/noimg.png";
+            }
             _product.Save(entity);
             Product item = _product.GetLastElement();
 
-            Addimage(photo, item.ID);
+            if (photo[0] != null)
+            {
+                Addimage(photo, item.ID);
+            }
+            
 
 
             return Redirect("Product");

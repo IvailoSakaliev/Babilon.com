@@ -274,6 +274,7 @@
     <Content Include="Images\indexback.jpg" />
     <Content Include="Images\list.png" />
     <Content Include="Images\men.png" />
+    <Content Include="Images\noimg.png" />
     <Content Include="Images\ok.png" />
     <Content Include="Images\pen.png" />
     <Content Include="Images\present.png" />
