@@ -129,21 +129,13 @@ namespace StudentSystem2016.Controllers
         [HttpPost]
         public ActionResult Edit(TeidtVM model, int id)
         {
-            if (ModelState.IsValid == true)
-            {
+           
                 TEntity entity = new TEntity();
                 Tservise servise = new Tservise();
                 entity = PopulateEditItemToModel(model, entity, id);
                 servise.Save(entity);
                 string controllername = GetControlerName();
                 return Redirect("../Index?Curentpage=1");
-
-            }
-            else
-            {
-                return View(model);
-            }
-           
         }
 
         [HttpGet]
