@@ -43,7 +43,24 @@
                             <h5>@item.Description</h5>
                         </div>
                         <div class="row price">
-                            <h4>Цена: @item.Price лв.</h4>
+                            @{
+                                string price = item.Price.ToString();
+                                int positionOfDot = price.IndexOf(".");
+                                if (positionOfDot == -1)
+                                {
+                                    price += ".00";
+                                }
+                                else
+                                {
+                                    int difrentOf = price.Length - positionOfDot;
+                                    if (difrentOf < 3)
+                                    {
+                                        price += "0";
+                                    }
+                                }
+                                <h4>Цена @price лв.</h4>
+
+                            }
                         </div>
 
                     </div>

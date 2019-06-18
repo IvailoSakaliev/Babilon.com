@@ -78,14 +78,31 @@
                                         @for (int j = 0; j < Model.ProductCount[i]; j++)
                                         {
                                             count++;
-                                            <div class="col-md-2 product">
-                                                <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
-                                                <h5>Code: @Model.Product[count].Code</h5>
-                                                <h5>Title: @Model.Product[count].Title</h5>
-                                                <h5>Price: @Model.Product[count].Price</h5>
-                                                <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
+                                        <div class="col-md-2 product">
+                                            <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
+                                            <h5>Code: @Model.Product[count].Code</h5>
+                                            <h5>Title: @Model.Product[count].Title</h5>
+                                            @{
+                                                string price = Model.Product[count].Price.ToString();
+                                                int positionOfDot = price.IndexOf(".");
+                                                if (positionOfDot == -1)
+                                                {
+                                                    price += ".00";
+                                                }
+                                                else
+                                                {
+                                                    int difrentOf = price.Length - positionOfDot;
+                                                    if (difrentOf < 3)
+                                                    {
+                                                        price += "0";
+                                                    }
+                                                }
+                                                <h5>Price:@price лв.</h5>
 
-                                            </div>
+                                            }
+                                            <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
+
+                                        </div>
                                         }
                                     </div>
 
@@ -111,13 +128,30 @@
                                         @for (int j = 0; j <= Model.ProductCount[i]; j++)
                                         {
                                             count++;
-                                            <div class="col-md-2 product">
-                                                <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
-                                                <h5>Code: @Model.Product[count].Code</h5>
-                                                <h5>Title: @Model.Product[count].Title</h5>
-                                                <h5>Price: @Model.Product[count].Price</h5>
-                                                <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
-                                            </div>
+                                        <div class="col-md-2 product">
+                                            <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
+                                            <h5>Code: @Model.Product[count].Code</h5>
+                                            <h5>Title: @Model.Product[count].Title</h5>
+                                            @{
+                                                string price = Model.Product[count].Price.ToString();
+                                                int positionOfDot = price.IndexOf(".");
+                                                if (positionOfDot == -1)
+                                                {
+                                                    price += ".00";
+                                                }
+                                                else
+                                                {
+                                                    int difrentOf = price.Length - positionOfDot;
+                                                    if (difrentOf < 3)
+                                                    {
+                                                        price += "0";
+                                                    }
+                                                }
+                                                <h5>Price:@price лв.</h5>
+
+                                            }
+                                            <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
+                                        </div>
                                         }
                                     </div>
 
@@ -143,14 +177,33 @@
                                         @for (int j = 0; j < Model.ProductCount[i]; j++)
                                         {
                                             count++;
-                                            <div class="col-md-2 product">
-                                                <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
-                                                <h5>Code: @Model.Product[count].Code</h5>
-                                                <h5>Title: @Model.Product[count].Title</h5>
-                                                <h5>Price: @Model.Product[count].Price</h5>
-                                                <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
+                                        <div class="col-md-2 product">
+                                            <img width="100px" src="@Model.Product[count].Image" alt="Alternate Text" />
+                                            <h5>Code: @Model.Product[count].Code</h5>
+                                            <h5>Title: @Model.Product[count].Title</h5>
+                                            
 
-                                            </div>
+                                            @{
+                                                string price = Model.Product[count].Price.ToString();
+                                                int positionOfDot = price.IndexOf(".");
+                                                if (positionOfDot == -1)
+                                                {
+                                                    price += ".00";
+                                                }
+                                                else
+                                                {
+                                                    int difrentOf = price.Length - positionOfDot;
+                                                    if (difrentOf < 3)
+                                                    {
+                                                        price += "0";
+                                                    }
+                                                }
+                                            <h5>Price:@price лв.</h5>
+
+                                            }
+                                            <h5>Order Quantity:@Model.QuantityOrderList[count] </h5>
+
+                                        </div>
                                         }
                                     </div>
 

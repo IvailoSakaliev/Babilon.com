@@ -34,7 +34,24 @@
                         }
                     </div>
                     <div class="row price">
-                        <h4>@item.Price.ToString("#.##") лв.</h4>
+                        @{
+                            string price = item.Price.ToString();
+                            int positionOfDot = price.IndexOf(".");
+                            if (positionOfDot == -1)
+                            {
+                                price += ".00";
+                            }
+                            else
+                            {
+                                int difrentOf = price.Length - positionOfDot;
+                                if (difrentOf < 3)
+                                {
+                                    price += "0";
+                                }
+                            }
+                            <h4>@price лв.</h4>
+
+                        }
                     </div>
                     <div class="row button ">
                         <a href="../../Order/Details/@item.ID" class="btn btn-success ">Виж повече</a>

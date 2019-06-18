@@ -49,12 +49,49 @@
                                         }
 
                                     </select>
-                                    <h5>Единична цена :@item.Price</h5>
+                                    @{
+                                        string price = item.Price.ToString();
+                                        int positionOfDot = price.IndexOf(".");
+                                        if (positionOfDot == -1)
+                                        {
+                                            price += ".00";
+                                        }
+                                        else
+                                        {
+                                            int difrentOf = price.Length - positionOfDot;
+                                            if (difrentOf < 3)
+                                            {
+                                                price += "0";
+                                            }
+                                        }
+                                        <h5>Единична цена :@price лв.</h5>
+
+                                    }
+
                                 </div>
                             </div>
-                            <div class="priceOrderProduct" style="padding-top:30px">
-                                Общо: @(item.Price * item.Quantity)
-                            </div>
+                            @{
+                                double result = item.Price * item.Quantity;
+                                string priceTotal = result.ToString();
+                                int positionOfDotTotal = priceTotal.IndexOf(".");
+                                if (positionOfDotTotal == -1)
+                                {
+                                    priceTotal += ".00";
+                                }
+                                else
+                                {
+                                    int difrentOf = priceTotal.Length - positionOfDotTotal;
+                                    if (difrentOf < 3)
+                                    {
+                                        priceTotal += "0";
+                                    }
+                                }
+                                <div class="priceOrderProduct" style="padding-top:30px">
+                                    Общо: @priceTotal лв.
+                                </div>
+
+                            }
+                            
                         </div>
                     </div>
                             }
@@ -64,28 +101,47 @@
                     }
 
                 </div>
-                <div class="col-md-3">
-                    @{
-                        double totalPrice = 0;
-                        foreach (var item in Model.Items)
-                        {
-                            totalPrice += (item.Price * item.Quantity);
-                        }
-                        <h3 class="totalOrder">Total:@totalPrice</h3>
-                    }
+        <div class="col-md-3">
+            @{
+                double totalPrice = 0;
+                foreach (var item in Model.Items)
+                {
+                    totalPrice += (item.Price * item.Quantity);
+                }
 
-                    @{
-                        if (Session["OrderProduct"] == "" ||
-                            Session["OrderProduct"] == null)
-                        {
-                            <a class="btn btn-primary makeOrder" href="#" style="pointer-events:none">Направи поръчка</a>
-                        }
-                        else
-                        {
-                            <a class="btn btn-primary makeOrder" href="MakeOrder">Направи поръчка</a>
-                        }
+                string priceTotal2 = totalPrice.ToString();
+                int positionOfDotTotal2 = priceTotal2.IndexOf(".");
+                if (positionOfDotTotal2 == -1)
+                {
+                    priceTotal2 += ".00";
+                }
+                else
+                {
+                    int difrentOf = priceTotal2.Length - positionOfDotTotal2;
+                    if (difrentOf < 3)
+                    {
+                        priceTotal2 += "0";
                     }
-                </div>
+                }
+            <h3 class="totalOrder">Total:@priceTotal2</h3>
+
+                
+
+                
+            }
+
+            @{
+                if (Session["OrderProduct"] == "" ||
+                    Session["OrderProduct"] == null)
+                {
+                    <a class="btn btn-primary makeOrder" href="#" style="pointer-events:none">Направи поръчка</a>
+                }
+                else
+                {
+                    <a class="btn btn-primary makeOrder" href="MakeOrder">Направи поръчка</a>
+                }
+            }
+        </div>
                 <div style="visibility:hidden" class="session">
                     @Session["OrderProduct"]
                 </div>

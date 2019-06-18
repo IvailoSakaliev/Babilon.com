@@ -183,10 +183,29 @@ function SetOrderInSession() {
 
 function leaveChange() {
     var quantity = parseInt($(".quantity").val());
-    var price = $(".priceOfProduct").text();
+    var substringPrice = $(".priceOfProduct").text();
+    var price= parseFloat(substringPrice);
     var total = $(".total");
     var result = quantity * price;
-    total.html("Общо: " + result + "лв.");
+    var resultString = result.toString();
+    var positionOfDot =  resultString.indexOf(".")
+    if (positionOfDot == -1)
+    {
+        resultString += ".00";
+    }
+    else
+    {
+        var difrentOf = resultString.length - positionOfDot;
+        if (difrentOf < 3)
+        {
+            resultString += "0";
+        }
+        if (difrentOf > 3) {
+            var substringPrice = resultString.substr(0,5);
+            resultString = substringPrice;
+        }
+    } 
+    total.html("Общо: " + resultString + "лв.");
 }
 
 function OpenGalery() {

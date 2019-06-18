@@ -38,7 +38,27 @@
                 <div class="col-md-4 bying">
                     <div class="form-group">
                         <h4>Единична цена: </h4>
-                        <h4> <font class="priceOfProduct" style="font-weightbold">@Model.Price</font> лв.</h4>
+                        <h4>
+                            @{
+                                string price = Model.Price.ToString();
+                                int positionOfDot = price.IndexOf(".");
+                                if (positionOfDot == -1)
+                                {
+                                    price += ".00";
+                                }
+                                else
+                                {
+                                    int difrentOf = price.Length - positionOfDot;
+                                    if (difrentOf < 3)
+                                    {
+                                        price += "0";
+                                    }
+                                }
+                                <font class="priceOfProduct" style="font-weightbold">@price </font>
+
+                            }
+                            лв.
+                        </h4>
                         <label class="control-label">Количество</label>
                         <select class=" form-control quantity" onchange="leaveChange()">
                             @foreach (var item in Model.Quantity)
