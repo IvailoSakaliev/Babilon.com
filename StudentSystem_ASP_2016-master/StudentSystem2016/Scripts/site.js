@@ -781,3 +781,7 @@ function ChangePageAdmin(id) {
         }
     });
 }
+
+function GoToProduct(id) {
+    window.location.href = "../Order/Details/"+id;
+}

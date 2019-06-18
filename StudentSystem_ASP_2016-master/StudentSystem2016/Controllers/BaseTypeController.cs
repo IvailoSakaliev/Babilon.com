@@ -28,7 +28,7 @@ namespace StudentSystem2016.Controllers
             return model;
         }
 
-        internal override string PopulateINdexType(BaseTypeList itemVM, int id)
+        internal override string PopulateINdexType(BaseTypeList itemVM, int id, int curentpage)
         {
             throw new NotImplementedException();
         }

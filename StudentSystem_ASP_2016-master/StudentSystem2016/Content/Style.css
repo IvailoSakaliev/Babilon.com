@@ -95,9 +95,9 @@ body {
     padding: 0px;
     width: 100%;
 }
-#detailsCaruser
+.detailsCaruser
 {
-    width: 60% !important;
+    width: 100% !important;
 }
 .leftDetails
 {
@@ -257,6 +257,10 @@ span {
         background-position: center;
     }
 
+    #hoverImg:hover
+    {
+        cursor: pointer;
+    }
     .productGalery .price h4 {
         color: green;
     }

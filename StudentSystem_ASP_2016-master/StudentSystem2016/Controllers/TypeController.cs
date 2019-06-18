@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using StudentSystem2016.VModels.Models.Products;
 
 namespace StudentSystem2016.Controllers
 {
@@ -16,7 +17,9 @@ namespace StudentSystem2016.Controllers
         private BaseTypeServise _baseServise = new BaseTypeServise();
         private static int _ItemID;
 
-        public override TypeSubject PopulateEditItemToModel(TypeVM model, TypeSubject entity, int id)
+       
+    
+    public override TypeSubject PopulateEditItemToModel(TypeVM model, TypeSubject entity, int id)
         {
             entity.ID = id;
             entity.Name = model.Type;
@@ -62,9 +65,13 @@ namespace StudentSystem2016.Controllers
             return model;
         }
 
-        internal override string PopulateINdexType(TypeList itemVM, int id)
+        internal override string PopulateINdexType(TypeList itemVM, int id, int _curentPage)
         {
             string items = "";
+            if (id > 11)
+            {
+                id -= (12 * (_curentPage - 1));
+            }
             var element = _baseServise.GetByID(itemVM.Items[id].BaseTypeID);
             items = element.Name;
             return items;

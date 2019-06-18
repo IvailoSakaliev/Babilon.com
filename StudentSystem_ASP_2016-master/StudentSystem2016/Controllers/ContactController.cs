@@ -39,7 +39,7 @@ namespace StudentSystem2016.Controllers
             return model;
         }
 
-        internal override string PopulateINdexType(ContactLIst itemVM, int id)
+        internal override string PopulateINdexType(ContactLIst itemVM, int id, int _curentPage)
         {
             throw new NotImplementedException();
         }

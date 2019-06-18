@@ -70,7 +70,7 @@ namespace StudentSystem2016.Controllers
                     for (int i = itemVM.StartItem - 12; i < itemVM.StartItem; i++)
                     {
                         itemVM.Items.Add(itemVM.AllItems[i]);
-                        itemVM.BaseTypeName.Add(PopulateINdexType(itemVM, i));
+                        itemVM.BaseTypeName.Add(PopulateINdexType(itemVM, i, curentPage));
                     }
                 }
                 else
@@ -81,8 +81,8 @@ namespace StudentSystem2016.Controllers
                         if (controllerName == "Contact")
                         {
                             itemVM.Items.Add(PopulateIndexContactInfo(itemVM.AllItems[i]));
-
                         }
+                        
                         else
                         {
                             itemVM.Items.Add(itemVM.AllItems[i]);
@@ -98,6 +98,7 @@ namespace StudentSystem2016.Controllers
             return itemVM;
         }
 
+        
         public virtual TEntity PopulateIndexContactInfo(TEntity entity)
         {
             return null;
@@ -235,6 +236,10 @@ namespace StudentSystem2016.Controllers
             throw new NullReferenceException();
 
         }
-        internal abstract string PopulateINdexType(TlistVM itemVM, int id);
+        public virtual string AddNameOftypes(TlistVM itemVM, int id, int v, int _curentPage)
+        {
+            throw new NullReferenceException();
+        }
+        internal abstract string PopulateINdexType(TlistVM itemVM, int id, int _curentPage);
     }
 }
