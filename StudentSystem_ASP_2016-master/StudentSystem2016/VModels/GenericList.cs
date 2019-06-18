@@ -27,6 +27,7 @@ namespace StudentSystem2016.VModels
         public IEnumerable<SelectListItem> Qua { get; set; }
         public IList<string> BaseTypeName { get; set; }
         public IList<string> TypeName { get; set; }
+        public int CurrentPage { get; set; }
 
         public IList<Product> Product { get; set; }
         public IList<User> User { get; set; }

@@ -1,18 +1,18 @@
 ﻿<ul class="pagination pagination-lg">
-    @if (Model.StartItem / 10 == 1)
+    @if (Model.CurrentPage == 1)
     {
         <li class="page-item disabled"><a class="page-link" >Previous</a></li>
     }
     else
     {
-        int page = (Model.StartItem / 10) - 1;
+        int page = Model.CurrentPage - 1;
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + page;
         <li class="page-item"><a class="page-link" href="@link">Previous</a></li>
     }
 
     @for (int i = 1; i <= Model.Pages; i++)
     {
-        int page = (Model.StartItem / 10) - 1;
+        int page = Model.CurrentPage;
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + i;
         if (i == page)
         {
@@ -25,13 +25,13 @@
     }
 
 
-    @if (Model.StartItem / 10 == Model.Pages)
+    @if (Model.CurrentPage == Model.Pages)
     {
         <li class="page-item disabled"><a class="page-link">Next</a></li>
     }
     else
     {
-        int page = (Model.StartItem / 10) + 1;
+        int page = Model.CurrentPage + 1;
         string link = "../" + Model.ControllerName + "/" + Model.ActionName + "?" + "Curentpage=" + page;
         <li class="page-item"><a class="page-link" href="@link">Next</a></li>
     }

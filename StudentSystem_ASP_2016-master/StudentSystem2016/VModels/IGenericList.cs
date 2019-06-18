@@ -16,6 +16,7 @@ namespace StudentSystem2016.VModels
         IList<Tentity> Items { get; set; }
         int Pages { get; set; }
         int StartItem { get; set; }
+        int CurrentPage { get; set; }
         IList<string> BaseTypeName { get; set; }
         IList<string> TypeName { get; set; }
         IList<Product> Product { get; set; }

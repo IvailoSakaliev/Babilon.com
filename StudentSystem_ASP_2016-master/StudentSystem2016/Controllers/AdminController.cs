@@ -170,6 +170,7 @@ namespace StudentSystem2016.Controllers
                 itemVM.Pages++;
             }
             itemVM.StartItem = 12 * curentPage;
+            itemVM.CurrentPage = curentPage;
             try
             {
 

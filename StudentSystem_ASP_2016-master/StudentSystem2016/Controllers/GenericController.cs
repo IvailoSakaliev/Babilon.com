@@ -40,6 +40,7 @@ namespace StudentSystem2016.Controllers
         {
             TlistVM itemVM = new TlistVM();
             itemVM.Filter = new Tfilter();
+            itemVM.CurrentPage = Curentpage;
             itemVM = PopulateIndex(itemVM, Curentpage);
             string controllerNAme = GetControlerName();
 

@@ -30,6 +30,7 @@ namespace StudentSystem2016.Controllers
             itemVM = new ProducLIst();
             itemVM.Filter = new PruductFilter();
             itemVM = GetElement(itemVM, Curentpage);
+            itemVM.CurrentPage = Curentpage;
 
             if (Request.Cookies["ViewProduct"] == null)
             {
