@@ -75,7 +75,7 @@ namespace StudentSystem2016.Servises.ProjectServise
         private void SendRestorPasswordEmail()
         {
             _message.Subject = "Restor Password";
-            _message.Body = "Please enter link to restor your password in StudentSystem http://www.vavilonci.com/Login/RestorePassword?id=" + _encript.EncryptData(_userID.ToString());
+            _message.Body = "Please enter link to restor your password in StudentSystem http://www.vavilonci.com/Login/RestorePassword/" + _encript.EncryptData(_userID.ToString());
             _message.To.Add(_userEmail);
             _smtpClient.Send(_message);
         }
@@ -83,7 +83,7 @@ namespace StudentSystem2016.Servises.ProjectServise
         private void SendConfirmEmail()
         {
             _message.Subject = "Confirm registration";
-            _message.Body = "Please to confirm your registration in Vavilonci http://www.vavilonci.com/Login/EnableAccount?id=" + _userID;
+            _message.Body = "Please to confirm your registration in Vavilonci http://www.vavilonci.com/Login/EnableAccount/" + _userID;
             _message.To.Add(_userEmail);
             _smtpClient.Send(_message);
         }
