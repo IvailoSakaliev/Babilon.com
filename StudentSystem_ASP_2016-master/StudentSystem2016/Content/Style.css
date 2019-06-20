@@ -97,10 +97,20 @@ body {
 #myCarousel {
     padding: 0px;
     width: 100%;
+    height:100% !important;
 }
 .detailsCaruser
 {
     width: 100% !important;
+    height:100% !important;
+}
+.detailsCaruser .carousel-inner
+{
+	height:  100% !important;
+}
+.detailsCaruser .carousel-inner .item
+{
+	height:  100% !important;
 }
 .leftDetails
 {
@@ -183,6 +193,7 @@ body {
 /* Make .svg files in the carousel display properly in older browsers */
 .carousel-inner .item img[src$=".svg"] {
     width: 100%;
+    height:100%;
 }
 
 /* QR code generator */
@@ -449,7 +460,7 @@ footer {
 
 
 .main_image {
-    background-size: 100%;
+    background-size: auto 100%;
     background-repeat: no-repeat;
     width: 100%;
     height: 400px;
@@ -483,21 +494,24 @@ footer {
     left: 0px;
     z-index: 999;
     width: 100%;
+    height: 100%;
     min-height: 100% !important;
     background-color: rgba(0,0,0,0.6);
     display: none;
 }
+.galery .row{
+    height:100%;
+}
 
-.item {
-    min-height: 100% !important;
+    .item {
+    max-height: 100% !important;
     text-align: center;
 }
 
     .item img {
         margin: 0 auto;
         margin-top: 0%;
-        height: 45%;
-        width: 70%
+        height: 100% !important;
     }
 
 .totalOrder {

@@ -12,7 +12,7 @@
 
         <div class="col-md-6 image">
             <div class="row">
-                <div class="main_image" onclick="OpenGalery()" style="background-image:url(../@Model.FromtImage); background-size:100%">
+                <div class="main_image" onclick="OpenGalery()" style="background-image:url(../@Model.FromtImage);background-size: auto 100%; background-position:center">
 
                 </div>
             </div>
@@ -112,19 +112,14 @@
 <div class="row galery">
     
     <div class="row ">
-        <div id="myCarousel " class="carousel slide detailsCaruser data-ride="carousel" data-interval="false">
+        <div id="myCarousel " height="1000px" class="carousel slide detailsCaruser data-ride="carousel" data-interval="false">
             <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-
+            
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
 
                 <div class="item active">
-                    <img src="../@Model.FromtImage" alt="Los Angeles">
+                    <img src="../@Model.FromtImage"  alt="Los Angeles">
                 </div>
                 @for (int i = 1; i < Model.Image.Count; i++)
                 {
