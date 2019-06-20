@@ -85,11 +85,14 @@ body {
         background-repeat: no-repeat;
         background-position: center;
     }
+        .HomeProducts .img:hover{
+            cursor:pointer;
+        }
 
 
-    .HomeProducts .title {
-        word-wrap: break-word;
-    }
+        .HomeProducts .title {
+            word-wrap: break-word;
+        }
 
 #myCarousel {
     padding: 0px;
@@ -766,17 +769,20 @@ footer {
     margin: 0 auto;
     width: 100% !important;
 }
-
-/*cookie style*/
-.cookieBody {
-    background-color: #ff9900;
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    width: 105%;
-    z-index: 999;
-}
+    .homeCaruser .item:hover
+    {
+        cursor:pointer;
+    }
+    /*cookie style*/
+    .cookieBody {
+        background-color: #ff9900;
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        width: 105%;
+        z-index: 999;
+    }
 
     .cookieBody h5 {
         color: white;

@@ -16,17 +16,17 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner homeCaruser">
-        <div class="item active ">
+        <div class="item active " onclick="ChangeType(3)">
             <img src="~/images/Covers/cover1.jpg" alt="Los Angeles">
 
         </div>
 
-        <div class="item">
+        <div class="item"  onclick="ChangeType(7)">
             <img src="~/images/Covers/cover2.jpg" width="100%" alt="Los Angeles">
 
         </div>
 
-        <div class="item">
+        <div class="item"  onclick="ChangeType(1)">
             <img src="~/images/Covers/cover3.jpg" alt="Los Angeles">
 
         </div>
@@ -52,7 +52,7 @@
             {
 
                 <div class="col-md-3">
-                    <div class="row img" style="background-image:url('../../@item.Image')">
+                    <div class="row img" onclick="GoToProduct(@item.ID)" style="background-image:url('../../@item.Image')">
                     </div>
                     <div class="row title">
                         <p>@item.Title</p>
