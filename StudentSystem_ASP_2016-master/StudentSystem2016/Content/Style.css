@@ -102,19 +102,19 @@ body {
 .detailsCaruser
 {
     width: 100% !important;
-    height:800px !important;
+    height:720px !important;
 }
 .detailsCaruser .carousel-inner
 {
-	 height:800px !important;
+	 height:100%;
 }
 .detailsCaruser .carousel-inner .item
 {
-	 height:800px !important;
+	 height:100%; 
 }
 .detailsCaruser .carousel-inner .item img
 {
-	 height:100% !important;
+	height:100%; 
 }
 .leftDetails
 {
