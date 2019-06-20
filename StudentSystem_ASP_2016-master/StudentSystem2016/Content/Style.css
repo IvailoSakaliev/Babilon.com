@@ -112,6 +112,10 @@ body {
 {
 	 height:800px !important;
 }
+.detailsCaruser .carousel-inner .item img
+{
+	 height:100% !important;
+}
 .leftDetails
 {
     position: fixed;
