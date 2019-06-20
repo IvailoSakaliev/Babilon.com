@@ -102,15 +102,15 @@ body {
 .detailsCaruser
 {
     width: 100% !important;
-    height:100% !important;
+    height:800px !important;
 }
 .detailsCaruser .carousel-inner
 {
-	height:  100% !important;
+	 height:800px !important;
 }
 .detailsCaruser .carousel-inner .item
 {
-	height:  100% !important;
+	 height:800px !important;
 }
 .leftDetails
 {
@@ -471,7 +471,7 @@ footer {
     }
 
 .subImage {
-    height: 150px;
+    height: auto;
 }
 
     .subImage .col-md-3 {
