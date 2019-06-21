@@ -349,7 +349,39 @@ footer {
 .social-link h3 {
     color: #999
 }
+.social-link col-md-2
+{
+    padding-left: 0px !important;
+}
+.social-link img
+{
+    width: 116%;
+}
 
+.socialIcon div
+{
+    display: inline-block;
+}
+.social
+{
+    animation-name:social ;
+    animation-duration: 0.5s;
+}
+@keyframes social
+{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+.socialOut
+{
+    animation-name:socialOut ;
+    animation-duration: 0.5s;
+}
+@keyframes socialOut
+{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
 .copyright {
     padding-top: 20px;
     text-align: center;
