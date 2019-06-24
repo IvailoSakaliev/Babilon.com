@@ -35,7 +35,7 @@ namespace StudentSystem2016.Servises.ProjectServise
         public string DencryptData(string toDencrypted)
         {
             byte[] data = Convert.FromBase64String(toDencrypted);
-            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            using (MD5  md5 = new MD5CryptoServiceProvider())
             {
                 byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(_hash));
                 using (TripleDESCryptoServiceProvider tripeDescryptProvider = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
