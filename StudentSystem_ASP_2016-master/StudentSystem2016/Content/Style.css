@@ -880,3 +880,191 @@ footer {
 {
     width:1000px
 }
+
+@media only screen and (max-width: 990px) 
+{
+  .user .col-md-3
+  {
+    text-align: center;
+    width: 100% !important;
+  } 
+  .userinfo .col-md-3
+  {
+    text-align: center;
+    width: 100% !important;
+
+  } 
+  .userimage, #userIMG
+  {
+    margin-left: 41%;
+    width: 200px;
+  }
+  #userIMG
+  {
+    margin-left: 38%;
+    height: 200px;
+  }
+  .userinfo .col-md-9
+  {
+    padding-left: 30%
+  }
+  .changeUserInfo
+  {
+    margin-left: 20%
+  }
+  .orderinformation, .userinfo
+  {
+    width: 92%;
+    margin-left: -25px;
+  }
+  .social-link
+  {
+    display: inline-block;
+    margin-left: 8%;
+  }
+  .social-link .col-md-2
+  {
+    width: 100px;
+  }
+  .social-link .col-md-2 img
+  {
+    width: 80px;
+
+  }
+
+  footer
+  {
+    text-align: center;
+  }
+
+  #logo
+  {
+    height: 150px !important;
+    width: 300px;
+    margin-left: 35% !important;
+  }
+  .HomeProducts
+  {
+
+  }
+   #myCarousel
+   {
+    margin-top: 10%
+   }
+   nav .col-md-4
+   {
+    width: 300px;
+   }
+   nav .col-md-8
+   {
+       margin-top: -50px;
+   }
+   .secondNAvigation .container
+   {
+    width: 100% !important
+   }
+   .infoField
+   {
+    margin-top: 20%;
+   }
+   #sortlist
+   {
+    width: 200px;
+    margin-left: 75%;
+    margin-top:-30px;
+   }
+   .list, .galery
+   {
+        display: none;
+   }
+   .search .col-md-9
+   {
+    width: 240px;
+   }
+   #serchButton
+   {
+    width: 40px;
+    float: right;
+    margin-top:-34px;
+   }
+   .delivery
+   {
+    width: 150px;
+   }
+   .del
+   {
+    margin-left: 20%
+   }
+   .box
+   {
+    margin-left: 60%;   
+     margin-top: -215px;
+   }
+  
+}
+
+
+@media only screen and (max-width: 750px) 
+{
+  .productGalery
+  {
+    width: 150px;
+  }
+  
+}
+
+@media only screen and (max-width: 420px) 
+{
+ 
+   #sortlist
+   {
+    width: 200px;
+    margin-left: -70px;
+    margin-top: 20px;
+   }
+   .products
+   {
+    text-align: center;
+   }
+   .productGalery
+   {
+    width: 300px;
+   }
+   #logo
+     {
+    height: 60px !important;
+    width: 120px;
+    margin-left: 5% !important;
+    }
+    .menuto
+    {
+        height: 150px;
+    }
+    .row
+    {
+        text-align: center;
+    }
+    .delivery
+   {
+    width: 150px;
+   }
+   .del
+   {
+    margin-left: 28%
+   }
+   .box
+   {
+    margin-left: 28%;   
+     margin-top: 0px;
+   }
+   .main_image
+   {
+    width: 300px;
+    height: 100px;
+   }
+   .HomeProducts
+   {
+    height: 1000px;
+
+   }
+}
