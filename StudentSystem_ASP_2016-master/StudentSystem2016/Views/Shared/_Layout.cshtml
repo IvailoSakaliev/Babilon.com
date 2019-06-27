@@ -144,38 +144,38 @@ balls, shapes, toys, transformers, low prices, prices ok, plovdiv, best, quality
         </div>
         <div class="sub_menu_mobile">
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Products</a></li>
-                    <li onclick="SlideDownGames()">
-                        <a>Играчки</a>
-                        <span class="caret"></span>
-                        <ul id="first">
-                            <li><a onclick="ChangeType(1)" href="#">Превозни средства</a></li>
-                            <li><a onclick="ChangeType(3)" href="#">Кукли и аксесоари</a></li>
-                            <li><a onclick="ChangeType(4)" href="#">Фигури</a></li>
-                            <li><a onclick="ChangeType(5)" href="#">С дистанционно управление</a></li>
-                            <li><a onclick="ChangeType(6)" href="#">Лаптопи и таблети</a></li>
-                            <li><a onclick="ChangeType(7)" href="#">Конструктор и сглобяеми играчки</a></li>
-                            <li><a onclick="ChangeType(8)" href="#">Аркадни</a></li>
-                            <li><a onclick="ChangeType(9)" href="#">За игра на професии</a></li>
-                            <li><a onclick="ChangeType(13)" href="#">Комплекти</a></li>
-                        </ul>
-                    </li>
-                    <li  onclick="SlideDownEdu()">
-                        <a>Образователни игри</a>
-                        <span class="caret"></span>
-                        <ul id="second">
-                            <li><a onclick="ChangeType(18)" href="#">Образователни</a></li>
-                            <li><a onclick="ChangeType(10)" href="#">За предучилищна подготовка </a></li>
-                            <li><a onclick="ChangeType(11)" href="#">Музикални играчки</a></li>
-                            <li><a onclick="ChangeType(12)" href="#">Настолни игри</a></li>
-                            <li><a onclick="ChangeType(7)" href="#">Конструктори</a></li>
-                            </ul>
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <li><a href="../../Product/Index?Curentpage=1" onclick="Restore()">Product</a></li>
+                <li onclick="SlideDownGames()">
+                    <a>Играчки</a>
+                    <span class="caret"></span>
+                    <ul id="first">
+                        <li><a onclick="ChangeType(1)" href="#">Превозни средства</a></li>
+                        <li><a onclick="ChangeType(3)" href="#">Кукли и аксесоари</a></li>
+                        <li><a onclick="ChangeType(4)" href="#">Фигури</a></li>
+                        <li><a onclick="ChangeType(5)" href="#">С дистанционно управление</a></li>
+                        <li><a onclick="ChangeType(6)" href="#">Лаптопи и таблети</a></li>
+                        <li><a onclick="ChangeType(7)" href="#">Конструктор и сглобяеми играчки</a></li>
+                        <li><a onclick="ChangeType(8)" href="#">Аркадни</a></li>
+                        <li><a onclick="ChangeType(9)" href="#">За игра на професии</a></li>
+                        <li><a onclick="ChangeType(13)" href="#">Комплекти</a></li>
+                    </ul>
+                </li>
+                <li onclick="SlideDownEdu()">
+                    <a>Образователни игри</a>
+                    <span class="caret"></span>
+                    <ul id="second">
+                        <li><a onclick="ChangeType(18)" href="#">Образователни</a></li>
+                        <li><a onclick="ChangeType(10)" href="#">За предучилищна подготовка </a></li>
+                        <li><a onclick="ChangeType(11)" href="#">Музикални играчки</a></li>
+                        <li><a onclick="ChangeType(12)" href="#">Настолни игри</a></li>
+                        <li><a onclick="ChangeType(7)" href="#">Конструктори</a></li>
+                    </ul>
                     </lionclick="SlideDownMenuEdu()">
-                    <li><a href="#" onclick="ChangeType(19)"> Спорт</a></li>
-                    <li><a href="#" onclick="ChangeType(17)"> Пъзели</a></li>
-                    <li><a href="#" onclick="ChangeType(12)"> Настолни игри</a></li>
+                <li><a href="#" onclick="ChangeType(19)"> Спорт</a></li>
+                <li><a href="#" onclick="ChangeType(17)"> Пъзели</a></li>
+                <li><a href="#" onclick="ChangeType(12)"> Настолни игри</a></li>
             </ul>
         </div>
     </div>
