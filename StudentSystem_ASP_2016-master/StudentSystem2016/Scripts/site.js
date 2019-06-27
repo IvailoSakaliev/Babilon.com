@@ -818,3 +818,47 @@ $(document).ready(function () {
         $(this).css("opacity", "1");
     });
 });
+
+
+var menuCount = 0;
+var subMEnuCountGames = 0;
+var subMEnuCountEdu = 0;
+
+//  mobile version  menu 
+ function SlideDownMainMenu()
+ {
+    if (menuCount == 0) {
+        $(".sub_menu_mobile").slideDown(400);
+        menuCount = 1;
+    }
+    else
+    {
+        $(".sub_menu_mobile").slideUp(400);
+        menuCount = 0;
+    }
+ }
+
+function SlideDownGames()
+{
+    if (subMEnuCountGames == 0) {
+        $("#first").slideDown(400);
+        subMEnuCountGames = 1;
+    }
+    else
+    {
+        $("#first").slideUp(400);
+        subMEnuCountGames = 0;
+    }
+} 
+function SlideDownEdu()
+{
+     if (subMEnuCountEdu == 0) {
+        $("#second").slideDown(400);
+        subMEnuCountEdu = 1;
+    }
+    else
+    {
+        $("#second").slideUp(400);
+        subMEnuCountEdu = 0;
+    }
+}

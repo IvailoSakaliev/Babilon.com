@@ -1010,6 +1010,10 @@ footer {
   {
     width: 150px;
   }
+  .menumobile
+  {
+    text-align: center;
+  }
   
 }
 
@@ -1067,4 +1071,58 @@ footer {
     height: 1000px;
 
    }
+   .menuto 
+   {
+    display: none
+   }
+   .search
+   {
+    padding: 10px;
+    width: 100%;
+    margin-top: -10px;
+    background-color: black;
+   }
+   .search input
+   {
+    margin-left: 10px;
+    width: 295px;
+   }
+   .footerNav
+   {
+    padding: 0px;
+   }
+}
+
+.menumobile
+{
+    width: 100%;
+    margin-top: -10px;
+    background-color: black;
+}
+.menumobile li
+{
+    display: inline-block;
+}
+.sub_menu_mobile
+{
+    margin-top: -10px;
+    z-index: 999;
+    text-align: left !important;
+    background-color: black;
+    padding: 10px;
+    display: none;
+
+}
+.sub_menu_mobile li 
+{
+    list-style: none;
+    padding-bottom: 10px;
+}
+.sub_menu_mobile li a
+{
+    color: white;
+}
+#first , #second
+{
+    display: none;
 }
