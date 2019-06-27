@@ -887,6 +887,12 @@ footer {
 
 @media only screen and (max-width: 990px) 
 {
+
+    .HomeProducts
+   {
+    height: 1400px;
+
+   }
     .menumobile
     {
         display: none;
@@ -1112,6 +1118,8 @@ footer {
     padding: 0px;
    }
 }
+
+
 
 .menumobile
 {
