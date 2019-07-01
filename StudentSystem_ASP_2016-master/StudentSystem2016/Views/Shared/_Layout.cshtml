@@ -12,7 +12,7 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <title>Vavilonci</title>
-    <meta name="keywords" content="вавилонци, играчки, трансформъри, ниски цени, цени ок , пловдив, най-добрите, качествени играчки, бебета, момчета, момичета, колички, кукли, фигури, трансформър, замръзналото калство, мачбокс, оптимус прайм,дистанционно управление, лаптопи, таблети, конструктору, малки деца , деца до 3 години, памперси, консумаиви, аркадни. мечове, пушки, пластмасови пушки, пластмасови, професий , доктор, шофиьор, пилот, самолет, комплети,образователни, предучилищна, подготовка, музикални, китари, поано,настолни игри, игри, топки, футбол, волейбол баскетбол, пъзели,
+    <meta name="keywords" content="вавилонци, детски играчки,играчки, детски трансформъри, ниски цени, цени ок , пловдив, най-добрите, качествени играчки, бебета, момчета, момичета, колички, кукли, фигури, трансформър, замръзналото калство, мачбокс, оптимус прайм,дистанционно управление, лаптопи, таблети, конструктору, малки деца , деца до 3 години, памперси, консумаиви, аркадни. мечове, пушки, пластмасови пушки, пластмасови, професий , доктор, шофиьор, пилот, самолет, комплети,образователни, предучилищна, подготовка, музикални, китари, поано,настолни игри, игри, топки, футбол, волейбол баскетбол, пъзели,
 balls, shapes, toys, transformers, low prices, prices ok, plovdiv, best, quality toys, babies, boys, girls, strollers, dolls, shapes, transformer, frightened california, small children, children up to 3 years old, diapers, consumables, arcades. swords, rifles, rifles, plastic, profession, doctor, driver, pilot, airplane, kits, educational, preschool, preparation, musical, guitars, piano, table games, balls, soccer, volleyball basketball, vavilontsi, igrachki, transformŭri, niski tseni, tseni ok , plovdiv, naĭ-dobrite, kachestveni igrachki, bebeta, momcheta, momicheta, kolichki, kukli, figuri, transformŭr, zamrŭznaloto kalstvo, machboks, optimus praĭm,distantsionno upravlenie, laptopi, tableti, konstruktoru, malki detsa , detsa do 3 godini, pampersi, konsumaivi, arkadni. mechove, pushki, plastmasovi pushki, plastmasovi, profesiĭ , doktor, shofi’or, pilot, samolet, kompleti,obrazovatelni, preduchilishtna, podgotovka, muzikalni, kitari, poano,nastolni igri, igri, topki, futbol, voleĭbol basketbol, pŭzeli,
 balls, shapes, toys, transformers, low prices, prices ok, plovdiv, best, quality toys, babies, boys, girls, strollers, dolls, shapes, transformer, frightened california, small children, children up to 3 years old, diapers, consumables, arcades. swords, rifles, rifles, plastic, profession, doctor, driver, pilot, airplane, kits, educational, preschool, preparation, musical, guitars, piano, table games, balls, soccer, volleyball  " />
     @Scripts.Render("~/Scripts/site.js")
@@ -124,14 +124,14 @@ balls, shapes, toys, transformers, low prices, prices ok, plovdiv, best, quality
                     <a href="../../Order/Orders"><img width="20px" src="~/images/shop.png" /></a>
                 </li>
                 <li class="drop_menu_search">
-                    <img src="~/images/search.png" width="15px" alt="Search" onclick="VisibleSearch()" />
+                    <img src="~/images/search.png" width="15px" alt="Search" onclick="VisibleSearch(2)" />
 
 
                 </li>
                 <li><img src="~/Images/menu.png" onclick="SlideDownMainMenu()" style="margin-left:17px;" width="20px" alt="mobile menu" /></li>
             </ul>
         </div>
-        <div class="col-md-4 search">
+        <div class="col-md-4 search" id="mobileVersionSearch">
             <form action="../Product" method="post">
                 <div class="col-md-9">
                     <input class="form-control searchFiels" type="text" name="search" placeholder="Search ...." />

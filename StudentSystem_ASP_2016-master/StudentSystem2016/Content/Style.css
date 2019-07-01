@@ -884,6 +884,24 @@ footer {
 {
     width:1000px
 }
+@media only screen and (max-width: 1030px) 
+{
+    .navigation  .col-md-4
+    {
+        width: 300px;
+    }
+    .navigation  .col-md-8
+    {
+        width: 600px;
+        float: right;
+        margin-top: -50px;
+    }
+    #fullVersionSearch
+    {
+        width: 200px;
+    }
+
+}
 
 @media only screen and (max-width: 990px) 
 {
@@ -895,7 +913,7 @@ footer {
    }
     .menumobile
     {
-        display: none;
+        display: none !important;
     }
   .user .col-md-3
   {
@@ -1014,11 +1032,14 @@ footer {
     margin-left: 60%;   
      margin-top: -215px;
    }
+   #fullVersionSearch input{
+        width: 150px; 
+   }
   
 }
 
 
-@media only screen and (max-width: 750px) 
+@media only screen and (max-width: 770px) 
 {
   .productGalery
   {
@@ -1041,11 +1062,27 @@ footer {
       {
         margin-left: 23% !important;
       }
+    #mobileVersionSearch
+    {
+        width: 100% !important;
+        background-color: black;
+        margin-top: -10px;
+        padding: 20px;
+    }
+    #mobileVersionSearch input
+    {
+        width: 400px;
+    }
+
 }
 
-@media only screen and (max-width: 420px) 
+@media only screen and (max-width: 440px) 
 {
  
+  .menumobile
+    {
+        display: block !important;
+    }
    #sortlist
    {
     width: 200px;
@@ -1117,6 +1154,24 @@ footer {
    {
     padding: 0px;
    }
+   #mobileVersionSearch input
+    {
+        width: 360px;
+    }
+}
+@media only screen and (max-width: 420px) 
+{
+     #mobileVersionSearch input
+    {
+        width: 330px;
+    }
+}
+@media only screen and (max-width: 330px) 
+{
+     #mobileVersionSearch input
+    {
+        width: 255px;
+    }
 }
 
 

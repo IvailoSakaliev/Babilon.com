@@ -4,7 +4,7 @@
     <ul class="nav navbar-nav">
 
         <li>
-            <div class="col-md-4 search">
+            <div class="col-md-4 search" id="fullVersionSearch">
                 <form action="../Product" method="post">
                     <div class="col-md-9">
                         <input class="form-control searchFiels" type="text" name="search" placeholder="Search ...." />
@@ -16,7 +16,7 @@
                 </form>
             </div>
         </li>
-        @if( Session["User_ID"].ToString() == "1" )
+        @if( Session["User_ID"].ToString() == "3" )
         {
             <li><a href="../../Admin" class="btn btn-danger  adminButton">Admin</a></li>
         }
@@ -26,7 +26,7 @@
             <a href="../../Order/Orders"><img width="20px" src="~/images/shop.png" /></a>
         </li>
         <li class="drop_menu_search">
-            <img src="~/images/search.png" width="15px" alt="Search" onclick="VisibleSearch()" />
+            <img src="~/images/search.png" id="fullversion" width="15px" alt="Search" onclick="VisibleSearch(1)" />
 
 
         </li>

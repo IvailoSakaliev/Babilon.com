@@ -5,8 +5,15 @@
 
 var modeSearch = 0;
 
-function VisibleSearch() {
-    var element = $(".search");
+function VisibleSearch(id) {
+    var element;
+    if (id == 1) {
+        element = $("#fullVersionSearch");
+    }
+    else {
+        element = $("#mobileVersionSearch");
+    }
+   
     if (modeSearch == 0) {
         element.fadeIn(200);
         modeSearch = 1;
