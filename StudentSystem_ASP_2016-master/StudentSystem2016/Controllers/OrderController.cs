@@ -304,12 +304,17 @@ namespace StudentSystem2016.Controllers
             element.Quantity -= quantity;
             _product.Save(element);
         }
+        private void ResetQuantityAfterAboardProduct(Product element, int quantity)
+        {
+            element.Quantity += quantity;
+            _product.Save(element);
+        }
 
         private void DeleteSession()
         {
-            HttpContext.Session.Remove("OrderNumber");
-            HttpContext.Session.Remove("OrderProduct");
-            HttpContext.Session.Remove("ProductQuantity");
+            Session["OrderNumber"] = "";
+            Session["OrderProduct"] = "";
+            Session["ProductQuantity"] = "";
         }
 
         private User AddUserInDB(User user, RegistrationVM model)
@@ -511,6 +516,18 @@ namespace StudentSystem2016.Controllers
             {
                 item.Status = Status.Close;
                 _order.Save(item);
+            }
+            return Json("ok");
+        }
+        [HttpPost]
+        public JsonResult AboartOrder(string id)
+        {
+            List<Order> orders = _order.GetAll(x => x.OrderNumber == id);
+            foreach (var item in orders)
+            {
+                Product pro = _product.GetByID(item.SubjectID);
+                ResetQuantityAfterAboardProduct(pro, item.Quantity);
+                _order.DeleteById(item.ID);
             }
             return Json("ok");
         }

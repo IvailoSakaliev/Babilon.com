@@ -365,4 +365,3 @@ C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.Migrations.init.resources
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.Migrations.init_db.resources
 C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csproj.GenerateResource.cache
-C:\Users\ivo\Source\Repos\StudentSystem_ASP_20163\StudentSystem_ASP_2016-master\StudentSystem2016\obj\Debug\StudentSystem2016.csprojAssemblyReference.cache

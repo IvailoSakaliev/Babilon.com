@@ -569,6 +569,30 @@ function CloseOrder(id) {
     });
 }
 
+
+
+function AboardOrder(id) {
+    $.ajax({
+        url: '/Order/AboartOrder',
+        type: 'POST',
+        dataType: 'json',
+        data: { id: id },
+        success: function (data) {
+            if (data == "ok") {
+                var url = "../User/DetailsUserOrders";
+                $('.orderDetailsUser').load(url)
+            }
+
+
+        },
+        error: function () {
+           
+        }
+    });
+
+
+}
+
 function ChangeStatusColor(id) {
     alert(id);
 }
@@ -869,3 +893,5 @@ function SlideDownEdu()
         subMEnuCountEdu = 0;
     }
 }
+
+

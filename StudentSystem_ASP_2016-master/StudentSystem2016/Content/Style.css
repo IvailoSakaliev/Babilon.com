@@ -542,8 +542,12 @@ footer {
 .galery .row{
     height:100%;
 }
+.galeryButton
+{
+    display:block;
+}
 
-    .item {
+.item {
     max-height: 100% !important;
     text-align: center;
 }
@@ -900,17 +904,26 @@ footer {
     {
         width: 200px;
     }
+    #sortlist
+    {
+        margin-top: -30px;
+        margin-left: 35px;
+    }
 
 }
 
 @media only screen and (max-width: 990px) 
 {
-
-    .HomeProducts
-   {
-    height: 1400px;
-
-   }
+    .infoField
+    {
+       padding-top:30px;
+    }
+    .galeryButton {
+        display: none
+    }
+    .HomeProducts {
+        height: 1400px;
+    }
     .menumobile
     {
         display: none !important;

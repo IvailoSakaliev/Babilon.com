@@ -243,6 +243,21 @@ namespace StudentSystem2016.Controllers
             return Json("ok");
         }
 
+        [HttpGet]
+        public ActionResult DetailsUserOrders()
+        {
+            id = int.Parse(Session["User_ID"].ToString());
+            OrderList itemVM = new OrderList();
+            List<User> user = _servise.GetAll(x => x.LoginID == id);
+            int userID = user[0].ID;
+            List<Order> orders = _order.GetAll(x => x.UserID == userID);
+            itemVM = PopulateOrdersInformation(itemVM, orders);
+            itemVM.CurrentUser = PopulateUserInformation(itemVM.CurrentUser, user[0]);
+            itemVM.Product = PopulateProductINformation(itemVM.Product, orders);
+            itemVM.QuantityOrderList = Populatequntity(itemVM.QuantityOrderList, orders);
+
+            return View(itemVM);
+        }
     }
 
 }
