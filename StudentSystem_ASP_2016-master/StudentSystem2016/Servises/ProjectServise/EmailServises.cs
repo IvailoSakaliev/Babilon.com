@@ -2,6 +2,7 @@
 using StudentSystem2016.Servises.EntityServise;
 using System.Net;
 using System.Net.Mail;
+using System.Web;
 
 namespace StudentSystem2016.Servises.ProjectServise
 {
@@ -67,6 +68,9 @@ namespace StudentSystem2016.Servises.ProjectServise
                 case 3:
                     SendEmailToUser(model);
                     break;
+                case 4:
+                    SendOrderEmail();
+                    break;
                 default:
                     break;
             }
@@ -84,6 +88,15 @@ namespace StudentSystem2016.Servises.ProjectServise
         {
             _message.Subject = "Confirm registration";
             _message.Body = "Please to confirm your registration in Vavilonci http://www.vavilonci.com/Login/EnableAccount?id=" + _userID;
+            _message.To.Add(_userEmail);
+            _smtpClient.Send(_message);
+        }
+        private void SendOrderEmail()
+        {
+            string orderNUmber = HttpContext.Current.Session["OrderNumber"].ToString();
+            _message.Subject = "You have a order ptoduct in VAVILONCI";
+            _message.Body = "<h3>Order number:"+orderNUmber+"</h3>" +
+                "<p>You can check your order in https://vavilonci.com ";
             _message.To.Add(_userEmail);
             _smtpClient.Send(_message);
         }

@@ -2,8 +2,26 @@
 @{
     ViewData["Title"] = "Index";
 }
- 
 
+<script>
+    !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+            n.callMethod ?
+            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0;
+        t.src = v; s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2369841669923362');
+    fbq('track', 'PageView');
+</script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=2369841669923362&ev=PageView&noscript=1" />
+</noscript>
 
 <div class="body-content">
     <div style="padding-top:20px;">
@@ -13,7 +31,7 @@
             </div>
             <div class="col-md-3">
                 <div class=" viewButtons">
-                    <div class="col-md-2 list" >
+                    <div class="col-md-2 list">
                         <img onclick="ChangeView(1)" src="~/images/list.png" width="30px" alt="Alternate Text" />
                     </div>
                     <div class="col-md-2 galeryButton">

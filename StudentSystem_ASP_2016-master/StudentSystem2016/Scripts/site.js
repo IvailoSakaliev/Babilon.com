@@ -467,6 +467,7 @@ function ChangeDetails() {
 // }
 
 function ChangeSortOfProduct() {
+    
     var fullURL = window.location.href;
     var last = fullURL.lastIndexOf('=');
     var differenceBetweenLastAndFullUrl = fullURL.length + 1 - last;

@@ -277,6 +277,8 @@ namespace StudentSystem2016.Controllers
                 user = AddUserInDB(user, model);
                 _user.Save(user);
                 user = new User();
+                EmailServises email = new EmailServises();
+                email.SendEmail(4);
                 for (int i = 0; i < keyProduct.Length - 1; i++)
                 {
                     Order entity = new Order();
